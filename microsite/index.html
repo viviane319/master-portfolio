@@ -47,6 +47,8 @@ a{color:inherit}
 /* ---------- shared ---------- */
 section{padding:88px 0;border-top:1.5px solid var(--ink)}
 .sec{display:grid;grid-template-columns:150px minmax(0,1fr);gap:32px}
+.sec>*{min-width:0}
+.term{max-width:100%;overflow-x:auto}
 .margin{font:12px/1.55 var(--mono);color:var(--muted)}
 .margin .no{display:inline-block;font:600 13px var(--mono);color:var(--ink);background:var(--amber);padding:2px 7px;margin-bottom:12px}
 .margin p{margin-bottom:10px;max-width:22ch}
