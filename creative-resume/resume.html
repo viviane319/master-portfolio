@@ -6,34 +6,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 @page{size:8.5in 11in;margin:0}
-:root{--ink:#10201a;--cream:#f7f2e8;--lotus:#e9809c;--saffron:#eab83a;--sage:#9cc7a8;--muted:#5d6b63}
+:root{/* Altarism palette + Tulsi Green */--ink:#180F06;--cream:#F6F3EC;--ox:#6E413A;--amber:#B77C45;--plum:#755367;--ash:#AAA7A1;--tulsi:#566B47;--tulsi-l:#B3C4A3;--muted:rgba(24,15,6,.66)}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:8.5in;height:11in}
 body{font:9.1pt/1.42 "Inter",sans-serif;color:var(--ink);background:var(--cream);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .page{display:grid;grid-template-columns:2.55in 1fr;height:11in;overflow:hidden}
 
 aside{background:var(--ink);color:var(--cream);padding:.4in .3in .3in .38in;position:relative;overflow:hidden}
-aside::before{content:"";position:absolute;width:3.2in;height:3.2in;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--saffron),var(--lotus) 60%,transparent 61%);top:-1.55in;left:-1.1in;opacity:.95}
-.photo{position:relative;width:1.15in;height:1.15in;border-radius:50%;border:3px solid var(--cream);object-fit:cover;background:var(--sage);display:grid;place-items:center;font:600 30pt "Fraunces",serif;color:var(--ink);margin:.38in 0 .1in}
-aside h3{font:600 7.5pt "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--saffron);margin:.15in 0 .06in}
-aside p,aside li{font-size:8.4pt;color:#dfe7e1}
+aside::before{content:"";position:absolute;width:3.2in;height:3.2in;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--amber),var(--plum) 60%,transparent 61%);top:-1.55in;left:-1.1in;opacity:.95}
+.photo{position:relative;width:1.15in;height:1.15in;border-radius:50%;border:3px solid var(--cream);object-fit:cover;background:var(--tulsi-l);display:grid;place-items:center;font:600 30pt "Fraunces",serif;color:var(--ink);margin:.38in 0 .1in}
+aside h3{font:600 7.5pt "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:.15in 0 .06in}
+aside p,aside li{font-size:8.4pt;color:rgba(246,243,236,.84)}
 aside ul{list-style:none}
 aside li{margin-bottom:.05in}
 aside li b{color:var(--cream);font-weight:600;display:block}
-.pills span{display:inline-block;border:1px solid #3c574a;border-radius:99px;padding:1px 7px;margin:0 3px 4px 0;font-size:7.6pt;color:#dfe7e1}
+.pills span{display:inline-block;border:1px solid rgba(170,167,161,.5);border-radius:99px;padding:1px 7px;margin:0 3px 4px 0;font-size:7.6pt;color:rgba(246,243,236,.84)}
 
 main{padding:.5in .5in .4in .42in;display:flex;flex-direction:column}
 .name{font:800 46pt/0.92 "Fraunces",serif;letter-spacing:-.02em}
-.name em{font-style:italic;font-weight:600;color:var(--lotus)}
+.name em{font-style:italic;font-weight:600;color:var(--ox)}
 .title{font:500 9pt "Inter";letter-spacing:.2em;text-transform:uppercase;margin:.12in 0 .16in;color:var(--muted)}
 .intro{font:400 12pt/1.38 "Fraunces",serif;max-width:5in}
-.intro em{background:linear-gradient(transparent 60%,#f5d98a 60%);font-style:italic}
+.intro em{background:linear-gradient(transparent 60%,rgba(183,124,69,.35) 60%);font-style:italic}
 
 .impact{display:grid;grid-template-columns:repeat(4,1fr);gap:.1in;margin:.22in 0 .2in}
 .impact div{border-top:2.5px solid var(--ink);padding-top:.05in}
-.impact b{display:block;font:800 20pt/1 "Fraunces",serif;color:var(--lotus)}
-.impact div:nth-child(2) b{color:#c9941a}
-.impact div:nth-child(3) b{color:#4f8a63}
+.impact b{display:block;font:800 20pt/1 "Fraunces",serif;color:var(--ox)}
+.impact div:nth-child(2) b{color:var(--amber)}
+.impact div:nth-child(3) b{color:var(--tulsi)}
+.impact div:nth-child(4) b{color:var(--plum)}
 .impact span{font-size:7.6pt;color:var(--muted);line-height:1.3;display:block;margin-top:3px}
 
 h2{font:600 7.5pt "Inter";letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin:.04in 0 .1in}
@@ -44,8 +45,8 @@ h2::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.25}
 .job h4 span{font:italic 400 9.5pt "Fraunces",serif;color:var(--muted)}
 .job ul{margin:.03in 0 0 .13in}
 .job li{margin-bottom:1.5px}
-.job li::marker{color:var(--lotus)}
-.early{font-size:8.3pt;color:var(--muted);margin-top:auto;border-top:1px dashed #b9b2a3;padding-top:.08in}
+.job li::marker{color:var(--amber)}
+.early{font-size:8.3pt;color:var(--muted);margin-top:auto;border-top:1px dashed var(--ash);padding-top:.08in}
 .early b{color:var(--ink)}
 </style>
 </head>
