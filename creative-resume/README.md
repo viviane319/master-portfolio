@@ -1,5 +1,5 @@
 # Creative Resume
 
-A designed, visual resume: the one to send when personality matters.
+[`viv-tran-resume.pdf`](viv-tran-resume.pdf): a one-page designed resume. [`preview.png`](preview.png) is a quick look.
 
-**Drop in:** the final `.pdf`, plus the source file (Figma link, `.ai`, `.indd`, `.key`, Canva link) and a `.png` preview.
+The source is [`resume.html`](resume.html). Edit it, then re-print it to PDF with Chrome (command in the root README).
