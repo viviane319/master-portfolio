@@ -1,7 +1,5 @@
-# Consulting One-Pager
+# Consulting One-Pager: Do Better Comms
 
-A single page that sells my consulting offer.
+[`do-better-comms-one-pager.pdf`](do-better-comms-one-pager.pdf): what Do Better Comms offers, who it's for, how engagements work, and Viv's track record. Editorial cream-and-mustard style. [`preview.png`](preview.png) is a quick look.
 
-**Drop in:** the final `.pdf` and its source file.
-
-Suggested sections: who I help · problems I solve · services/packages · how engagements work · proof (results, clients, testimonials) · contact.
+The source is [`one-pager.html`](one-pager.html). Worth adding when you have them: client testimonials, a website, and an email address.
