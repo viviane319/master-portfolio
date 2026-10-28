@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Viv Tran | Narrative Strategy & Community</title>
+<meta name="description" content="Viv Tran is a narrative strategist and community mobilizer helping mission-driven organizations tell their stories, build community, and make an impact.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#10201a; --bg2:#152a22; --line:#2a4237; --text:#f3eee4; --muted:#a9b8ae;
+  --lotus:#f09ab0; --saffron:#f0c14b; --sage:#9cc7a8;
+  --grad:linear-gradient(90deg,var(--saffron),var(--lotus));
+  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font:16px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:96px 0;border-top:1px solid var(--line)}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:18px}
+h2{font:600 clamp(28px,4vw,42px)/1.15 var(--serif);max-width:20ch;margin-bottom:20px}
+.lede{color:var(--muted);max-width:62ch;font-size:17px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:rgba(16,32,26,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font:600 17px var(--serif);text-decoration:none}
+.logo span{color:var(--lotus)}
+nav ul{display:flex;gap:26px;list-style:none;font-size:14px}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--text)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr .9fr;gap:56px;align-items:center;padding:88px 0 96px;border-top:0}
+h1{font:600 clamp(40px,6.2vw,74px)/1.04 var(--serif);letter-spacing:-.01em;margin-bottom:26px}
+h1 em{font-style:italic;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{color:var(--muted);font-size:18px;max-width:56ch;margin-bottom:32px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:11px 20px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-weight:500;font-size:15px;background:var(--bg2)}
+.btn:hover{border-color:var(--sage)}
+.btn.primary{background:var(--grad);color:#1a1a1a;border:0}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:8px 24px}
+.card .row{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.card .row:last-child{border:0}
+.card dt{color:var(--muted)}
+.card dd{font:13.5px/1.6 var(--mono)}
+.portrait{width:72px;height:72px;border-radius:50%;object-fit:cover;background:var(--grad);display:grid;place-items:center;font:600 24px var(--serif);color:#1a1a1a;margin:16px 0 4px}
+
+/* glance */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:8px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:24px}
+.stat b{display:block;font:600 44px/1 var(--serif);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:10px}
+.stat span{color:var(--muted);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.chips span{font:12.5px var(--mono);padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--muted)}
+
+/* approach */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.step{border-top:2px solid var(--lotus);padding-top:20px}
+.step:nth-child(2){border-color:var(--saffron)}
+.step:nth-child(3){border-color:var(--sage)}
+.step .n{font:13px var(--mono);color:var(--muted)}
+.step h3{font:600 22px/1.25 var(--serif);margin:8px 0 10px}
+.step p{color:var(--muted);font-size:15px}
+.step .at{margin-top:14px;font-size:14px;color:var(--text);border-left:2px solid var(--line);padding-left:12px}
+
+/* work */
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:40px}
+.case{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column}
+.case .tag{font:11.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px}
+.case h3{font:600 23px/1.25 var(--serif);margin-bottom:12px}
+.case p{color:var(--muted);font-size:15px}
+.case .big{font:600 52px/1 var(--serif);color:var(--lotus);margin:18px 0 6px}
+.case .changed{margin-top:auto;padding-top:18px}
+.case .changed b{display:block;font:11.5px var(--mono);letter-spacing:.14em;color:var(--sage);margin:16px 0 6px}
+.case .changed p{color:var(--text)}
+
+/* timeline */
+.tl{margin-top:40px;background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:28px}
+.tl-axis,.tl-row{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:center}
+.tl-axis .yrs{position:relative;height:26px;font:12px var(--mono);color:var(--muted);border-bottom:1px solid var(--line);margin-bottom:6px}
+.tl-axis .yrs span{position:absolute;top:0;transform:translateX(-50%)}
+.tl-row{padding:5px 0}
+.tl-row .org{font-size:13.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-row .lane{position:relative;height:22px}
+.tl-row .bar{position:absolute;top:3px;height:16px;border-radius:999px;background:var(--grad);opacity:.85;cursor:default}
+.tl-row .bar.side{background:var(--sage)}
+.tl-row:hover .org{color:var(--text)}
+.tl-row:hover .bar{opacity:1}
+#tl-tip{margin-top:18px;font:13.5px var(--mono);color:var(--text);min-height:22px}
+.legend{display:flex;gap:20px;margin-top:10px;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:22px;height:8px;border-radius:9px;background:var(--grad);margin-right:6px;vertical-align:middle}
+.legend i.side{background:var(--sage)}
+.edu{margin-top:18px;color:var(--muted);font-size:14px}
+
+/* values */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 36px;margin-top:40px}
+.values .k{font:11.5px var(--mono);letter-spacing:.14em;color:var(--lotus);margin-bottom:8px}
+.values h3{font:600 20px/1.3 var(--serif);margin-bottom:8px}
+.values p{color:var(--muted);font-size:15px}
+
+/* also */
+.also{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.also a{text-decoration:none}
+
+footer{border-top:1px solid var(--line);padding:56px 0 72px}
+footer h2{max-width:none}
+footer .small{color:var(--muted);font-size:13px;margin-top:32px}
+
+@media (max-width:860px){
+  nav ul{display:none}
+  .hero,.work,.also{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr}
+  .steps,.values{grid-template-columns:1fr}
+  .tl-axis,.tl-row{grid-template-columns:110px 1fr}
+  section{padding:72px 0}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#top">viv<span>.</span>tran</a>
+  <ul>
+    <li><a href="#approach">Approach</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#values">Values</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<main class="wrap" id="top">
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">Narrative strategy · Community · Brooklyn, NY</div>
+    <h1>I help good orgs say it so people <em>move.</em></h1>
+    <p>A decade of communications across philanthropy, policy, and tech. I turn complex missions into stories people remember, and audiences into communities that act: donors, funders, members, and customers alike.</p>
+    <div class="btns">
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn" href="../creative-resume/viv-tran-resume.pdf">Resume (PDF)</a>
+      <a class="btn" href="../spreadsheet-resume/viv-tran-cv.xlsx">Spreadsheet CV</a>
+      <a class="btn" href="https://www.linkedin.com/in/viv-tran/">LinkedIn</a>
+    </div>
+  </div>
+  <aside class="card">
+    <img class="portrait" src="../assets/headshot.jpg" alt="Viv Tran" onerror="this.outerHTML='<div class=&quot;portrait&quot;>VT</div>'">
+    <dl>
+      <div class="row"><dt>Now</dt><dd>Marketing &amp; Communications Manager, eimmigration</dd></div>
+      <div class="row"><dt>Also</dt><dd>Founder, Do Better Comms</dd></div>
+      <div class="row"><dt>Scope</dt><dd>brand narrative · campaigns · customer &amp; donor advocacy · field marketing · press</dd></div>
+      <div class="row"><dt>Sectors</dt><dd>philanthropy · climate · immigration law tech · nonprofit associations</dd></div>
+      <div class="row"><dt>Training</dt><dd>M.P.M., Georgetown · National Urban Fellow · B.A. Strategic Comms, Ohio State</dd></div>
+    </dl>
+  </aside>
+</header>
+
+<section id="glance">
+  <div class="eyebrow">At a glance</div>
+  <div class="stats">
+    <div class="stat"><b data-count="10" data-suffix="+">10+</b><span>years in mission-driven communications</span></div>
+    <div class="stat"><b data-count="120" data-prefix="$" data-suffix="M">$120M</b><span>moved to BIPOC-led climate groups in two years</span></div>
+    <div class="stat"><b data-count="25" data-suffix="+">25+</b><span>nonprofits advised on messaging and fundraising</span></div>
+    <div class="stat"><b data-count="4">4</b><span>brands built: identity, story, and messaging</span></div>
+  </div>
+  <div class="chips">
+    <span>HubSpot</span><span>Salesforce</span><span>Raiser's Edge</span><span>EveryAction</span><span>Blackbaud</span><span>TargetSmart</span><span>Qualtrics</span><span>Adobe Suite</span><span>Canva</span><span>WordPress</span><span>Google Analytics</span><span>Mailchimp</span><span>Asana</span><span>ClickUp</span>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="eyebrow">Approach</div>
+  <h2>Community sets the story. Plain language carries it.</h2>
+  <p class="lede">Missions are getting more complex and priorities keep snowballing, so the way we talk about the work has to get simpler. Every project runs through the same three moves, whether it's a single campaign or a whole brand.</p>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h3>Listen first</h3><p>Start with the people the work is for: members, donors, customers. Surveys, advisory boards, and listening sessions tell you what actually lands.</p><p class="at">At eimmigration: a customer advisory board, referral program, and listening initiatives that turn lawyer insight into messaging.</p></div>
+    <div class="step"><div class="n">02</div><h3>Say it plainly</h3><p>Cut the jargon until the mission makes sense on the first read. One clear story, told consistently across every channel and brand.</p><p class="at">At Donors of Color Network: brand strategy, visual identity, and key messaging for four separate brands.</p></div>
+    <div class="step"><div class="n">03</div><h3>Move people together</h3><p>Stories only matter if they lead to action. Build the campaign, the coalition, and the press moment that get people to move.</p><p class="at">At DOCN: the Climate Funders Justice Pledge campaign, which helped move $120M to BIPOC-led climate groups.</p></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="eyebrow">Selected work</div>
+  <h2>Four pieces of work, and what each one changed.</h2>
+  <div class="work">
+    <article class="case">
+      <div class="tag">Advocacy campaign · Climate philanthropy</div>
+      <h3>Pushing climate funders to resource BIPOC-led groups</h3>
+      <p>Communications for the Climate Funders Justice Pledge at Donors of Color Network: campaign content, funder-facing storytelling, and data-driven outreach with TargetSmart and Blackbaud.</p>
+      <div class="big">$120M</div><p>moved to BIPOC-led climate groups in two years</p>
+      <div class="changed"><b>WHAT IT CHANGED</b><p>The campaign influenced how top climate funders give, and $120M reached BIPOC-led climate groups in two years.</p></div>
+    </article>
+    <article class="case">
+      <div class="tag">Brand &amp; thought leadership</div>
+      <h3>One network, four brands, a national voice</h3>
+      <p>Brand strategy for four DOCN brands, plus the thought leadership and press work that put the organization and its executives in front of the sector.</p>
+      <div class="big">4</div><p>brands with their own identity, story, and messaging</p>
+      <div class="changed"><b>WHAT IT CHANGED</b><p>The organization and its executives were placed in Forbes, Candid, Nonprofit Quarterly, and Philanthropy News Digest.</p></div>
+    </article>
+    <article class="case">
+      <div class="tag">Research · Nonprofit consulting</div>
+      <h3>Data-driven advice for 25+ nonprofits</h3>
+      <p>At GG+A, consulted nonprofits on campaign performance, messaging, and fundraising through surveys and research, and produced an industry-wide report on COVID-19's impact on fundraising.</p>
+      <div class="big">25+</div><p>nonprofit clients advised</p>
+      <div class="changed"><b>WHAT IT CHANGED</b><p>Clients got recommendations grounded in their own donors' data, and the firm got a DEI strategy, communications plan, and bias training I helped co-develop.</p></div>
+    </article>
+    <article class="case">
+      <div class="tag">Customer advocacy · Legal tech</div>
+      <h3>Turning immigration lawyers into advocates</h3>
+      <p>At eimmigration, built the customer referral program, advisory board programming, events, and a multi-platform review program, alongside regional and national field marketing.</p>
+      <div class="big">4</div><p>advocacy programs running side by side</p>
+      <div class="changed"><b>WHAT IT CHANGED</b><p>Customer evangelists strengthen the brand's credibility and visibility in the immigration law community, and their insights feed straight back into messaging.</p></div>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="eyebrow">Experience</div>
+  <h2>From college radio to climate philanthropy.</h2>
+  <p class="lede">Hover a row to see the role. The thread throughout is communications in service of community.</p>
+  <div class="tl" id="tl">
+    <div class="tl-axis"><div></div><div class="yrs" id="tl-yrs"></div></div>
+  </div>
+  <div id="tl-tip">&nbsp;</div>
+  <div class="legend"><span><i></i>Roles</span><span><i class="side"></i>Fellowships, ventures &amp; service</span></div>
+  <p class="edu">Education · Georgetown University McCourt School of Public Policy, M.P.M. · The Ohio State University, B.A. Strategic Communications</p>
+</section>
+
+<section id="values">
+  <div class="eyebrow">Values</div>
+  <h2>The way I work, written down.</h2>
+  <div class="values">
+    <div><div class="k">PEOPLE FIRST</div><h3>Put people at the center</h3><p>Every strategy starts with the people the organization exists for. Storytelling and community building make industry more human, accessible, and connected.</p></div>
+    <div><div class="k">CLARITY</div><h3>No jargon, no TL;DR</h3><p>If a mission statement has to be read twice, it isn't done yet. Good missions deserve comms that are memorable and undeniable.</p></div>
+    <div><div class="k">COMMUNITY</div><h3>Do the hard things together</h3><p>The most ambitious work gets imagined and achieved in community, with coalitions, cohorts, and partners leaning on one another.</p></div>
+    <div><div class="k">EVIDENCE</div><h3>Let data serve the story</h3><p>Surveys, donor data, and media measurement tell you what's landing. The numbers point the way; the story does the moving.</p></div>
+    <div><div class="k">RESPONSIBILITY</div><h3>Opportunity comes with responsibility</h3><p>What I'm able to do comes with a responsibility to our communities, and I want to work with people who feel that too.</p></div>
+    <div><div class="k">GROUNDING</div><h3>Stay rooted</h3><p>Training in meditation, Eastern massage, and altar building shapes a holistic, global approach, including spaces like climate-grief gatherings.</p></div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="eyebrow">More from the portfolio</div>
+  <div class="also">
+    <a class="case" href="../consulting-one-pager/do-better-comms-one-pager.pdf"><div class="tag">Consulting</div><h3>Do Better Comms</h3><p>Messaging, brand narrative, and campaign support for mission-driven organizations. See the one-pager.</p></a>
+    <a class="case" href="../experience-board/index.html"><div class="tag">Visual board</div><h3>Rooted in Community</h3><p>Every role, project, and side quest so far, on one board.</p></a>
+  </div>
+</section>
+
+</main>
+
+<footer id="contact"><div class="wrap">
+  <div class="eyebrow">Contact</div>
+  <h2>Have a mission that needs better comms? Let's talk.</h2>
+  <div class="btns">
+    <a class="btn primary" href="https://www.linkedin.com/in/viv-tran/">Message me on LinkedIn</a>
+    <a class="btn" href="../creative-resume/viv-tran-resume.pdf">Resume (PDF)</a>
+  </div>
+  <p class="small">Viv Tran · Brooklyn, NY · she/her</p>
+</div></footer>
+
+<script>
+// [org, role, start, end, side?]; end null = present
+const ROLES = [
+  ["88.1 WSDP", "DJ & Host", 2011.8, 2012.3],
+  ["APIA Vote", "Political Advocacy Intern → Civic Engagement Volunteer", 2012.4, null, 1],
+  ["Hola Columbus", "Social Media Manager", 2013.7, 2015.1],
+  ["Ohio State & Columbus internships", "614 Media Group, MediaSource, OSU School of Communication, Studio 614, Ardina", 2015.0, 2016.3],
+  ["TEDxOhioStateUniversity", "Communications & Planning Committee", 2015.4, 2016.4, 1],
+  ["Cardinal Health", "Communications & Events Intern", 2016.4, 2016.7],
+  ["Oracle", "Cloud Applications Consultant", 2016.6, 2017.7],
+  ["The Light House DaNang", "Co-Founder, hostel in Da Nang, Vietnam", 2017.7, null, 1],
+  ["SmithBucklin", "Nonprofit Marketing Operations Associate", 2018.5, 2020.4],
+  ["EPIC, UChicago", "Communications Manager (Contract)", 2020.3, 2020.7],
+  ["GG+A", "Senior Program Manager, Philanthropic Analytics + DEI", 2020.6, 2022.4],
+  ["Chicago Women in Philanthropy", "Emerging Leader", 2020.7, 2021.7, 1],
+  ["Donors of Color Network", "Communications Co-Director, Brand & Operations", 2022.3, 2025.8],
+  ["American YouthWorks", "Mentor & GED Tutor", 2022.0, 2024.3, 1],
+  ["National Urban Fellows", "Graduate Policy Management Fellow · Georgetown M.P.M.", 2024.4, 2025.6, 1],
+  ["Do Better Comms", "Founder", 2025.5, null, 1],
+  ["eimmigration", "Marketing & Communications Manager", 2025.95, null],
+];
+const START = 2011, END = 2027;
+const now = new Date().getFullYear() + new Date().getMonth() / 12;
+const pct = y => ((y - START) / (END - START) * 100).toFixed(2) + "%";
+const yrs = document.getElementById("tl-yrs");
+for (let y = START + 1; y < END; y += 3) yrs.insertAdjacentHTML("beforeend", `<span style="left:${pct(y)}">${y}</span>`);
+const tl = document.getElementById("tl"), tip = document.getElementById("tl-tip");
+for (const [org, role, s, e, side] of ROLES) {
+  const end = e ?? now, span = `${Math.floor(s)} – ${e ? Math.floor(e) : "now"}`;
+  const row = document.createElement("div");
+  row.className = "tl-row";
+  row.innerHTML = `<div class="org">${org}</div><div class="lane"><div class="bar${side ? " side" : ""}" style="left:${pct(s)};width:calc(${pct(end)} - ${pct(s)})"></div></div>`;
+  row.addEventListener("mouseenter", () => tip.textContent = `${org}: ${role} · ${span}`);
+  tl.appendChild(row);
+}
+
+// count-up for the at-a-glance numbers
+const io = new IntersectionObserver(entries => entries.forEach(en => {
+  if (!en.isIntersecting) return;
+  const el = en.target, n = +el.dataset.count, pre = el.dataset.prefix || "", suf = el.dataset.suffix || "";
+  let t0;
+  const tick = t => { t0 ??= t; const p = Math.min((t - t0) / 1200, 1); el.textContent = pre + Math.round(n * (1 - Math.pow(1 - p, 3))) + suf; if (p < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+  io.unobserve(el);
+}), { threshold: .6 });
+document.querySelectorAll("[data-count]").forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,7 +1,5 @@
 # Microsite
 
-A small personal site: intro, highlights, work samples and contact.
+[`index.html`](index.html): a single-page personal site (structure after robdin.github.io): hero with a "Now" card, at-a-glance numbers, approach, four selected-work case studies, an interactive experience timeline, values, and contact.
 
-**Drop in:** `index.html` (plus any CSS, JS and images), or the export from a site builder.
-
-To put it online for free, use GitHub Pages. Pages only publishes from the repo root or a `/docs` folder, so the site will need to move into one of those when it goes live.
+It links to the PDFs and spreadsheet elsewhere in this repo, and uses `../assets/headshot.jpg` if present. Open it locally in a browser, or publish with GitHub Pages (see the root README).
