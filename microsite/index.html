@@ -3,558 +3,346 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Viv Tran · Community Signal Lab</title>
+<title>Viv Tran · Communications</title>
 <meta name="description" content="Viv Tran helps good organizations talk to their communities: narrative strategy, campaigns, and community building across philanthropy, policy, and tech.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* Altarism palette + Tulsi Green; the -l values are cream tints for use on dark */
-  --paper:#F6F3EC; --paper2:#EAE6DE; --ink:#180F06; --muted:rgba(24,15,6,.66);
-  --ox:#6E413A; --plum:#755367; --amber:#B77C45; --tulsi:#566B47; --ash:#AAA7A1;
-  --ox-l:#D9A79E; --plum-l:#C9AEBE; --amber-l:#E2B88C; --tulsi-l:#B3C4A3; --hl:rgba(183,124,69,.38);
-  --rule:rgba(24,15,6,.16); --grid:rgba(117,83,103,.06); --grid2:rgba(117,83,103,.13);
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --sans:"Space Grotesk",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+  /* black and white, one accent */
+  --bg:#FAFAF8; --ink:#141414; --muted:#5E5E5A; --rule:#E2E2DD; --accent:#2F4BFF; --accent-t:rgba(47,75,255,.12);
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --sans:"Space Grotesk",system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{
-  background-color:var(--paper);color:var(--ink);font:16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden;
-  background-image:linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px),linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:120px 120px,120px 120px,24px 24px,24px 24px;
-}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.14;mix-blend-mode:multiply;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1.3 0 0 0 .8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-a{color:inherit}
-::selection{background:var(--amber)}
-.mono{font-family:var(--mono)}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:3px}
+a:hover{color:var(--accent);text-decoration-color:currentColor}
+::selection{background:var(--accent-t)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
-/* ---------- top bar ---------- */
-.bar{position:sticky;top:0;z-index:50;background:rgba(246,243,236,.88);backdrop-filter:blur(8px);border-bottom:1.5px solid var(--ink)}
-.bar-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:52px;font:12.5px var(--mono)}
-.logo{font:700 16px var(--sans);text-decoration:none;letter-spacing:-.02em}
-.logo span{font:500 12px var(--mono);color:var(--ox);margin-left:2px}
-.links{display:flex;gap:18px}
+/* top bar */
+.bar{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
+.bar-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:56px}
+.logo{font-weight:700;text-decoration:none;letter-spacing:-.02em}
+.links{display:flex;gap:22px;font:14px var(--mono)}
 .links a{text-decoration:none;color:var(--muted)}
-.links a b{color:var(--plum);font-weight:500}
-.links a:hover{color:var(--ink);background:var(--amber)}
-.bar-r{display:flex;align-items:center;gap:14px;color:var(--muted)}
-.kbd{font:500 12px var(--mono);border:1.5px solid var(--ink);border-bottom-width:3px;background:var(--paper);padding:3px 8px;border-radius:5px;cursor:pointer;color:var(--ink)}
-.kbd:hover{background:var(--amber)}
+.links a:hover{color:var(--accent)}
 
-/* ---------- shared ---------- */
-section{padding:88px 0;border-top:1.5px solid var(--ink)}
-.sec{display:grid;grid-template-columns:150px minmax(0,1fr);gap:32px}
-.sec>*{min-width:0}
-.term{max-width:100%;overflow-x:auto}
-.margin{font:12px/1.55 var(--mono);color:var(--muted)}
-.margin .no{display:inline-block;font:600 13px var(--mono);color:var(--ink);background:var(--amber);padding:2px 7px;margin-bottom:12px}
-.margin p{margin-bottom:10px;max-width:22ch}
-h2{font:700 clamp(32px,4.6vw,56px)/1 var(--sans);letter-spacing:-.035em;max-width:17ch;margin-bottom:18px}
-h2 em{font:italic 400 1.1em/1 var(--serif);color:var(--plum);letter-spacing:-.01em}
-.lede{max-width:62ch;color:var(--muted);font-size:17px}
-.riso{position:relative}
-.riso::before,.riso::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
-.riso::before{color:var(--ox);transform:translate(-2px,2px)}
-.riso::after{color:var(--plum);transform:translate(2px,-1px);opacity:.7}
-.riso:hover::before{transform:translate(-7px,4px)}
-.riso:hover::after{transform:translate(6px,-4px)}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
+.eyebrow{font:13px var(--mono);color:var(--muted);margin-bottom:20px}
+h1{font:700 clamp(44px,6.4vw,84px)/.96 var(--sans);letter-spacing:-.045em;margin-bottom:26px}
+h1 span{color:var(--accent)}
+.sub{font-size:19px;color:var(--muted);max-width:46ch;margin-bottom:30px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font:500 14px var(--mono);text-decoration:none;padding:10px 16px;border:1px solid var(--ink);border-radius:999px}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn.primary:hover{background:var(--accent);color:#fff}
 
-/* ---------- hero ---------- */
-.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start;padding:56px 24px 80px;border-top:0}
-.tagline{font:500 12px var(--mono);letter-spacing:.12em;color:var(--muted);margin-bottom:22px}
-.tagline b{color:var(--ox);font-weight:500}
-h1{font:700 clamp(46px,7vw,98px)/.93 var(--sans);letter-spacing:-.045em;margin-bottom:28px}
-.hl{background:linear-gradient(transparent 58%,var(--hl) 58%,var(--hl) 92%,transparent 92%)}
-.sub{font-size:18px;max-width:52ch;color:var(--muted);margin-bottom:28px}
-.btns{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
-.key{font:500 13.5px var(--mono);text-decoration:none;padding:9px 14px;border:1.5px solid var(--ink);border-bottom-width:4px;border-radius:7px;background:var(--paper);transition:transform .08s}
-.key:hover{background:var(--amber)}
-.key:active{transform:translateY(2px);border-bottom-width:2px}
-.key.primary{background:var(--ink);color:var(--paper)}
-.key.primary:hover{background:var(--amber);color:var(--ink)}
-
-.idcard{display:grid;grid-template-columns:96px 1fr;gap:18px;border:1.5px solid var(--ink);background:var(--paper);padding:16px;max-width:560px;box-shadow:6px 6px 0 var(--plum)}
-.ph{position:relative;width:96px;height:120px;background:var(--ox);overflow:hidden;display:grid;place-items:center;font:700 34px var(--sans)}
-.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.25);mix-blend-mode:multiply}
-.ph::after{content:"";position:absolute;inset:0;background:radial-gradient(circle,rgba(24,15,6,.35) 1px,transparent 1.4px) 0 0/5px 5px;mix-blend-mode:multiply}
-.idcard dl{font:12.5px/1.45 var(--mono)}
-.idcard dl div{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:3px 0;border-bottom:1px dashed var(--rule)}
-.idcard dl div:last-child{border:0}
-.idcard dt{color:var(--muted)}
-.idcard .idno{grid-column:1/-1;display:flex;justify-content:space-between;font:500 11px var(--mono);letter-spacing:.14em;color:var(--muted);border-top:1.5px solid var(--ink);padding-top:8px;margin-top:2px}
-.idcard .idno b{color:var(--ox);font-weight:500}
-
-.fig{border:1.5px solid var(--ink);background:rgba(246,243,236,.55);position:sticky;top:76px}
-.fig-head{display:flex;justify-content:space-between;font:500 11.5px var(--mono);letter-spacing:.1em;padding:8px 12px;border-bottom:1.5px solid var(--ink);background:var(--ink);color:var(--paper)}
-.fig-head i{font-style:normal;color:var(--amber-l)}
-.stage{position:relative;height:min(62vh,560px);min-height:380px;cursor:grab;touch-action:pan-y;overflow:hidden}
+/* figure */
+.fig{position:relative}
+.stage{position:relative;height:clamp(340px,44vw,520px);cursor:grab;touch-action:pan-y}
 .stage:active{cursor:grabbing}
-.stage canvas{display:block;width:100%;height:100%;mix-blend-mode:multiply}
-.lbl{position:absolute;left:0;top:0;font:500 11.5px var(--mono);padding:1px 6px;background:var(--paper);border:1px solid var(--ink);white-space:nowrap;pointer-events:none;will-change:transform}
-.lbl.org{background:var(--amber);font-weight:600}
-.nogl .stage::after{content:"3D view needs WebGL. The idea: one org at the center, its communities around it, messages flowing both ways.";position:absolute;inset:0;display:grid;place-items:center;padding:40px;text-align:center;font:13px var(--mono);color:var(--muted)}
-.fig figcaption{display:grid;grid-template-columns:1fr auto;gap:6px 16px;font:11.5px/1.5 var(--mono);padding:10px 12px;border-top:1.5px solid var(--ink);color:var(--muted)}
-.fig figcaption b{color:var(--ink);font-weight:500}
-.sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 4px 0 10px;vertical-align:0}
+.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.lbl{position:absolute;left:0;top:0;font:12px var(--mono);color:var(--muted);pointer-events:none;white-space:nowrap;transition:opacity .2s}
+.lbl.org{color:var(--ink);font-weight:500}
+.fig figcaption{display:flex;justify-content:space-between;gap:24px;font:12.5px/1.5 var(--mono);color:var(--muted);border-top:1px solid var(--rule);padding-top:10px}
+.fig figcaption>span:last-child{white-space:nowrap}
+.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 2px;vertical-align:1px}
+.nogl .stage{display:none}
 
-/* ---------- 01 readout ---------- */
-.readout{display:grid;grid-template-columns:repeat(4,1fr);border:1.5px solid var(--ink);background:var(--paper)}
-.metric{padding:20px 18px 18px;border-right:1.5px solid var(--ink);position:relative}
-.metric:last-child{border-right:0}
-.metric .id{font:500 11px var(--mono);letter-spacing:.1em;color:var(--muted)}
-.metric .val{font:700 clamp(40px,4.8vw,64px)/1 var(--sans);letter-spacing:-.04em;margin:14px 0 8px;font-variant-numeric:tabular-nums}
-.metric:nth-child(1) .val{color:var(--plum)} .metric:nth-child(2) .val{color:var(--ox)} .metric:nth-child(3) .val{color:var(--tulsi)} .metric:nth-child(4) .val{color:var(--amber)}
-.metric .what{font-size:15px;line-height:1.35;margin-bottom:12px}
-.metric .meta{font:11.5px/1.5 var(--mono);color:var(--muted);border-top:1px dashed var(--rule);padding-top:8px}
+/* sections */
+section{padding:80px 0;border-top:1px solid var(--rule)}
+.sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px}
+.sec>*{min-width:0}
+.kicker{font:13px var(--mono);color:var(--muted)}
+h2{font:700 clamp(30px,3.8vw,44px)/1.05 var(--sans);letter-spacing:-.03em;margin-bottom:28px;max-width:20ch}
+.lede{color:var(--muted);max-width:60ch;margin:-12px 0 28px}
 
-/* ---------- 02 decompiler ---------- */
-.dc{display:grid;grid-template-columns:1fr 1fr;align-items:start;border:1.5px solid var(--ink);background:var(--paper);margin-top:36px}
-.dc-in{border-right:1.5px solid var(--ink);display:flex;flex-direction:column}
-.pane-h{display:flex;justify-content:space-between;align-items:center;gap:10px;font:500 11.5px var(--mono);letter-spacing:.08em;padding:8px 12px;border-bottom:1.5px solid var(--ink);background:var(--paper2)}
-.pane-h .dots{display:flex;gap:5px}
-.pane-h .dots i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink)}
-.pane-h .dots i:nth-child(1){background:var(--ox)} .pane-h .dots i:nth-child(2){background:var(--amber)} .pane-h .dots i:nth-child(3){background:var(--tulsi)}
-textarea{flex:1;min-height:230px;border:0;resize:vertical;background:transparent;font:15px/1.6 var(--mono);color:var(--ink);padding:16px;outline:none}
-textarea:focus{background:rgba(183,124,69,.18)}
-.dc-btns{display:flex;flex-wrap:wrap;gap:8px;padding:12px;border-top:1.5px solid var(--ink)}
-.dc-btns button{font:500 13px var(--mono);cursor:pointer;padding:7px 12px;border:1.5px solid var(--ink);border-bottom-width:4px;border-radius:7px;background:var(--paper);color:var(--ink)}
-.dc-btns button:hover{background:var(--amber)}
-.dc-btns button.run{background:var(--ink);color:var(--paper)}
-.dc-btns button.run:hover{background:var(--amber);color:var(--ink)}
-.dc-out{padding:16px;display:flex;flex-direction:column;gap:14px;min-width:0}
-.gauges{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.gauge{border:1px dashed var(--rule);padding:10px 10px 8px;text-align:center}
-.gauge .gt{font:500 11px var(--mono);letter-spacing:.1em;color:var(--muted);text-align:left}
-.gauge svg{width:100%;max-width:200px;display:block;margin:2px auto 0}
-.gauge .gv{font:700 30px/1 var(--sans);letter-spacing:-.03em;margin-top:-4px}
-.gauge .gl{font:11.5px var(--mono);color:var(--muted)}
-.needle{transition:transform .9s cubic-bezier(.3,1.5,.5,1);transform-origin:100px 100px}
-.hits{font:14px/1.75 var(--mono);max-height:150px;overflow:auto;border-left:3px solid var(--ox);padding-left:12px}
-.hits mark{background:var(--amber-l);color:var(--ink);padding:0 2px;cursor:help}
-.diff{font:12.5px/1.6 var(--mono);background:var(--ink);color:var(--paper);padding:12px 14px;overflow-x:auto;max-height:220px}
-.diff div{white-space:pre-wrap}
-.diff .m{color:var(--ox-l)} .diff .p{color:var(--tulsi-l)} .diff .c{color:var(--ash)}
-.stats-line{font:11.5px var(--mono);color:var(--muted)}
+.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.num b{display:block;font:700 44px/1 var(--sans);letter-spacing:-.03em;margin-bottom:8px}
+.num span{font-size:15px;color:var(--muted)}
 
-/* ---------- 03 case files ---------- */
-.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:36px}
-.case{position:relative;background:#EEE5D8;border:1.5px solid var(--ink);padding:0 0 18px;box-shadow:5px 5px 0 var(--ink);transition:transform .2s, box-shadow .2s}
-.case:hover{transform:translate(-3px,-3px) rotate(-.3deg);box-shadow:8px 8px 0 var(--ink)}
-.case .tab{position:absolute;top:-22px;left:-1.5px;font:600 11px var(--mono);letter-spacing:.1em;background:#EEE5D8;border:1.5px solid var(--ink);border-bottom:0;padding:3px 12px}
-.case-h{display:grid;grid-template-columns:1fr 56px;gap:14px;align-items:start;padding:18px 20px 12px;border-bottom:1.5px solid var(--ink)}
-.case-h .kind{font:500 11px var(--mono);letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
-.case h3{font:700 23px/1.12 var(--sans);letter-spacing:-.02em}
-.case-h svg{width:56px;height:56px;border:1px solid var(--ink);background:var(--paper)}
-.case dl{padding:12px 20px 0;font-size:14.5px;line-height:1.5}
-.case dl div{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:7px 0;border-bottom:1px dashed rgba(24,15,6,.22)}
-.case dl div:last-child{border:0}
-.case dt{font:500 11px var(--mono);letter-spacing:.1em;color:var(--muted);padding-top:3px}
-.case dt.delta{color:var(--ox)}
-.stamp{position:absolute;right:16px;bottom:16px;font:700 34px/1 var(--sans);letter-spacing:-.03em;color:var(--ox);border:3px solid var(--ox);padding:4px 10px;transform:rotate(-8deg);mix-blend-mode:multiply;opacity:.85;pointer-events:none}
-.case dl{padding-bottom:62px}
+.cases{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.case{border:1px solid var(--rule);background:#fff;border-radius:12px;padding:24px}
+.case .k{font:12.5px var(--mono);color:var(--muted);margin-bottom:8px}
+.case h3{font:700 21px/1.2 var(--sans);letter-spacing:-.015em;margin-bottom:14px}
+.case p{font-size:15.5px;margin-bottom:8px;color:var(--muted)}
+.case p b{color:var(--ink);font-weight:500}
+.case .res{color:var(--ink)}
+.case .res b{color:var(--accent)}
 
-/* ---------- 04 git log ---------- */
-.term{border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);margin-top:36px}
-.term .pane-h{background:#2E2219;color:var(--ash);border-color:#2E2219}
-.term .pane-h .dots i{border-color:var(--ash)}
-.glog{position:relative;padding:18px 16px 22px;font:13.5px/1.5 var(--mono)}
-.glog svg{position:absolute;left:16px;top:0;overflow:visible;pointer-events:none}
-.grow{position:relative;padding:5px 8px 5px 0;border-radius:3px;cursor:default}
-.grow:hover{background:rgba(183,124,69,.18)}
-.grow .h{color:var(--amber-l)}
-.grow .y{color:var(--ash)}
-.grow .ty{font-weight:600}
-.grow .org{color:var(--paper)}
-.grow .ref{font-size:12px;margin-left:6px;white-space:nowrap}
-.grow .ref b{font-weight:500;color:var(--tulsi-l)}
-.grow .ref i{font-style:normal;color:var(--ox-l)}
-.ty.feat{color:var(--plum-l)} .ty.give{color:var(--tulsi-l)} .ty.ship{color:var(--ox-l)} .ty.learn{color:var(--amber-l)} .ty.init{color:var(--paper)}
-.glegend{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 16px;border-top:1px solid #3A2D22;font:12px var(--mono);color:var(--ash)}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.how h3{font:500 15px var(--mono);margin-bottom:8px}
+.how p{font-size:16px;color:var(--muted)}
 
-/* ---------- 05 elements ---------- */
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 18px}
-.filters button{font:500 12.5px var(--mono);cursor:pointer;padding:5px 11px;border:1.5px solid var(--ink);background:var(--paper);border-radius:999px;color:var(--ink)}
-.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.ptable{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:6px}
-.el{position:relative;aspect-ratio:1/1.05;border:1.5px solid var(--ink);padding:7px 8px;cursor:pointer;background:var(--paper);display:flex;flex-direction:column;transition:transform .15s,opacity .2s;font-family:var(--mono);text-align:left;color:var(--ink)}
-.el::before{content:"";position:absolute;inset:0;background:var(--c);opacity:.28;mix-blend-mode:multiply;transition:opacity .15s}
-.el:hover,.el:focus-visible,.el.on{transform:translateY(-3px);outline:none}
-.el:hover::before,.el:focus-visible::before,.el.on::before{opacity:.75}
-.el .z{font-size:10.5px;color:var(--muted);position:relative}
-.el .s{font:700 30px/1 var(--sans);letter-spacing:-.03em;margin:auto 0 4px;position:relative}
-.el .nm{font-size:10.5px;line-height:1.2;position:relative}
-.el.dim{opacity:.18}
-.el.core{grid-column:span 2;aspect-ratio:auto}
-.el.core .s{font-size:46px}
-.eldetail{margin-top:18px;border:1.5px solid var(--ink);background:var(--paper);padding:14px 16px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;min-height:86px}
-.eldetail .big{font:700 46px/1 var(--sans);letter-spacing:-.03em;width:80px;height:80px;display:grid;place-items:center;border:1.5px solid var(--ink);background:var(--c,var(--amber))}
-.eldetail h4{font:700 20px var(--sans);letter-spacing:-.02em}
-.eldetail p{font:13px/1.55 var(--mono);color:var(--muted)}
-.cat-strategy{--c:var(--ox)} .cat-community{--c:var(--tulsi)} .cat-channel{--c:var(--plum)} .cat-research{--c:var(--amber)} .cat-tool{--c:var(--ash)} .cat-core{--c:var(--amber)}
+/* decompiler */
+.dc{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+textarea{width:100%;min-height:200px;font:15px/1.55 var(--mono);color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:12px;padding:16px;resize:vertical}
+textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
+.dc-btns{display:flex;gap:10px;margin-top:12px}
+button{font:500 14px var(--mono);padding:9px 15px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
+button.run{background:var(--ink);color:var(--bg)}
+button:hover{border-color:var(--accent)}
+button.run:hover{background:var(--accent);color:#fff}
+.dc-out{font-size:15.5px}
+.scores{display:flex;gap:28px;margin-bottom:16px}
+.scores div{font:13px var(--mono);color:var(--muted)}
+.scores b{display:block;font:700 40px/1 var(--sans);color:var(--ink);letter-spacing:-.03em;margin-bottom:4px}
+.scores .after b{color:var(--accent)}
+.hits{line-height:1.7;margin-bottom:14px}
+mark{background:var(--accent-t);color:inherit;border-bottom:1.5px solid var(--accent);padding:0 1px}
+.swaps{font:14px/1.7 var(--mono);color:var(--muted)}
+.swaps .p{color:var(--ink)}
 
-/* ---------- 06 man ---------- */
-.man{font:14px/1.6 var(--mono);padding:22px 22px 8px;white-space:pre-wrap;overflow-x:auto;color:var(--paper)}
-.man .hd{display:flex;justify-content:space-between;color:var(--ash);margin-bottom:14px}
-.man h5{font:600 14px var(--mono);color:var(--amber-l);margin:16px 0 4px}
-.man .ind{padding-left:4ch;max-width:84ch}
-.man .opt{color:var(--ox-l);font-weight:600}
-.man .arg{color:var(--plum-l);text-decoration:underline}
-.man .see{color:var(--tulsi-l)}
-.man a{color:var(--tulsi-l)}
-.shell{padding:6px 22px 22px;font:14px/1.6 var(--mono);color:var(--paper)}
-.shell .out div{white-space:pre-wrap}
-.shell .out .err{color:var(--ox-l)}
-.shell .out .ok{color:var(--tulsi-l)}
-.shell .out .dim{color:var(--ash)}
-.shell .out a{color:var(--plum-l)}
-.prompt{display:flex;gap:8px;align-items:center}
-.prompt label{color:var(--tulsi-l);white-space:nowrap}
-.prompt input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:var(--paper);font:inherit;caret-color:var(--amber-l)}
-.hint{font:12px var(--mono);color:var(--muted);margin-top:10px}
+/* experience + skills */
+.xp{list-style:none;border-top:1px solid var(--rule)}
+.xp li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.xp .y{font:14px/1.75 var(--mono);color:var(--muted)}
+.xp .r{color:var(--muted)}
+.xp b{font-weight:500}
+.skills{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
+.skills h3{font:500 13px var(--mono);color:var(--muted);margin-bottom:10px}
+.skills ul{list-style:none;font-size:15.5px;line-height:1.85}
+.skills .tools{font-size:15.5px;line-height:1.85}
 
-/* ---------- 07 appendix ---------- */
-.ls{border:1.5px solid var(--ink);background:var(--paper);margin-top:36px;font:13.5px/1.5 var(--mono)}
-.ls a{display:grid;grid-template-columns:110px 70px minmax(0,1.3fr) minmax(0,1fr);gap:16px;padding:12px 16px;text-decoration:none;border-bottom:1px dashed var(--rule);align-items:baseline}
-.ls a:last-child{border-bottom:0}
-.ls a:hover{background:var(--amber)}
-.ls .perm{color:var(--muted)}
-.ls .sz{color:var(--muted)}
-.ls .fn{font-weight:600;color:var(--plum);overflow-wrap:anywhere}
-.ls a:hover .fn{color:var(--ink)}
-.ls .ds{color:var(--muted)}
-.ls .hdr{display:block;padding:8px 16px;border-bottom:1.5px solid var(--ink);background:var(--paper2);color:var(--muted)}
+.more{list-style:none;border-top:1px solid var(--rule)}
+.more a{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.more a span:last-child{color:var(--muted);font-size:15px;text-align:right}
 
-/* ---------- footer ---------- */
-footer{border-top:1.5px solid var(--ink);padding:88px 0 40px;background:var(--ink);color:var(--paper)}
-footer h2{max-width:20ch}
-footer h2 em{color:var(--amber-l)}
-footer .margin{color:var(--ash)}
-footer .key{background:transparent;color:var(--paper);border-color:var(--paper)}
-footer .key.primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}
-footer .key:hover{background:var(--ox-l);color:var(--ink);border-color:var(--ox-l)}
-.colophon{margin-top:64px;padding-top:18px;border-top:1px solid #3A2D22;font:12px/1.7 var(--mono);color:var(--ash);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer{border-top:1px solid var(--rule);padding:80px 0 48px}
+footer h2{max-width:22ch}
+footer .btns{margin-bottom:56px}
+.fine{font:12.5px var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-/* ---------- palette + cursor ---------- */
-.pal{position:fixed;inset:0;z-index:200;background:rgba(24,15,6,.35);display:none;align-items:flex-start;justify-content:center;padding:12vh 16px 16px}
-.pal.open{display:flex}
-.pal-box{width:min(560px,100%);background:var(--paper);border:1.5px solid var(--ink);box-shadow:8px 8px 0 var(--ox)}
-.pal-box input{width:100%;border:0;border-bottom:1.5px solid var(--ink);background:transparent;font:15px var(--mono);padding:14px 16px;outline:none;color:var(--ink)}
-.pal-box ul{list-style:none;max-height:50vh;overflow:auto;padding:6px}
-.pal-box li{display:flex;justify-content:space-between;gap:12px;font:13.5px var(--mono);padding:8px 10px;cursor:pointer}
-.pal-box li span{color:var(--muted)}
-.pal-box li.act{background:var(--amber-l)}
-.pal-foot{font:11px var(--mono);color:var(--muted);padding:8px 14px;border-top:1px dashed var(--rule)}
-#coords{position:fixed;z-index:80;pointer-events:none;font:10.5px var(--mono);color:var(--plum);background:rgba(246,243,236,.9);border:1px solid var(--plum);padding:0 4px;display:none;transform:translate(14px,14px)}
-@media (hover:hover) and (pointer:fine){#coords{display:block}}
-
-@media (max-width:980px){
-  .links{display:none}
-  .hero{grid-template-columns:1fr;padding-top:36px}
-  .fig{position:relative;top:0}
-  .readout{grid-template-columns:1fr 1fr}
-  .metric:nth-child(2){border-right:0}
-  .metric:nth-child(-n+2){border-bottom:1.5px solid var(--ink)}
-  .dc{grid-template-columns:1fr}
-  .dc-in{border-right:0;border-bottom:1.5px solid var(--ink)}
-  .cases{grid-template-columns:1fr}
+@media (max-width:900px){
+  .hero{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:40px}
+  .sec{grid-template-columns:minmax(0,1fr);gap:8px}
+  .numbers{grid-template-columns:1fr 1fr}
+  .cases,.dc,.how{grid-template-columns:minmax(0,1fr)}
+  .skills{grid-template-columns:1fr 1fr}
 }
-@media (max-width:720px){
-  .sec{grid-template-columns:minmax(0,1fr);gap:12px}
-  .grow .ref{white-space:normal}
-  .glog{overflow-wrap:anywhere}
-  .margin p{max-width:none}
-  section{padding:64px 0}
-  .bar-r #clock{display:none}
-  .idcard{grid-template-columns:76px 1fr}
-  .ph{width:76px;height:96px}
-  .case dl div{grid-template-columns:1fr;gap:2px}
-  .ls a{grid-template-columns:1fr;gap:2px}
-  .ls .perm,.ls .sz{display:none}
-  .el.core{grid-column:span 2}
-  .stage{height:380px}
+@media (max-width:560px){
+  .links{gap:14px;font-size:13px}
+  .links .opt{display:none}
+  .more a{flex-direction:column;gap:2px}
+  .more a span:last-child{text-align:left}
+  .fig figcaption{flex-direction:column;gap:4px}
 }
-@media (max-width:460px){.readout{grid-template-columns:1fr}.metric{border-right:0!important;border-bottom:1.5px solid var(--ink)}.metric:last-child{border-bottom:0}}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="logo" href="#top">viv.tran<span>/lab</span></a>
+    <a class="logo" href="#top">Viv Tran</a>
     <nav class="links" aria-label="Sections">
-      <a href="#readout"><b>01</b> readout</a>
-      <a href="#decompiler"><b>02</b> decompiler</a>
-      <a href="#cases"><b>03</b> case files</a>
-      <a href="#log"><b>04</b> git log</a>
-      <a href="#elements"><b>05</b> elements</a>
-      <a href="#man"><b>06</b> man viv</a>
-      <a href="#contact"><b>08</b> contact</a>
+      <a href="#work">work</a>
+      <a class="opt" href="#decompiler">decompiler</a>
+      <a href="#experience">experience</a>
+      <a href="#contact">contact</a>
     </nav>
-    <div class="bar-r"><span id="clock">BKLYN --:--:--</span><button class="kbd" id="kbtn" aria-label="Open command palette">⌘K</button></div>
   </div>
 </header>
 
 <main id="top">
 
-<section class="hero wrap">
+<section class="hero wrap" style="border-top:0">
   <div>
-    <div class="tagline">FIG. 0 · THESIS · <b>40.68°N 73.94°W</b> · BROOKLYN</div>
-    <h1 class="riso" data-text="I help good orgs talk to their communities.">I help good orgs talk to their <span class="hl">communities.</span></h1>
-    <p class="sub">A decade of communications across philanthropy, policy, and tech. I turn complex missions into stories people remember, and audiences into communities that act: donors, funders, members, and customers alike.</p>
+    <div class="eyebrow">Viv Tran · narrative strategist · Brooklyn, NY</div>
+    <h1>I help good orgs talk to their <span>communities.</span></h1>
+    <p class="sub">A decade of communications across philanthropy, policy, and tech. I turn complex missions into stories people remember, and audiences into communities that act.</p>
     <div class="btns">
-      <a class="key primary" href="#cases">see the work ↵</a>
-      <a class="key" href="../creative-resume/viv-tran-resume.pdf">resume.pdf</a>
-      <a class="key" href="../spreadsheet-resume/viv-tran-cv.xlsx">cv.xlsx</a>
-      <a class="key" href="https://www.linkedin.com/in/viv-tran/">linkedin ↗</a>
-    </div>
-    <div class="idcard">
-      <div class="ph"><img src="../assets/headshot.jpg" alt="Viv Tran" onerror="this.remove()"><span>VT</span></div>
-      <dl>
-        <div><dt>subject</dt><dd>Viv Tran (she/her)</dd></div>
-        <div><dt>now</dt><dd>Marketing &amp; Comms Manager @ eimmigration</dd></div>
-        <div><dt>also</dt><dd>Founder @ Do Better Comms</dd></div>
-        <div><dt>sectors</dt><dd>philanthropy · climate · immigration law tech · associations</dd></div>
-        <div><dt>trained</dt><dd>Georgetown M.P.M. · National Urban Fellow · Ohio State B.A.</dd></div>
-      </dl>
-      <div class="idno"><span>SPECIMEN VT-001</span><span>STATUS <b>● TRANSMITTING</b></span></div>
+      <a class="btn primary" href="#work">See the work</a>
+      <a class="btn" href="../creative-resume/viv-tran-resume.pdf">Resume (PDF)</a>
+      <a class="btn" href="https://www.linkedin.com/in/viv-tran/">LinkedIn ↗</a>
     </div>
   </div>
 
   <figure class="fig" id="fig">
-    <div class="fig-head"><span>FIG. 1 — ORG ⇄ COMMUNITY</span><i>● LIVE · DRAG TO ROTATE</i></div>
     <div class="stage" id="stage" aria-hidden="true"></div>
     <figcaption>
-      <span>One org, six communities. Messages go out <span class="sw" style="background:var(--amber)"></span>talk and come back <span class="sw" style="background:var(--tulsi)"></span>listen. It only works both ways.</span>
-      <span>msgs: <b id="msgs">0</b></span>
+      <span>One org, six communities. Messages go out <span class="sw" style="background:var(--accent)"></span>talk and come back <span class="sw" style="background:var(--ink)"></span>listen.</span>
+      <span>drag to rotate</span>
     </figcaption>
   </figure>
 </section>
 
-<section id="readout"><div class="wrap sec">
-  <aside class="margin"><span class="no">§01</span><p>Instrument readout. Each value lists its source.</p></aside>
+<section><div class="wrap sec">
+  <div class="kicker">01 · at a glance</div>
+  <div class="numbers">
+    <div class="num"><b>10+</b><span>years in mission-driven communications</span></div>
+    <div class="num"><b>$120M</b><span>moved to BIPOC-led climate groups in two years</span></div>
+    <div class="num"><b>25+</b><span>nonprofits advised on messaging and fundraising</span></div>
+    <div class="num"><b>4</b><span>brands built, from identity to key messaging</span></div>
+  </div>
+</div></section>
+
+<section id="work"><div class="wrap sec">
+  <div class="kicker">02 · selected work</div>
   <div>
-    <h2>Readout, <em>at a glance.</em></h2>
-    <div class="readout">
-      <div class="metric"><div class="id">M-01 · TENURE</div><div class="val" data-num="10+">10+</div><div class="what">years in mission-driven communications</div><div class="meta">window: 2011 → now<br>src: radio, startups, philanthropy, legal tech</div></div>
-      <div class="metric"><div class="id">M-02 · CAPITAL MOVED</div><div class="val" data-num="$120M">$120M</div><div class="what">to BIPOC-led climate groups in two years</div><div class="meta">unit: USD · window: 2 yrs<br>src: Climate Funders Justice Pledge, DOCN</div></div>
-      <div class="metric"><div class="id">M-03 · ORGS ADVISED</div><div class="val" data-num="25+">25+</div><div class="what">nonprofits advised on messaging &amp; fundraising</div><div class="meta">unit: orgs · window: 2020–22<br>src: GG+A</div></div>
-      <div class="metric"><div class="id">M-04 · BRANDS BUILT</div><div class="val" data-num="4">4</div><div class="what">brands: identity, story, and key messaging</div><div class="meta">unit: brands · window: 2022–25<br>src: Donors of Color Network</div></div>
+    <h2>Selected work.</h2>
+    <div class="cases">
+      <article class="case">
+        <div class="k">Donors of Color Network · climate philanthropy</div>
+        <h3>Pushing climate funders to resource BIPOC-led groups</h3>
+        <p><b>Situation.</b> Climate money wasn't reaching BIPOC-led groups, so the network launched the Climate Funders Justice Pledge.</p>
+        <p><b>What I did.</b> Campaign content, funder-facing storytelling, and data-driven outreach with TargetSmart and Blackbaud.</p>
+        <p class="res"><b>$120M</b> moved in two years, and a shift in how top climate funders give.</p>
+      </article>
+      <article class="case">
+        <div class="k">Donors of Color Network · brand</div>
+        <h3>One network, four brands, a national voice</h3>
+        <p><b>Situation.</b> A growing network running several programs, each needing its own identity.</p>
+        <p><b>What I did.</b> Brand strategy, visual identity, and key messaging for four brands, plus thought leadership for its executives.</p>
+        <p class="res"><b>Press</b> in Forbes, Candid, Nonprofit Quarterly, and Philanthropy News Digest.</p>
+      </article>
+      <article class="case">
+        <div class="k">GG+A · nonprofit consulting</div>
+        <h3>Data-driven advice for 25+ nonprofits</h3>
+        <p><b>Situation.</b> Nonprofits needed to know what was landing with donors, and COVID-19 had thrown fundraising off.</p>
+        <p><b>What I did.</b> Surveys and research on campaign performance and messaging, plus an industry-wide report on COVID-19's impact on fundraising.</p>
+        <p class="res"><b>25+</b> clients got recommendations grounded in their own donor data.</p>
+      </article>
+      <article class="case">
+        <div class="k">eimmigration · legal tech</div>
+        <h3>Turning immigration lawyers into advocates</h3>
+        <p><b>Situation.</b> A legal-tech brand that needs to be trusted inside the immigration law community.</p>
+        <p><b>What I did.</b> A referral program, a customer advisory board, events, listening sessions, a review program, and field marketing.</p>
+        <p class="res"><b>Customers vouch</b> for the brand, and what they say feeds back into the messaging.</p>
+      </article>
     </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sec">
+  <div class="kicker">03 · how I work</div>
+  <div class="how">
+    <div><h3>Listen first</h3><p>Start with the people the work is for. Surveys, advisory boards, and listening sessions show what lands.</p></div>
+    <div><h3>Say it plainly</h3><p>Cut the jargon until the mission makes sense on the first read, then tell it the same way everywhere.</p></div>
+    <div><h3>Move together</h3><p>Stories matter when they lead to action: the campaign, the coalition, the press moment that gets people to move.</p></div>
   </div>
 </div></section>
 
 <section id="decompiler"><div class="wrap sec">
-  <aside class="margin"><span class="no">§02</span><p>A toy, but a real one. Readability uses the Flesch formulas. No AI involved.</p><p>Paste your own mission statement.</p></aside>
+  <div class="kicker">04 · try it</div>
   <div>
-    <h2>The jargon <em>decompiler.</em></h2>
-    <p class="lede">If people have to read your mission statement twice, it isn't finished. Paste one in, run it, and see how hard it is to read and which words are getting in the way.</p>
+    <h2>The jargon decompiler.</h2>
+    <p class="lede">Paste a mission statement and run it. It scores how easy it is to read (Flesch reading ease, 0–100, higher is easier) and flags the words getting in the way. It runs in your browser; no AI.</p>
     <div class="dc">
-      <div class="dc-in">
-        <div class="pane-h"><span class="dots"><i></i><i></i><i></i></span><span>input.txt</span></div>
-        <textarea id="dcText" spellcheck="false" aria-label="Text to decompile"></textarea>
-        <div class="dc-btns"><button class="run" id="dcRun">▶ run decompile()</button><button id="dcSample">load sample</button><button id="dcClear">clear</button></div>
+      <div>
+        <textarea id="dcText" spellcheck="false" aria-label="Text to check"></textarea>
+        <div class="dc-btns"><button class="run" id="dcRun">Run</button><button id="dcSample">Sample</button><button id="dcClear">Clear</button></div>
       </div>
       <div class="dc-out" aria-live="polite">
-        <div class="gauges">
-          <div class="gauge"><div class="gt">BEFORE · reading ease</div><svg viewBox="0 0 200 112" id="gBefore"></svg><div class="gv" id="gBeforeV">--</div><div class="gl" id="gBeforeL">&nbsp;</div></div>
-          <div class="gauge"><div class="gt" id="gAfterT">AFTER · reading ease</div><svg viewBox="0 0 200 112" id="gAfter"></svg><div class="gv" id="gAfterV">--</div><div class="gl" id="gAfterL">&nbsp;</div></div>
+        <div class="scores">
+          <div><b id="sBefore">--</b>reading ease, before</div>
+          <div class="after"><b id="sAfter">--</b><span id="sAfterL">after</span></div>
         </div>
-        <div class="stats-line" id="dcStats">run it to see stats</div>
         <div class="hits" id="dcHits"></div>
-        <div class="diff" id="dcDiff"><div class="c"># the diff shows up here</div></div>
+        <div class="swaps" id="dcSwaps"></div>
       </div>
     </div>
   </div>
 </div></section>
 
-<section id="cases"><div class="wrap sec">
-  <aside class="margin"><span class="no">§03</span><p>Four case files: what was going on, what I did, and the delta.</p></aside>
+<section id="experience"><div class="wrap sec">
+  <div class="kicker">05 · experience</div>
   <div>
-    <h2>Case files, <em>with receipts.</em></h2>
-    <div class="cases" style="margin-top:58px">
-      <article class="case" data-seed="cfjp"><span class="tab">FILE 001 / CFJP</span>
-        <div class="case-h"><div><div class="kind">ADVOCACY CAMPAIGN · CLIMATE PHILANTHROPY</div><h3>Pushing climate funders to resource BIPOC-led groups</h3></div><svg class="glyph"></svg></div>
-        <dl>
-          <div><dt>CONTEXT</dt><dd>Climate money wasn't reaching BIPOC-led groups. Donors of Color Network launched the Climate Funders Justice Pledge.</dd></div>
-          <div><dt>INPUT</dt><dd>Campaign content, funder-facing storytelling, and data-driven outreach with TargetSmart and Blackbaud.</dd></div>
-          <div><dt class="delta">DELTA</dt><dd>The campaign influenced how top climate funders give.</dd></div>
-        </dl>
-        <div class="stamp">$120M</div>
-      </article>
-      <article class="case" data-seed="docn-brands"><span class="tab">FILE 002 / DOCN</span>
-        <div class="case-h"><div><div class="kind">BRAND · THOUGHT LEADERSHIP</div><h3>One network, four brands, a national voice</h3></div><svg class="glyph"></svg></div>
-        <dl>
-          <div><dt>CONTEXT</dt><dd>A growing network running several programs, each needing its own identity.</dd></div>
-          <div><dt>INPUT</dt><dd>Brand strategy, visual identity, and key messaging for four brands, plus thought leadership for its executives.</dd></div>
-          <div><dt class="delta">DELTA</dt><dd>Placements in Forbes, Candid, Nonprofit Quarterly, and Philanthropy News Digest.</dd></div>
-        </dl>
-        <div class="stamp">×4</div>
-      </article>
-      <article class="case" data-seed="gga"><span class="tab">FILE 003 / GG+A</span>
-        <div class="case-h"><div><div class="kind">RESEARCH · NONPROFIT CONSULTING</div><h3>Data-driven advice for 25+ nonprofits</h3></div><svg class="glyph"></svg></div>
-        <dl>
-          <div><dt>CONTEXT</dt><dd>Nonprofits needing to know what's actually landing with their donors, and fundraising thrown off by COVID-19.</dd></div>
-          <div><dt>INPUT</dt><dd>Surveys and research on campaign performance, messaging, and fundraising, plus an industry-wide report on COVID-19's impact on fundraising.</dd></div>
-          <div><dt class="delta">DELTA</dt><dd>Recommendations grounded in each client's own donor data, and a firm-wide DEI strategy I helped co-develop.</dd></div>
-        </dl>
-        <div class="stamp">25+</div>
-      </article>
-      <article class="case" data-seed="eimmigration"><span class="tab">FILE 004 / EIMM</span>
-        <div class="case-h"><div><div class="kind">CUSTOMER ADVOCACY · LEGAL TECH</div><h3>Turning immigration lawyers into advocates</h3></div><svg class="glyph"></svg></div>
-        <dl>
-          <div><dt>CONTEXT</dt><dd>A legal-tech brand that needs to be trusted inside the immigration law community.</dd></div>
-          <div><dt>INPUT</dt><dd>A referral program, advisory board, events, listening sessions, a multi-platform review program, and regional and national field marketing.</dd></div>
-          <div><dt class="delta">DELTA</dt><dd>Customers vouch for the brand, and what they say feeds straight back into messaging.</dd></div>
-        </dl>
-        <div class="stamp">⇄</div>
-      </article>
-    </div>
+    <h2>From college radio to climate philanthropy.</h2>
+    <ul class="xp">
+      <li><span class="y">2025</span><span><b>eimmigration</b> <span class="r">· marketing &amp; communications manager</span></span></li>
+      <li><span class="y">2025</span><span><b>Do Better Comms</b> <span class="r">· founder, creative agency</span></span></li>
+      <li><span class="y">2024</span><span><b>National Urban Fellows</b> <span class="r">· graduate fellow, Georgetown M.P.M.</span></span></li>
+      <li><span class="y">2022</span><span><b>Donors of Color Network</b> <span class="r">· communications co-director, brand &amp; operations</span></span></li>
+      <li><span class="y">2022</span><span><b>American YouthWorks</b> <span class="r">· mentor &amp; GED tutor</span></span></li>
+      <li><span class="y">2020</span><span><b>GG+A</b> <span class="r">· senior program manager, philanthropic analytics + DEI</span></span></li>
+      <li><span class="y">2020</span><span><b>Chicago Women in Philanthropy</b> <span class="r">· emerging leader</span></span></li>
+      <li><span class="y">2020</span><span><b>EPIC, UChicago</b> <span class="r">· communications manager (contract)</span></span></li>
+      <li><span class="y">2018</span><span><b>SmithBucklin</b> <span class="r">· nonprofit marketing operations associate</span></span></li>
+      <li><span class="y">2017</span><span><b>The Light House DaNang</b> <span class="r">· co-founded a hostel in Da Nang, Vietnam</span></span></li>
+      <li><span class="y">2016</span><span><b>Oracle</b> <span class="r">· cloud applications consultant</span></span></li>
+      <li><span class="y">2016</span><span><b>Cardinal Health</b> <span class="r">· communications &amp; events intern</span></span></li>
+      <li><span class="y">2015</span><span><b>The Ohio State University</b> <span class="r">· B.A., strategic communications</span></span></li>
+      <li><span class="y">2015</span><span><b>TEDxOhioStateUniversity</b> <span class="r">· communications &amp; planning committee</span></span></li>
+      <li><span class="y">2013</span><span><b>Hola Columbus</b> <span class="r">· social media manager</span></span></li>
+      <li><span class="y">2012</span><span><b>APIA Vote</b> <span class="r">· political advocacy intern, then civic engagement volunteer</span></span></li>
+      <li><span class="y">2011</span><span><b>88.1 WSDP</b> <span class="r">· DJ &amp; host on college radio</span></span></li>
+    </ul>
   </div>
 </div></section>
 
-<section id="log"><div class="wrap sec">
-  <aside class="margin"><span class="no">§04</span><p>Career as version history. Main branch = jobs. Side branches = ventures, fellowships, and service.</p><p>Newest first, like git.</p></aside>
-  <div>
-    <h2>git log <em>--graph --career</em></h2>
-    <p class="lede">From college radio to climate philanthropy. The thread throughout is communications in service of community.</p>
-    <div class="term">
-      <div class="pane-h"><span class="dots"><i></i><i></i><i></i></span><span>viv@lab: ~/career</span></div>
-      <div class="glog" id="glog"></div>
-      <div class="glegend"><span class="ty feat">feat</span>a job <span class="ty ship">ship</span>something I started <span class="ty learn">learn</span>fellowships &amp; school <span class="ty give">give</span>service &amp; volunteering <span class="ty init">init</span>where it began</div>
-    </div>
+<section><div class="wrap sec">
+  <div class="kicker">06 · toolkit</div>
+  <div class="skills">
+    <div><h3>strategy</h3><ul><li>Narrative</li><li>Brand</li><li>Messaging</li><li>Campaigns</li><li>Thought leadership</li></ul></div>
+    <div><h3>community</h3><ul><li>Advocacy</li><li>Advisory boards</li><li>Referrals</li><li>Coalitions</li><li>Events</li></ul></div>
+    <div><h3>channels</h3><ul><li>Press</li><li>Social</li><li>Field marketing</li><li>Content</li><li>Reviews</li></ul></div>
+    <div><h3>research</h3><ul><li>Surveys</li><li>Donor data</li><li>Reports</li><li>Media tracking</li></ul></div>
+    <div><h3>tools</h3><p class="tools">HubSpot, Salesforce, Raiser's Edge, EveryAction, Blackbaud, TargetSmart, Qualtrics, Google Analytics, Adobe Suite, Canva, WordPress, Mailchimp, Asana, ClickUp</p></div>
   </div>
 </div></section>
 
-<section id="elements"><div class="wrap sec">
-  <aside class="margin"><span class="no">§05</span><p>Everything I work with, as elements. Tap one to see where I've used it.</p></aside>
-  <div>
-    <h2>Periodic table of <em>a comms practice.</em></h2>
-    <div class="filters" id="filters">
-      <button aria-pressed="true" data-f="all">all</button>
-      <button aria-pressed="false" data-f="strategy">strategy</button>
-      <button aria-pressed="false" data-f="community">community</button>
-      <button aria-pressed="false" data-f="channel">channels</button>
-      <button aria-pressed="false" data-f="research">research</button>
-      <button aria-pressed="false" data-f="tool">tools</button>
-    </div>
-    <div class="ptable" id="ptable"></div>
-    <div class="eldetail" id="eldetail"><div class="big">Pl</div><div><h4>Plain language</h4><p>element 001 · the core. Everything else is built from it.</p></div></div>
-  </div>
-</div></section>
-
-<section id="man"><div class="wrap sec">
-  <aside class="margin"><span class="no">§06</span><p>How I work, written as a Unix manual page.</p><p>The prompt at the bottom works. Try <b>help</b>.</p></aside>
-  <div>
-    <h2>man <em>viv</em></h2>
-    <div class="term" id="manTerm">
-      <div class="pane-h"><span class="dots"><i></i><i></i><i></i></span><span>man viv — less</span></div>
-<div class="man"><div class="hd"><span>VIV(1)</span><span>Community Signal Lab Manual</span><span>VIV(1)</span></div><h5>NAME</h5><div class="ind">viv — narrative strategist, community mobilizer</div><h5>SYNOPSIS</h5><div class="ind">viv [<span class="opt">--listen-first</span>] [<span class="opt">--say-it-plainly</span>] [<span class="opt">--move-together</span>] <span class="arg">mission</span></div><h5>DESCRIPTION</h5><div class="ind">Takes a complex <span class="arg">mission</span> and returns a story the people it serves can repeat after one read. Works at the intersection of philanthropy, policy, and tech. Runs the same three passes on a single campaign or a whole brand.</div><h5>OPTIONS</h5><div class="ind"><span class="opt">--listen-first</span>
-    Start with the people the work is for: members, donors, customers.
-    Surveys, advisory boards, and listening sessions show what lands.
-    e.g. the eimmigration customer advisory board and referral program.
-
-<span class="opt">--say-it-plainly</span>
-    Cut the jargon until the mission makes sense on the first read.
-    One clear story, told the same way across every channel and brand.
-    e.g. key messaging for four Donors of Color Network brands.
-
-<span class="opt">--move-together</span>
-    Stories only matter if they lead to action: the campaign, the
-    coalition, the press moment that gets people to move.
-    e.g. the Climate Funders Justice Pledge, $120M in two years.</div><h5>VALUES</h5><div class="ind">people-first    put the people the org exists for at the center
-clarity         no jargon, no TL;DR
-community       do the hard things together
-evidence        let data serve the story
-responsibility  opportunity comes with responsibility
-grounding       stay rooted (meditation, Eastern massage, altar building)</div><h5>ENVIRONMENT</h5><div class="ind">LOCATION=brooklyn_ny   REMOTE_OK=1   PRONOUNS=she/her</div><h5>SEE ALSO</h5><div class="ind"><a href="../creative-resume/viv-tran-resume.pdf">resume(pdf)</a>, <a href="../spreadsheet-resume/viv-tran-cv.xlsx">cv(xlsx)</a>, <a href="../consulting-one-pager/do-better-comms-one-pager.pdf">do-better-comms(1)</a>, <a href="../experience-board/index.html">rooted-in-community(board)</a></div><h5>BUGS</h5><div class="ind">Will ask what your mission statement actually means. Working as intended.</div></div>
-      <div class="shell" id="shell">
-        <div class="out" id="shOut"><div class="dim">type `help` and press enter</div></div>
-        <div class="prompt"><label for="shIn">viv@lab:~$</label><input id="shIn" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command"></div>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<section id="appendix"><div class="wrap sec">
-  <aside class="margin"><span class="no">§07</span><p>The rest of the portfolio.</p></aside>
-  <div>
-    <h2>ls -la <em>~/portfolio</em></h2>
-    <div class="ls">
-      <span class="hdr">total 5 · owner viv · group community</span>
-      <a href="../creative-resume/viv-tran-resume.pdf"><span class="perm">-rw-r--r--</span><span class="sz">1 page</span><span class="fn">creative-resume/viv-tran-resume.pdf</span><span class="ds">the designed one-page resume</span></a>
-      <a href="../spreadsheet-resume/viv-tran-cv.xlsx"><span class="perm">-rw-r--r--</span><span class="sz">9 tabs</span><span class="fn">spreadsheet-resume/viv-tran-cv.xlsx</span><span class="ds">the everything-CV, in a spreadsheet</span></a>
-      <a href="../consulting-one-pager/do-better-comms-one-pager.pdf"><span class="perm">-rw-r--r--</span><span class="sz">1 page</span><span class="fn">consulting-one-pager/do-better-comms.pdf</span><span class="ds">Do Better Comms: services &amp; track record</span></a>
-      <a href="../experience-board/index.html"><span class="perm">drwxr-xr-x</span><span class="sz">5 eras</span><span class="fn">experience-board/</span><span class="ds">Rooted in Community, every role on one board</span></a>
-      <a href="https://www.linkedin.com/in/viv-tran/"><span class="perm">lrwxrwxrwx</span><span class="sz">→</span><span class="fn">linkedin.com/in/viv-tran</span><span class="ds">the professional feed</span></a>
-    </div>
+<section><div class="wrap sec">
+  <div class="kicker">07 · more</div>
+  <div class="more">
+    <a href="../creative-resume/viv-tran-resume.pdf"><span>Resume</span><span>one page, PDF</span></a>
+    <a href="../spreadsheet-resume/viv-tran-cv.xlsx"><span>Spreadsheet CV</span><span>everything, nine tabs, .xlsx</span></a>
+    <a href="../consulting-one-pager/do-better-comms-one-pager.pdf"><span>Do Better Comms</span><span>services and track record, PDF</span></a>
+    <a href="../experience-board/index.html"><span>Rooted in Community</span><span>every role on one board</span></a>
   </div>
 </div></section>
 
 </main>
 
-<footer id="contact"><div class="wrap sec">
-  <aside class="margin"><span class="no">§08</span><p>Open channel.</p></aside>
-  <div>
-    <h2>Have a mission that needs better comms? <em>Let's talk.</em></h2>
-    <div class="btns">
-      <a class="key primary" href="https://www.linkedin.com/in/viv-tran/">message me on linkedin ↗</a>
-      <a class="key" href="../creative-resume/viv-tran-resume.pdf">resume.pdf</a>
-    </div>
-    <div class="colophon"><span>Viv Tran · Brooklyn, NY · she/her</span><span>Set in Space Grotesk, IBM Plex Mono &amp; Instrument Serif · 3D in three.js · inked in the Altarism palette (oxblood, plum, marigold) plus tulsi green on a 24px grid · no trackers</span></div>
+<footer id="contact"><div class="wrap">
+  <h2>Have a mission that needs better comms? Let's talk.</h2>
+  <div class="btns">
+    <a class="btn primary" href="https://www.linkedin.com/in/viv-tran/">Message me on LinkedIn ↗</a>
   </div>
+  <div class="fine"><span>Viv Tran · Brooklyn, NY · she/her</span><span>Space Grotesk &amp; IBM Plex Mono · three.js · no trackers</span></div>
 </div></footer>
-
-<div class="pal" id="pal" role="dialog" aria-modal="true" aria-label="Command palette">
-  <div class="pal-box">
-    <input id="palIn" placeholder="jump to… (try “git”, “resume”, “jargon”)" autocomplete="off" aria-label="Search commands">
-    <ul id="palList"></ul>
-    <div class="pal-foot">↑↓ move · ↵ open · esc close</div>
-  </div>
-</div>
-<div id="coords"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 const $ = s => document.querySelector(s);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
-
-/* ---------- seeded random ---------- */
 function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imul(h^ch.charCodeAt(0),3432918353);h=h<<13|h>>>19}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return((h^=h>>>16)>>>0)/4294967296}}
 
-/* ---------- clock ---------- */
-const clock = $("#clock");
-const tick = () => clock.textContent = "BKLYN " + new Date().toLocaleTimeString("en-US",{timeZone:"America/New_York",hour12:false});
-tick(); setInterval(tick, 1000);
-
-/* ---------- FIG. 1: three.js network ---------- */
+/* ---------- the network ---------- */
 (function fig(){
   const box = $("#fig"), stage = $("#stage");
+  if (!window.THREE) { box.classList.add("nogl"); return; }
   let renderer;
   try { renderer = new THREE.WebGLRenderer({antialias:true, alpha:true}); } catch(e) { box.classList.add("nogl"); return; }
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
   stage.appendChild(renderer.domElement);
+  const INK = 0x141414, ACCENT = 0x2F4BFF;
   const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(38, 1, .1, 100);
   cam.position.set(0, 0, 12.5);
   const world = new THREE.Group(); scene.add(world);
   const rand = rng("viv-tran-lab");
   const gauss = () => { let u = 0, v = 0; while(!u) u = rand(); while(!v) v = rand(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
 
-  world.add(new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(.95, 1)), new THREE.LineBasicMaterial({color:0x180F06})));
-  world.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.42, 0), new THREE.MeshBasicMaterial({color:0xB77C45})));
+  world.add(new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(.95, 1)), new THREE.LineBasicMaterial({color:INK, transparent:true, opacity:.55})));
+  world.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.42, 0), new THREE.MeshBasicMaterial({color:ACCENT})));
 
   const c = document.createElement("canvas"); c.width = c.height = 64;
   const g = c.getContext("2d"); g.beginPath(); g.arc(32, 32, 28, 0, 7); g.fillStyle = "#fff"; g.fill();
   const dot = new THREE.CanvasTexture(c);
 
-  const COMMS = [["donors",0x6E413A],["funders",0x755367],["members",0x566B47],["customers",0xB77C45],["neighbors",0xAAA7A1],["press",0x180F06]];
+  const COMMS = ["donors","funders","members","customers","neighbors","press"];
   const R = 3.6, clusters = [];
-  COMMS.forEach(([name, col], i) => {
+  const nodeMat = new THREE.PointsMaterial({color:INK, size:.15, map:dot, transparent:true, alphaTest:.5});
+  const meshMat = new THREE.LineBasicMaterial({color:INK, transparent:true, opacity:.22});
+  const spokeMat = new THREE.LineBasicMaterial({color:INK, transparent:true, opacity:.18});
+  COMMS.forEach((name, i) => {
     const y = 1 - (i + .5) / COMMS.length * 2, r = Math.sqrt(1 - y*y), th = i * 2.39996;
     const center = new THREE.Vector3(Math.cos(th)*r, y*.85, Math.sin(th)*r).normalize().multiplyScalar(R);
     const n = 46, pts = [], pos = new Float32Array(n*3);
@@ -563,22 +351,22 @@ tick(); setInterval(tick, 1000);
       pts.push(v); pos.set([v.x, v.y, v.z], k*3);
     }
     const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-    world.add(new THREE.Points(geo, new THREE.PointsMaterial({color:col, size:.17, map:dot, transparent:true, alphaTest:.5})));
+    world.add(new THREE.Points(geo, nodeMat));
     const lp = [];
-    pts.forEach((p, a) => {
+    pts.forEach(p => {
       pts.map((q, b) => [p.distanceToSquared(q), b]).sort((x, y) => x[0] - y[0]).slice(1, 3)
         .forEach(([, b]) => lp.push(p.x, p.y, p.z, pts[b].x, pts[b].y, pts[b].z));
     });
     const lg = new THREE.BufferGeometry(); lg.setAttribute("position", new THREE.Float32BufferAttribute(lp, 3));
-    world.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({color:col, transparent:true, opacity:.4})));
-    world.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), center]), new THREE.LineBasicMaterial({color:0x180F06, transparent:true, opacity:.3})));
+    world.add(new THREE.LineSegments(lg, meshMat));
+    world.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), center]), spokeMat));
     const lbl = document.createElement("div"); lbl.className = "lbl"; lbl.textContent = name; stage.appendChild(lbl);
     clusters.push({center, lbl});
   });
   const orgLbl = document.createElement("div"); orgLbl.className = "lbl org"; orgLbl.textContent = "your org"; stage.appendChild(orgLbl);
 
   const pg = new THREE.SphereGeometry(.075, 12, 8), pulses = [];
-  const mats = {1: new THREE.MeshBasicMaterial({color:0xB77C45}), [-1]: new THREE.MeshBasicMaterial({color:0x566B47})};
+  const mats = {1: new THREE.MeshBasicMaterial({color:ACCENT}), [-1]: new THREE.MeshBasicMaterial({color:INK})};
   clusters.forEach(cl => { for (let k = 0; k < 2; k++) for (const dir of [1, -1]) {
     const m = new THREE.Mesh(pg, mats[dir]); world.add(m);
     pulses.push({m, cl, dir, t:rand(), sp:.16 + rand()*.14});
@@ -595,8 +383,7 @@ tick(); setInterval(tick, 1000);
   const up = () => drag = false;
   stage.addEventListener("pointerup", up); stage.addEventListener("pointercancel", up);
 
-  let running = true, last = performance.now(), msgs = 0;
-  const msgEl = $("#msgs");
+  let running = true, last = performance.now();
   new IntersectionObserver(([en]) => { running = en.isIntersecting; if (running) { last = performance.now(); requestAnimationFrame(loop); } }).observe(stage);
   const v = new THREE.Vector3();
   function place(el, pos){
@@ -604,7 +391,7 @@ tick(); setInterval(tick, 1000);
     const behind = v.z < -.5;
     v.project(cam);
     el.style.transform = `translate(${((v.x+1)/2*w).toFixed(1)}px,${((1-v.y)/2*h).toFixed(1)}px) translate(-50%,-160%)`;
-    el.style.opacity = behind ? .4 : 1;
+    el.style.opacity = behind ? .35 : 1;
   }
   function loop(now){
     if (!running) return;
@@ -614,11 +401,10 @@ tick(); setInterval(tick, 1000);
     world.rotation.set(rx, ry, 0);
     for (const p of pulses) {
       p.t += p.sp*dt*(reduce ? .3 : 1);
-      if (p.t > 1) { p.t -= 1; msgs++; }
+      if (p.t > 1) p.t -= 1;
       const t = p.dir > 0 ? p.t : 1 - p.t;
       p.m.position.copy(p.cl.center).multiplyScalar(.12 + t*.82);
     }
-    msgEl.textContent = msgs.toLocaleString();
     world.updateMatrixWorld();
     clusters.forEach(cl => place(cl.lbl, cl.center));
     place(orgLbl, new THREE.Vector3(0, 1.25, 0));
@@ -628,22 +414,7 @@ tick(); setInterval(tick, 1000);
   requestAnimationFrame(loop);
 })();
 
-/* ---------- §01 scramble counters ---------- */
-const scr = new IntersectionObserver(es => es.forEach(en => {
-  if (!en.isIntersecting) return;
-  const el = en.target, final = el.dataset.num; scr.unobserve(el);
-  if (reduce) return;
-  const t0 = performance.now();
-  const step = t => {
-    const p = (t - t0)/900;
-    el.textContent = p >= 1 ? final : final.replace(/\d/g, (d, i) => i/final.length < p ? d : Math.floor(Math.random()*10));
-    if (p < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}), {threshold:.6});
-document.querySelectorAll("[data-num]").forEach(el => scr.observe(el));
-
-/* ---------- §02 jargon decompiler ---------- */
+/* ---------- jargon decompiler ---------- */
 const JARGON = {
   "leverage":"use","leverages":"uses","leveraging":"using","utilize":"use","utilizes":"uses","utilizing":"using",
   "synergy":"teamwork","synergies":"teamwork","multi-stakeholder":"shared","stakeholders":"people involved","stakeholder":"partner",
@@ -666,265 +437,33 @@ function syl(word){
   w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, "").replace(/^y/, "");
   const m = w.match(/[aeiouy]{1,2}/g); return m ? m.length : 1;
 }
-function score(text){
+function ease(text){
   const words = text.split(/[\s—–-]+/).filter(x => /[a-z0-9]/i.test(x));
   const sentences = Math.max(1, (text.match(/[.!?]+(\s|$)/g) || []).length || 1);
-  const sy = words.reduce((a, w) => a + syl(w), 0);
-  const W = Math.max(1, words.length);
-  return {words:words.length, sentences, syll:sy, ease:206.835 - 1.015*(W/sentences) - 84.6*(sy/W), grade:.39*(W/sentences) + 11.8*(sy/W) - 15.59};
+  const sy = words.reduce((a, w) => a + syl(w), 0), W = Math.max(1, words.length);
+  return Math.max(0, Math.min(100, 206.835 - 1.015*(W/sentences) - 84.6*(sy/W)));
 }
-const band = e => e >= 90 ? "very easy · a 5th grader gets it" : e >= 80 ? "easy" : e >= 70 ? "fairly easy" : e >= 60 ? "plain English" : e >= 50 ? "fairly hard" : e >= 30 ? "hard · college level" : "very hard · reads like a grant report";
 const caseLike = (src, rep) => src[0] === src[0].toUpperCase() && src[0] !== src[0].toLowerCase() ? rep[0].toUpperCase() + rep.slice(1) : rep;
-function drawGauge(svg, val){
-  const e = val == null ? 0 : Math.max(0, Math.min(100, val));
-  const arc = (a0, a1, col) => { const p = a => [100 + 80*Math.cos(Math.PI*(1 - a/100)), 100 - 80*Math.sin(Math.PI*(1 - a/100))]; const [x0, y0] = p(a0), [x1, y1] = p(a1); return `<path d="M${x0} ${y0} A80 80 0 0 1 ${x1} ${y1}" stroke="${col}" stroke-width="16" fill="none"/>`; };
-  const ticks = [0,30,60,90,100].map(t => { const a = Math.PI*(1 - t/100); return `<text x="${100 + 98*Math.cos(a)}" y="${104 - 98*Math.sin(a)}" font-size="8" font-family="IBM Plex Mono" text-anchor="middle" fill="#180F06" fill-opacity=".6">${t}</text>`; }).join("");
-  svg.innerHTML = arc(0, 30, "#6E413A") + arc(30, 60, "#B77C45") + arc(60, 100, "#566B47") + ticks +
-    `<g class="needle" style="transform:rotate(${val == null ? -90 : -90 + e*1.8}deg)"><line x1="100" y1="100" x2="100" y2="30" stroke="#180F06" stroke-width="3"/></g><circle cx="100" cy="100" r="7" fill="#180F06"/>`;
-}
 function decompile(){
   const text = $("#dcText").value.trim();
-  if (!text) { $("#dcStats").textContent = "nothing to decompile"; return; }
-  const hits = [...text.matchAll(JRE)].map(m => m[0]);
+  if (!text) return;
   const isSample = text === SAMPLE;
   const after = isSample ? SAMPLE_PLAIN : text.replace(JRE, m => caseLike(m, JARGON[m.toLowerCase()]));
-  const a = score(text), b = score(after);
-  drawGauge($("#gBefore"), a.ease); drawGauge($("#gAfter"), b.ease);
-  $("#gBeforeV").textContent = a.ease.toFixed(0); $("#gBeforeL").textContent = band(a.ease);
-  $("#gAfterV").textContent = b.ease.toFixed(0); $("#gAfterL").textContent = band(b.ease);
-  $("#gAfterT").textContent = isSample ? "AFTER · human rewrite" : "AFTER · auto-patch";
-  $("#dcStats").textContent = `words ${a.words} · sentences ${a.sentences} · syllables/word ${(a.syll/Math.max(1, a.words)).toFixed(2)} · grade level ${Math.max(0, a.grade).toFixed(1)} → ${Math.max(0, b.grade).toFixed(1)} · jargon hits ${hits.length}`;
+  $("#sBefore").textContent = ease(text).toFixed(0);
+  $("#sAfter").textContent = ease(after).toFixed(0);
+  $("#sAfterL").textContent = isSample ? "after a human rewrite" : "after swapping jargon";
   $("#dcHits").innerHTML = esc(text).replace(JRE, m => `<mark title="try: ${esc(JARGON[m.toLowerCase()])}">${m}</mark>`);
-  const uniq = [...new Set(hits.map(x => x.toLowerCase()))];
-  $("#dcDiff").innerHTML =
-    `<div class="c">@@ jargon swaps: ${uniq.length} @@</div>` +
-    uniq.map(k => `<div class="m">- ${esc(k)}</div><div class="p">+ ${esc(JARGON[k])}</div>`).join("") +
-    `<div class="c">@@ ${isSample ? "a human rewrite (the real job)" : "auto-patch: a starting point, the rewrite is still a human job"} @@</div>` +
-    `<div class="m">- ${esc(text)}</div><div class="p">+ ${esc(after)}</div>`;
+  const uniq = [...new Set([...text.matchAll(JRE)].map(m => m[0].toLowerCase()))];
+  $("#dcSwaps").innerHTML = uniq.length
+    ? uniq.map(k => `${esc(k)} → <span class="p">${esc(JARGON[k])}</span>`).join("<br>") + (isSample ? `<br><br><span class="p">Rewrite: ${esc(SAMPLE_PLAIN)}</span>` : "")
+    : "No jargon found. Nice.";
 }
 $("#dcText").value = SAMPLE;
 $("#dcRun").onclick = decompile;
 $("#dcSample").onclick = () => { $("#dcText").value = SAMPLE; decompile(); };
 $("#dcClear").onclick = () => { $("#dcText").value = ""; $("#dcText").focus(); };
 $("#dcText").addEventListener("keydown", e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) decompile(); });
-drawGauge($("#gBefore"), null); drawGauge($("#gAfter"), null);
-new IntersectionObserver(([en], o) => { if (en.isIntersecting) { decompile(); o.disconnect(); } }, {threshold:.4}).observe($(".dc"));
-
-/* ---------- §03 case glyphs ---------- */
-document.querySelectorAll(".case").forEach(cs => {
-  const r = rng(cs.dataset.seed), cols = ["#6E413A","#755367","#B77C45","#566B47"];
-  let s = "";
-  for (let y = 0; y < 7; y++) for (let x = 0; x < 4; x++) {
-    if (r() < .5) { const c = cols[Math.floor(r()*cols.length)]; s += `<rect x="${x*8}" y="${y*8}" width="8" height="8" fill="${c}"/><rect x="${48 - x*8}" y="${y*8}" width="8" height="8" fill="${c}"/>`; }
-  }
-  const svg = cs.querySelector(".glyph"); svg.setAttribute("viewBox", "-2 -2 60 60"); svg.innerHTML = s;
-});
-
-/* ---------- §04 git log --graph ---------- */
-// [year, type, org, message, side?, endYear (null = ongoing), refs]
-const LOG = [
-  [2011.8, "init", "88.1 WSDP", "DJ & host on college radio"],
-  [2012.4, "give", "APIA Vote", "political advocacy intern → civic engagement volunteer", 1, null],
-  [2013.7, "feat", "Hola Columbus", "social media manager"],
-  [2015.0, "feat", "Columbus internships", "614 Media Group, MediaSource, OSU School of Communication, Studio 614, Ardina", 0, 0, "tag: osu/ba-strategic-comms"],
-  [2015.4, "give", "TEDxOhioStateUniversity", "communications & planning committee", 1, 2016.4],
-  [2016.4, "feat", "Cardinal Health", "communications & events intern"],
-  [2016.6, "feat", "Oracle", "cloud applications consultant"],
-  [2017.7, "ship", "The Light House DaNang", "co-founded a hostel in Da Nang, Vietnam", 1, null],
-  [2018.5, "feat", "SmithBucklin", "nonprofit marketing operations associate"],
-  [2020.3, "feat", "EPIC, UChicago", "communications manager (contract)"],
-  [2020.6, "feat", "GG+A", "senior program manager, philanthropic analytics + DEI"],
-  [2020.7, "learn", "Chicago Women in Philanthropy", "emerging leader", 1, 2021.7],
-  [2022.0, "give", "American YouthWorks", "mentor & GED tutor", 1, 2024.3],
-  [2022.3, "feat", "Donors of Color Network", "communications co-director, brand & operations"],
-  [2024.4, "learn", "National Urban Fellows", "graduate fellow · Georgetown M.P.M.", 1, 2025.6, "tag: georgetown/mpm"],
-  [2025.5, "ship", "Do Better Comms", "founded a creative agency", 1, null],
-  [2025.95, "feat", "eimmigration", "marketing & communications manager", 0, 0, "HEAD -> now"],
-];
-const TYCOL = {feat:"#C9AEBE", give:"#B3C4A3", ship:"#D9A79E", learn:"#E2B88C", init:"#F6F3EC"};
-const hash = s => { const r = rng(s); return Array.from({length:7}, () => "0123456789abcdef"[Math.floor(r()*16)]).join(""); };
-(function glog(){
-  const box = $("#glog");
-  // lane assignment for side branches
-  const laneEnds = []; const lane = new Map();
-  [...LOG].sort((a, b) => a[0] - b[0]).forEach(e => {
-    if (!e[4]) return;
-    let i = laneEnds.findIndex(end => end < e[0]);
-    if (i < 0) { i = laneEnds.length; laneEnds.push(0); }
-    laneEnds[i] = e[5] ?? Infinity; lane.set(e, i + 1);
-  });
-  const LW = 16, gw = 12 + laneEnds.length*LW + 18;
-  const rows = [...LOG].sort((a, b) => b[0] - a[0]);
-  box.innerHTML = `<svg id="gsvg" width="${gw}"></svg>` + rows.map(e => {
-    const [y, ty, org, msg, , , ref] = e;
-    const refs = ref ? `<span class="ref">(${ref.startsWith("HEAD") ? `<i>${ref}</i>` : `<b>${ref}</b>`})</span>` : "";
-    return `<div class="grow" style="padding-left:${gw}px"><span class="h">${hash(org)}</span> <span class="y">${Math.floor(y)}</span> <span class="ty ${ty}">${ty}</span>(<span class="org">${esc(org)}</span>): ${esc(msg)}${refs}</div>`;
-  }).join("");
-  const draw = () => {
-    const els = [...box.querySelectorAll(".grow")];
-    const ys = els.map(el => el.offsetTop + 16);
-    const svg = $("#gsvg"); const H = box.clientHeight; svg.setAttribute("height", H);
-    const X = l => 6 + l*LW;
-    const yAt = d => {
-      if (d >= rows[0][0]) return ys[0] - 14;
-      for (let i = 0; i < rows.length - 1; i++) if (d <= rows[i][0] && d >= rows[i+1][0]) {
-        const f = (rows[i][0] - d)/(rows[i][0] - rows[i+1][0] || 1); return ys[i] + f*(ys[i+1] - ys[i]);
-      }
-      return ys[ys.length - 1];
-    };
-    let s = `<line x1="${X(0)}" y1="${ys[0]}" x2="${X(0)}" y2="${ys[ys.length - 1]}" stroke="#F6F3EC" stroke-width="2"/>`;
-    rows.forEach((e, i) => {
-      const l = lane.get(e); if (!l) return;
-      const x = X(l), y0 = ys[i], col = TYCOL[e[1]];
-      const top = e[5] == null ? 0 : yAt(e[5]);
-      s += `<path d="M${X(0)} ${y0 + 18} C${X(0)} ${y0 + 6} ${x} ${y0 + 12} ${x} ${y0}" stroke="${col}" stroke-width="2" fill="none"/>`;
-      if (e[5] == null) s += `<line x1="${x}" y1="${y0}" x2="${x}" y2="${top}" stroke="${col}" stroke-width="2" stroke-dasharray="${0}"/>`;
-      else s += `<path d="M${x} ${y0} L${x} ${top + 12} C${x} ${top + 2} ${X(0)} ${top + 6} ${X(0)} ${top - 6}" stroke="${col}" stroke-width="2" fill="none"/>`;
-    });
-    rows.forEach((e, i) => {
-      const l = lane.get(e) || 0, col = TYCOL[e[1]];
-      s += `<circle cx="${X(l)}" cy="${ys[i]}" r="${e[6] && e[6].startsWith("HEAD") ? 6 : 4.5}" fill="${l ? col : "#180F06"}" stroke="${col}" stroke-width="2.5"/>`;
-    });
-    svg.innerHTML = s;
-  };
-  draw();
-  let t; addEventListener("resize", () => { clearTimeout(t); t = setTimeout(draw, 120); });
-  document.fonts && document.fonts.ready.then(draw);
-})();
-
-/* ---------- §05 periodic table ---------- */
-const ELEMENTS = [
-  ["Pl","Plain language","core","The core. Every project starts by cutting a message down until it lands on the first read."],
-  ["Na","Narrative","strategy","Brand narratives for eimmigration; organizational storytelling at Donors of Color Network."],
-  ["Br","Brand","strategy","Brand strategy and visual identity for four Donors of Color Network brands."],
-  ["Ms","Messaging","strategy","Key messaging at DOCN and for 25+ GG+A clients; Do Better Comms' Message Makeover."],
-  ["Cm","Campaigns","strategy","The Climate Funders Justice Pledge; eimmigration digital campaigns; SmithBucklin donor campaigns."],
-  ["Tl","Thought leadership","strategy","Thought leadership for DOCN executives."],
-  ["Ad","Advocacy","community","Customer advocacy at eimmigration; civic engagement with APIA Vote."],
-  ["Ab","Advisory boards","community","Customer advisory board programming at eimmigration."],
-  ["Rf","Referrals","community","Built eimmigration's customer referral program."],
-  ["Co","Coalitions","community","Coalitions and funder partnerships at Donors of Color Network."],
-  ["Ev","Events","community","eimmigration field events; $400K in SmithBucklin event budgets; the Dear Crisis climate-grief gathering."],
-  ["Pr","Press","channel","Placements in Forbes, Candid, Nonprofit Quarterly, and PND at DOCN; press lists at EPIC."],
-  ["Sm","Social","channel","Social media manager at Hola Columbus."],
-  ["Fm","Field marketing","channel","Regional and national field marketing, sponsorships, and industry events at eimmigration."],
-  ["Ct","Content","channel","Campaign content for the Climate Funders Justice Pledge."],
-  ["Rv","Reviews","channel","A multi-platform customer review program at eimmigration."],
-  ["Sv","Surveys","research","Survey research on campaign performance and messaging for GG+A clients."],
-  ["Dd","Donor data","research","Donor analytics at GG+A; data-driven outreach with TargetSmart and Blackbaud at DOCN."],
-  ["Rp","Reports","research","GG+A's industry-wide report on COVID-19's impact on fundraising."],
-  ["Mt","Media tracking","research","Built press lists and tracked coverage at EPIC, UChicago."],
-  ["Hs","HubSpot","tool","In the toolkit."],["Sf","Salesforce","tool","In the toolkit."],["Re","Raiser's Edge","tool","In the toolkit."],
-  ["Ea","EveryAction","tool","In the toolkit."],["Bb","Blackbaud","tool","In the toolkit. Used for outreach at DOCN."],["Ts","TargetSmart","tool","In the toolkit. Used for outreach at DOCN."],
-  ["Qx","Qualtrics","tool","In the toolkit."],["As","Adobe Suite","tool","In the toolkit."],["Cv","Canva","tool","In the toolkit."],
-  ["Wp","WordPress","tool","In the toolkit."],["Ga","Google Analytics","tool","In the toolkit."],["Mc","Mailchimp","tool","In the toolkit."],
-  ["An","Asana","tool","In the toolkit."],["Cu","ClickUp","tool","In the toolkit."],
-];
-const CATNAME = {core:"core", strategy:"strategy", community:"community", channel:"channel", research:"research", tool:"tool"};
-(function table(){
-  const t = $("#ptable"), d = $("#eldetail");
-  t.innerHTML = ELEMENTS.map(([s, n, c], i) => `<button class="el cat-${c}${c === "core" ? " core on" : ""}" data-i="${i}" data-c="${c}"><span class="z">${String(i + 1).padStart(3, "0")}</span><span class="s">${s}</span><span class="nm">${n}</span></button>`).join("");
-  const show = i => {
-    const [s, n, c, w] = ELEMENTS[i];
-    t.querySelectorAll(".el").forEach(el => el.classList.toggle("on", +el.dataset.i === i));
-    d.className = "eldetail cat-" + c;
-    d.innerHTML = `<div class="big">${s}</div><div><h4>${esc(n)}</h4><p>element ${String(i + 1).padStart(3, "0")} · ${CATNAME[c]}<br>${esc(w)}</p></div>`;
-  };
-  t.addEventListener("mouseover", e => { const el = e.target.closest(".el"); if (el) show(+el.dataset.i); });
-  t.addEventListener("focusin", e => { const el = e.target.closest(".el"); if (el) show(+el.dataset.i); });
-  t.addEventListener("click", e => { const el = e.target.closest(".el"); if (el) show(+el.dataset.i); });
-  $("#filters").addEventListener("click", e => {
-    const b = e.target.closest("button"); if (!b) return;
-    document.querySelectorAll("#filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
-    const f = b.dataset.f;
-    t.querySelectorAll(".el").forEach(el => el.classList.toggle("dim", f !== "all" && el.dataset.c !== f && el.dataset.c !== "core"));
-  });
-})();
-
-/* ---------- §06 shell ---------- */
-const LINKS = {
-  resume:["../creative-resume/viv-tran-resume.pdf","resume.pdf"], cv:["../spreadsheet-resume/viv-tran-cv.xlsx","cv.xlsx"],
-  "one-pager":["../consulting-one-pager/do-better-comms-one-pager.pdf","do-better-comms.pdf"], board:["../experience-board/index.html","experience-board/"],
-  linkedin:["https://www.linkedin.com/in/viv-tran/","linkedin.com/in/viv-tran"],
-};
-(function shell(){
-  const out = $("#shOut"), inp = $("#shIn"), hist = []; let hi = 0;
-  const print = (html, cls = "") => { out.insertAdjacentHTML("beforeend", `<div class="${cls}">${html}</div>`); };
-  const link = k => `<a href="${LINKS[k][0]}">${LINKS[k][1]}</a>`;
-  const CMDS = {
-    help: () => print("commands: whoami · now · ls · open &lt;resume|cv|one-pager|board|linkedin&gt; · decompile &lt;text&gt; · values · contact · clear", "dim"),
-    whoami: () => print("Viv Tran (she/her). Narrative strategist and community mobilizer. Brooklyn, NY."),
-    now: () => print("Marketing &amp; Communications Manager @ eimmigration\nFounder @ Do Better Comms"),
-    ls: () => print(Object.keys(LINKS).map(link).join("    ")),
-    open: a => { const k = (a[0] || "").toLowerCase(); if (!LINKS[k]) return print(`open: which one? ${Object.keys(LINKS).join(" | ")}`, "err"); print(`opening ${link(k)} …`, "ok"); setTimeout(() => location.href = LINKS[k][0], 500); },
-    decompile: a => { const tx = a.join(" "); if (!tx) return print("usage: decompile &lt;text&gt;", "err"); const s = score(tx), n = [...tx.matchAll(JRE)].length; print(`reading ease ${s.ease.toFixed(0)} (${band(s.ease)}) · grade ${Math.max(0, s.grade).toFixed(1)} · jargon hits ${n}`, s.ease >= 60 ? "ok" : "err"); },
-    values: () => print("people-first · clarity · community · evidence · responsibility · grounding"),
-    contact: () => print(`best channel: ${link("linkedin")}`),
-    clear: () => out.innerHTML = "",
-    sudo: a => a.join(" ").toLowerCase() === "hire viv" ? print(`[sudo] permission granted. next step: ${link("linkedin")}`, "ok") : print("sudo: nice try. (hint: sudo hire viv)", "err"),
-    man: () => { print("you're reading it ↑", "dim"); },
-  };
-  inp.addEventListener("keydown", e => {
-    if (e.key === "ArrowUp") { if (hi > 0) inp.value = hist[--hi]; e.preventDefault(); return; }
-    if (e.key === "ArrowDown") { inp.value = hi < hist.length - 1 ? hist[++hi] : (hi = hist.length, ""); e.preventDefault(); return; }
-    if (e.key !== "Enter") return;
-    const raw = inp.value.trim(); inp.value = "";
-    print(`<span style="color:#B3C4A3">viv@lab:~$</span> ${esc(raw)}`);
-    if (!raw) return;
-    hist.push(raw); hi = hist.length;
-    const [c, ...a] = raw.split(/\s+/);
-    (CMDS[c.toLowerCase()] || (() => print(`command not found: ${esc(c)} · try help`, "err")))(a);
-    out.lastElementChild && out.lastElementChild.scrollIntoView({block:"nearest"});
-  });
-  $("#manTerm").addEventListener("click", e => { if (!e.target.closest("a") && !getSelection().toString()) inp.focus({preventScroll:true}); });
-})();
-
-/* ---------- command palette ---------- */
-(function palette(){
-  const ITEMS = [
-    ["§00 signal / fig. 1", "#top", "top hero 3d network"], ["§01 readout", "#readout", "stats numbers metrics"],
-    ["§02 jargon decompiler", "#decompiler", "readability flesch jargon mission"], ["§03 case files", "#cases", "work projects case studies"],
-    ["§04 git log --career", "#log", "experience timeline history git"], ["§05 periodic table", "#elements", "skills tools elements"],
-    ["§06 man viv", "#man", "approach values terminal shell"], ["§07 ls -la ~/portfolio", "#appendix", "files appendix"],
-    ["§08 contact", "#contact", "contact email hire"],
-    ["open resume.pdf", LINKS.resume[0], "resume cv pdf"], ["open cv.xlsx", LINKS.cv[0], "spreadsheet cv excel"],
-    ["open do-better-comms.pdf", LINKS["one-pager"][0], "consulting one-pager agency"], ["open experience-board/", LINKS.board[0], "board visual"],
-    ["open linkedin ↗", LINKS.linkedin[0], "linkedin contact message"],
-  ];
-  const pal = $("#pal"), inp = $("#palIn"), list = $("#palList");
-  let shown = [], act = 0, lastFocus = null;
-  const render = () => {
-    const q = inp.value.toLowerCase().trim();
-    shown = ITEMS.filter(([l, , k]) => !q || (l + " " + k).toLowerCase().includes(q));
-    act = Math.min(act, Math.max(0, shown.length - 1));
-    list.innerHTML = shown.map(([l, h], i) => `<li class="${i === act ? "act" : ""}" data-i="${i}">${esc(l)}<span>${h.startsWith("#") ? "jump" : "open"}</span></li>`).join("") || `<li><span>no matches</span></li>`;
-  };
-  const go = i => { const it = shown[i]; if (!it) return; close(); if (it[1].startsWith("#")) document.querySelector(it[1]).scrollIntoView({behavior: reduce ? "auto" : "smooth"}); else location.href = it[1]; };
-  const open = () => { lastFocus = document.activeElement; pal.classList.add("open"); inp.value = ""; act = 0; render(); inp.focus(); };
-  const close = () => { pal.classList.remove("open"); lastFocus && lastFocus.focus && lastFocus.focus({preventScroll:true}); };
-  $("#kbtn").onclick = open;
-  addEventListener("keydown", e => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); pal.classList.contains("open") ? close() : open(); }
-    else if (e.key === "Escape" && pal.classList.contains("open")) close();
-  });
-  inp.addEventListener("input", () => { act = 0; render(); });
-  inp.addEventListener("keydown", e => {
-    if (e.key === "ArrowDown") { act = Math.min(act + 1, shown.length - 1); render(); e.preventDefault(); }
-    else if (e.key === "ArrowUp") { act = Math.max(act - 1, 0); render(); e.preventDefault(); }
-    else if (e.key === "Enter") go(act);
-  });
-  list.addEventListener("click", e => { const li = e.target.closest("li[data-i]"); if (li) go(+li.dataset.i); });
-  pal.addEventListener("click", e => { if (e.target === pal) close(); });
-})();
-
-/* ---------- cursor coordinates ---------- */
-const coords = $("#coords");
-addEventListener("pointermove", e => {
-  coords.style.left = e.clientX + "px"; coords.style.top = e.clientY + "px";
-  coords.textContent = `x:${String(Math.round(e.pageX)).padStart(4, "0")} y:${String(Math.round(e.pageY)).padStart(4, "0")}`;
-}, {passive:true});
-
-console.log("%cviv.tran/lab", "font:700 20px sans-serif;color:#6E413A", "\nhi, fellow nerd. the source is on github: viviane319/master-portfolio");
+decompile();
 </script>
 </body>
 </html>
