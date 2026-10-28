@@ -17,6 +17,16 @@ Narrative strategist and community mobilizer, Brooklyn, NY. Five ways into the s
 
 ![Experience board](experience-board/experience-board.png)
 
+## Palette
+
+Every piece uses the Altarism brand colors, plus one complementary green:
+
+| Altar Cream | Ember Black | Oxblood Clay | Marigold Amber | Dusk Plum | Incense Ash | Tulsi Green (added) |
+|---|---|---|---|---|---|---|
+| `#F6F3EC` | `#180F06` | `#6E413A` | `#B77C45` | `#755367` | `#AAA7A1` | `#566B47` |
+
+Pages with dark panels also use light tints of these same colors so text stays readable.
+
 ## Photos and artifacts
 
 - **Headshot:** add `assets/headshot.jpg`. The microsite, creative resume and experience board all pick it up automatically (they show a "VT" monogram until then).
