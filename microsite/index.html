@@ -260,7 +260,9 @@ footer .key:hover{background:var(--ox-l);color:var(--ink);border-color:var(--ox-
   .cases{grid-template-columns:1fr}
 }
 @media (max-width:720px){
-  .sec{grid-template-columns:1fr;gap:12px}
+  .sec{grid-template-columns:minmax(0,1fr);gap:12px}
+  .grow .ref{white-space:normal}
+  .glog{overflow-wrap:anywhere}
   .margin p{max-width:none}
   section{padding:64px 0}
   .bar-r #clock{display:none}
