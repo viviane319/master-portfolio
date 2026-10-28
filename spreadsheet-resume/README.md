@@ -1,11 +1,7 @@
 # Spreadsheet Resume
 
-My full work history as data: the source of truth the other pieces draw from.
+[`viv-tran-cv.xlsx`](viv-tran-cv.xlsx): a tabbed, spreadsheet-style CV (after Mindy Seu's CV-in-a-sheet). Tabs: Intro · About · Work · Consulting · Fellowships, Leadership · Events & Talks · Impact & Press · Skills & Tools · Education.
 
-**Drop in:** `.xlsx`, `.csv` or a link to a Google Sheet.
+To share it as a Google Sheet, upload the `.xlsx` to Google Drive and choose **Open with → Google Sheets**.
 
-Suggested tabs/columns:
-- **Roles:** company, title, start, end, location, team size, summary
-- **Projects:** project, role, client/company, year, outcome, metrics
-- **Skills:** skill, category, level, years, where used
-- **Education & certifications:** name, institution, year
+To change the content, edit the lists at the top of [`build_sheet.py`](build_sheet.py) and run `python build_sheet.py` (needs `pip install openpyxl`).
