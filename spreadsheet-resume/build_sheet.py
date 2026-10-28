@@ -159,9 +159,13 @@ EDUCATION = [
 
 # ---------------------------------------------------------------- styling
 ARIAL = "Arial"
-BLACK = PatternFill("solid", fgColor="000000")
-CREAM = PatternFill("solid", fgColor="FFF2CC")
-THIN = Side(style="thin", color="000000")
+# Altarism palette + Tulsi Green
+EMBER, CREAM_HEX, OXBLOOD, AMBER, PLUM, ASH, TULSI = "180F06", "F6F3EC", "6E413A", "B77C45", "755367", "AAA7A1", "566B47"
+BLACK = PatternFill("solid", fgColor=EMBER)
+CREAM = PatternFill("solid", fgColor=CREAM_HEX)
+OX_FILL = PatternFill("solid", fgColor=OXBLOOD)
+TAB_COLORS = [OXBLOOD, PLUM, AMBER, TULSI, ASH, EMBER, OXBLOOD, PLUM, AMBER]
+THIN = Side(style="thin", color=EMBER)
 TOP = Border(top=THIN)
 WRAP = Alignment(wrap_text=True, vertical="top")
 WIDTHS = {"A": 34, "B": 38, "C": 13, "D": 22, "E": 70, "F": 30}
@@ -169,10 +173,11 @@ WIDTHS = {"A": 34, "B": 38, "C": 13, "D": 22, "E": 70, "F": 30}
 
 def sheet(wb, title, heading):
     ws = wb.create_sheet(title)
+    ws.sheet_properties.tabColor = TAB_COLORS[len(wb.sheetnames) - 1]
     for col, w in WIDTHS.items():
         ws.column_dimensions[col].width = w
     ws["A1"] = heading
-    ws["A1"].font = Font(name=ARIAL, bold=True, size=11)
+    ws["A1"].font = Font(name=ARIAL, bold=True, size=11, color=OXBLOOD)
     ws.merge_cells("A1:F1")
     ws["A1"].border = Border(top=THIN, bottom=THIN, left=THIN, right=THIN)
     ws.sheet_view.showGridLines = True
@@ -184,13 +189,13 @@ def band(ws, row, text):
     ws.cell(row, 1, text)
     for c in range(1, 7):
         ws.cell(row, c).fill = BLACK
-        ws.cell(row, c).font = Font(name=ARIAL, bold=True, color="FFFFFF")
+        ws.cell(row, c).font = Font(name=ARIAL, bold=True, color=CREAM_HEX)
     return row + 1
 
 
 def put(ws, row, col, value, bold=False, italic=False, fill=None, link=False):
     cell = ws.cell(row, col, value)
-    cell.font = Font(name=ARIAL, bold=bold, italic=italic, underline="single" if link else None)
+    cell.font = Font(name=ARIAL, bold=bold, italic=italic, underline="single" if link else None, color=PLUM if link else EMBER)
     cell.alignment = WRAP
     if link:
         cell.hyperlink = value
@@ -223,8 +228,9 @@ intro.title = "Intro"
 intro.column_dimensions["A"].width = 110
 intro.row_dimensions[1].height = 360
 intro["A1"] = f"To view {NAME}'s CV, please click the tabs below:"
-intro["A1"].font = Font(name=ARIAL, size=20)
-intro["A1"].fill = CREAM
+intro["A1"].font = Font(name=ARIAL, size=20, color=CREAM_HEX)
+intro["A1"].fill = OX_FILL
+intro.sheet_properties.tabColor = TAB_COLORS[0]
 intro["A1"].alignment = Alignment(horizontal="center", vertical="center")
 intro.sheet_view.showGridLines = False
 
