@@ -1,23 +1,35 @@
-# Master Portfolio
+# Master Portfolio: Viv Tran
 
-One home for all of my professional storytelling: five pieces, each in its own folder.
+Narrative strategist and community mobilizer, Brooklyn, NY. Five ways into the same story.
 
-| # | Piece | Folder | What it is |
-|---|-------|--------|------------|
-| 1 | Spreadsheet resume | [`spreadsheet-resume/`](spreadsheet-resume/) | Every role, project and skill as structured, sortable data |
-| 2 | Microsite | [`microsite/`](microsite/) | A small personal website (can be served with GitHub Pages) |
-| 3 | Creative resume | [`creative-resume/`](creative-resume/) | A designed, visual one- or two-page resume |
-| 4 | Consulting one-pager | [`consulting-one-pager/`](consulting-one-pager/) | What I offer, who it's for, how to engage |
-| 5 | Experience board | [`experience-board/`](experience-board/) | A visual map of all my professional experiences so far |
+| # | Piece | Open it | Source |
+|---|-------|---------|--------|
+| 1 | Spreadsheet resume | [`viv-tran-cv.xlsx`](spreadsheet-resume/viv-tran-cv.xlsx) | [`build_sheet.py`](spreadsheet-resume/build_sheet.py) |
+| 2 | Microsite | [`microsite/index.html`](microsite/index.html) | same file |
+| 3 | Creative resume | [`viv-tran-resume.pdf`](creative-resume/viv-tran-resume.pdf) | [`resume.html`](creative-resume/resume.html) |
+| 4 | Consulting one-pager (Do Better Comms) | [`do-better-comms-one-pager.pdf`](consulting-one-pager/do-better-comms-one-pager.pdf) | [`one-pager.html`](consulting-one-pager/one-pager.html) |
+| 5 | Experience board | [`experience-board.png`](experience-board/experience-board.png) | [`experience-board/index.html`](experience-board/index.html) |
 
-## Shared assets
+<p>
+  <img src="creative-resume/preview.png" width="32%" alt="Creative resume">
+  <img src="consulting-one-pager/preview.png" width="32%" alt="Consulting one-pager">
+</p>
 
-Put headshots, logos, brand colors and fonts used across pieces in [`assets/`](assets/).
+![Experience board](experience-board/experience-board.png)
 
-## Status
+## Photos and artifacts
 
-- [ ] Spreadsheet resume
-- [ ] Microsite
-- [ ] Creative resume
-- [ ] Consulting one-pager
-- [ ] Experience board
+- **Headshot:** add `assets/headshot.jpg`. The microsite, creative resume and experience board all pick it up automatically (they show a "VT" monogram until then).
+- **Board artifacts:** drop real images into `experience-board/images/` using the file names listed in [its README](experience-board/README.md); each one replaces its colored card.
+
+## Going live
+
+With GitHub Pages turned on (Settings → Pages → Deploy from branch `main`, folder `/ (root)`), the root `index.html` forwards visitors to the microsite, and everything else is linkable under the same address.
+
+## Regenerating the PDFs
+
+The PDFs are printed from their HTML sources with Chrome:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --no-pdf-header-footer --virtual-time-budget=5000 --print-to-pdf=creative-resume/viv-tran-resume.pdf creative-resume/resume.html
+```
