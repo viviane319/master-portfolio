@@ -6,23 +6,23 @@
 <title>Rooted in Community</title>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;600;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#10201a;--lotus:#ef8ba5;--saffron:#f2c142;--sage:#9cc7a8;--plum:#5b2a86;--orange:#f08a3e;--teal:#1f8a86;--paper:#fffdf8;--grey:#a8a8a8}
+:root{/* Altarism palette + Tulsi Green */--ink:#180F06;--cream:#F6F3EC;--ox:#6E413A;--amber:#B77C45;--plum:#755367;--ash:#AAA7A1;--tulsi:#566B47;--tulsi-l:#B3C4A3;--paper:#F6F3EC;--mist:#EAE6DE;--fog:#DFDCD5}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{background:#e9e6df}
-body{font:12px/1.4 "Inter",sans-serif;color:#111;overflow-x:hidden}
-#stage{width:2200px;height:1240px;transform-origin:0 0;position:relative;background:#fff radial-gradient(#c9c9c9 1.2px,transparent 1.3px) 0 0/22px 22px}
+html,body{background:var(--mist)}
+body{font:12px/1.4 "Inter",sans-serif;color:var(--ink);overflow-x:hidden}
+#stage{width:2200px;height:1240px;transform-origin:0 0;position:relative;background:var(--cream) radial-gradient(var(--ash) 1.2px,transparent 1.3px) 0 0/22px 22px}
 
 /* left column */
-.left{position:absolute;left:0;top:0;width:420px;height:100%;background:#fff}
-.lbl{background:#a6a6a6;color:#fff;font:800 19px "Inter";letter-spacing:.04em;text-align:center;padding:20px 0}
-.val{background:#f5f5f5;text-align:center;font:800 15px "Inter";padding:30px 0}
-.about{background:#f5f5f5;padding:34px 22px 30px;font:800 14.5px/1.45 "Inter";text-transform:uppercase}
-.arch{position:absolute;left:44px;top:560px;width:300px;height:620px;border-radius:150px 150px 0 0;overflow:hidden;background:linear-gradient(160deg,var(--saffron),var(--lotus) 55%,var(--plum));display:grid;place-items:center}
+.left{position:absolute;left:0;top:0;width:420px;height:100%;background:var(--cream)}
+.lbl{background:var(--ox);color:var(--cream);font:800 19px "Inter";letter-spacing:.04em;text-align:center;padding:20px 0}
+.val{background:var(--mist);text-align:center;font:800 15px "Inter";padding:30px 0}
+.about{background:var(--mist);padding:34px 22px 30px;font:800 14.5px/1.45 "Inter";text-transform:uppercase}
+.arch{position:absolute;left:44px;top:560px;width:300px;height:620px;border-radius:150px 150px 0 0;overflow:hidden;background:linear-gradient(160deg,var(--amber),var(--ox) 55%,var(--plum));display:grid;place-items:center}
 .arch img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.arch span{font:800 120px "Fraunces";color:#fff;opacity:.9}
+.arch span{font:800 120px "Fraunces";color:var(--cream);opacity:.9}
 
 /* header */
-.top{position:absolute;left:430px;top:0;right:24px;height:170px;background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 34px 0 46px;gap:30px}
+.top{position:absolute;left:430px;top:0;right:24px;height:170px;background:var(--ink);color:var(--cream);display:flex;align-items:center;justify-content:space-between;padding:0 34px 0 46px;gap:30px}
 .top h1{font:400 74px/1 "Archivo Black";letter-spacing:.01em;white-space:nowrap}
 .top p{font:500 15.5px/1.38 "Inter";text-align:right;max-width:520px}
 
@@ -31,24 +31,24 @@ body{font:12px/1.4 "Inter",sans-serif;color:#111;overflow-x:hidden}
 .item{position:absolute}
 .tilt-l{transform:rotate(-4deg)} .tilt-r{transform:rotate(3.5deg)} .tilt-s{transform:rotate(-1.5deg)}
 
-.poster{border-radius:4px;box-shadow:0 6px 18px rgba(0,0,0,.18);overflow:hidden;padding:16px;color:#fff}
+.poster{border-radius:4px;box-shadow:0 6px 18px rgba(24,15,6,.18);overflow:hidden;padding:16px;color:var(--cream)}
 .poster img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .poster .k{font:600 10px "Inter";letter-spacing:.16em;text-transform:uppercase;opacity:.85}
 .poster h3{font:800 30px/1 "Fraunces";margin:8px 0}
 .poster p{font-size:11.5px;opacity:.92}
-.caption{background:#d9d9d9;padding:14px 14px;font-size:10.8px;line-height:1.45;color:#222}
-.caption b{color:#000}
-.cloud{background:#fff;border:2px solid #222;border-radius:50%;padding:30px 26px;text-align:center;font-size:11px;line-height:1.4;box-shadow:6px 6px 0 #fff, 6px 6px 0 2px #222}
-.cloud::after{content:"";position:absolute;width:22px;height:22px;border:2px solid #222;border-radius:50%;background:#fff;bottom:-30px;left:40%}
-.oval{border-radius:50%;padding:42px 44px;color:#fff;font-size:11.5px;line-height:1.45;text-align:center;background:radial-gradient(circle at 30% 25%,var(--saffron),var(--orange) 35%,var(--lotus) 60%,var(--plum));display:grid;place-items:center}
+.caption{background:var(--fog);padding:14px 14px;font-size:10.8px;line-height:1.45;color:var(--ink)}
+.caption b{color:var(--ox)}
+.cloud{background:var(--cream);border:2px solid var(--ink);border-radius:50%;padding:30px 26px;text-align:center;font-size:11px;line-height:1.4;box-shadow:6px 6px 0 var(--cream), 6px 6px 0 2px var(--ink)}
+.cloud::after{content:"";position:absolute;width:22px;height:22px;border:2px solid var(--ink);border-radius:50%;background:var(--cream);bottom:-30px;left:40%}
+.oval{border-radius:50%;padding:42px 44px;color:var(--cream);font-size:11.5px;line-height:1.45;text-align:center;background:radial-gradient(circle at 30% 25%,var(--amber),var(--ox) 50%,var(--plum) 75%,var(--ink));display:grid;place-items:center}
 .oval b{font:800 14px "Fraunces"}
-.sticker{white-space:nowrap;font:600 26px/1 "Caveat",cursive;color:var(--ink);background:var(--saffron);padding:6px 14px;border-radius:4px;box-shadow:0 3px 8px rgba(0,0,0,.15)}
-.clip{background:var(--paper);border:1px solid #ddd;box-shadow:0 6px 16px rgba(0,0,0,.14);padding:16px 18px}
-.clip .k{font:600 10px "Inter";letter-spacing:.16em;text-transform:uppercase;color:#777}
+.sticker{white-space:nowrap;font:600 26px/1 "Caveat",cursive;color:var(--ink);background:var(--amber);padding:6px 14px;border-radius:4px;box-shadow:0 3px 8px rgba(24,15,6,.15)}
+.clip{background:var(--paper);border:1px solid var(--fog);box-shadow:0 6px 16px rgba(24,15,6,.14);padding:16px 18px}
+.clip .k{font:600 10px "Inter";letter-spacing:.16em;text-transform:uppercase;color:var(--plum)}
 .clip h3{font:600 22px/1.1 "Fraunces";margin:6px 0}
-.clip p{font-size:11px;color:#444}
+.clip p{font-size:11px;color:var(--ink);opacity:.82}
 .big{font:800 64px/1 "Fraunces"}
-.press span{display:block;font:italic 600 19px/1.3 "Fraunces";border-bottom:1px solid #ddd;padding:3px 0}
+.press span{display:block;font:italic 600 19px/1.3 "Fraunces";border-bottom:1px solid var(--fog);padding:3px 0}
 </style>
 </head>
 <body>
@@ -71,10 +71,10 @@ body{font:12px/1.4 "Inter",sans-serif;color:#111;overflow-x:hidden}
 
     <!-- ERA 1: on air & on the ground -->
     <div class="item sticker tilt-l" style="left:10px;top:4px">2011 – 2015 · Michigan &amp; Ohio</div>
-    <div class="item poster tilt-l" style="left:0;top:58px;width:220px;height:230px;background:linear-gradient(150deg,var(--plum),#2a1450)">
+    <div class="item poster tilt-l" style="left:0;top:58px;width:220px;height:230px;background:linear-gradient(150deg,var(--plum),var(--ink))">
       <div class="k">88.1 WSDP · Plymouth, MI</div><h3>On Air</h3><p>Afternoon DJ and host. Community Focus interviews, The News File, fundraiser concerts and auctions.</p>
       <img src="images/wsdp.jpg" alt="" onerror="this.remove()"></div>
-    <div class="item poster tilt-r" style="left:190px;top:120px;width:200px;height:200px;background:var(--teal)">
+    <div class="item poster tilt-r" style="left:190px;top:120px;width:200px;height:200px;background:var(--tulsi)">
       <div class="k">APIA Vote Michigan</div><h3>Get out the vote</h3><p>Voter drives and leadership workshops in Detroit, 2012. Still volunteering.</p>
       <img src="images/apia-vote.jpg" alt="" onerror="this.remove()"></div>
     <div class="item caption" style="left:0;top:330px;width:250px">My first mic was college radio, and my first campaign was a <b>voter-engagement internship with APIA Vote</b>. At Ohio State I ran social for <b>Hola Columbus</b>, served on <b>TEDxOhioStateUniversity's</b> comms committee (co-designing the 2016 media kit), and stacked up internships in media measurement, news research, and arts marketing.</div>
@@ -82,19 +82,19 @@ body{font:12px/1.4 "Inter",sans-serif;color:#111;overflow-x:hidden}
       <div class="k">GiveBackHack · 2016</div><h3>Project Hygeia</h3><p>CIO on a soap-recycling venture: subscription site plus a hotel partnership.</p></div>
 
     <!-- ERA 2: detour -->
-    <div class="item sticker tilt-r" style="left:30px;top:560px;background:var(--sage)">2016 – 2018 · The detour</div>
+    <div class="item sticker tilt-r" style="left:30px;top:560px;background:var(--tulsi-l)">2016 – 2018 · The detour</div>
     <div class="item clip tilt-s" style="left:0;top:614px;width:210px">
       <div class="k">Cardinal Health · Oracle</div><h3>Learning the corporate side</h3><p>An 8,000-attendee conference, then cloud consulting for C-level execs (104% attainment in FY17 Q2).</p></div>
-    <div class="item poster tilt-r" style="left:220px;top:600px;width:220px;height:250px;background:linear-gradient(160deg,var(--orange),var(--lotus))">
+    <div class="item poster tilt-r" style="left:220px;top:600px;width:220px;height:250px;background:linear-gradient(160deg,var(--amber),var(--ox))">
       <div class="k">Da Nang, Vietnam · 2017</div><h3>The Light House</h3><p>Co-founded a hostel. 200+ bookings in the first month, sold out in week one, built with local community leaders.</p>
       <img src="images/light-house.jpg" alt="" onerror="this.remove()"></div>
     <div class="item cloud" style="left:30px;top:830px;width:230px;position:absolute">Same skills, new stage: lead generation, $10K raised through partnerships with local community leaders, and a budget I owned end to end.</div>
 
     <!-- ERA 3: Chicago -->
-    <div class="item sticker tilt-l" style="left:480px;top:4px;background:var(--lotus)">2018 – 2022 · Chicago</div>
+    <div class="item sticker tilt-l" style="left:480px;top:4px;background:var(--ox);color:var(--cream)">2018 – 2022 · Chicago</div>
     <div class="item clip tilt-r" style="left:470px;top:60px;width:240px">
-      <div class="k">SmithBucklin</div><div class="big" style="color:var(--teal)">$110K</div><p>raised through two annual silent auctions for local charities, plus $72K in ad sales and $400K in event budgets.</p></div>
-    <div class="item poster tilt-l" style="left:480px;top:265px;width:230px;height:250px;background:#1e3a5f">
+      <div class="k">SmithBucklin</div><div class="big" style="color:var(--tulsi)">$110K</div><p>raised through two annual silent auctions for local charities, plus $72K in ad sales and $400K in event budgets.</p></div>
+    <div class="item poster tilt-l" style="left:480px;top:265px;width:230px;height:250px;background:var(--ox)">
       <div class="k">GG+A · 2020</div><h3>COVID-19 &amp; Fundraising</h3><p>Industry-wide survey and data report on the pandemic's impact on giving, for a sector in crisis.</p>
       <img src="images/gga-covid-report.jpg" alt="" onerror="this.remove()"></div>
     <div class="item caption" style="left:470px;top:545px;width:250px">At <b>Grenzebach Glier &amp; Associates</b> I advised <b>25+ nonprofits</b> on campaigns, messaging, and fundraising using their own donor data, and co-developed the firm's <b>DEI strategy</b>: a communications plan, inclusive hiring, a pulse survey, and bias training. Before that, a contract at the <b>Energy Policy Institute at UChicago</b> taught me to turn research into headlines.</div>
@@ -102,8 +102,8 @@ body{font:12px/1.4 "Inter",sans-serif;color:#111;overflow-x:hidden}
       <div class="k">2020 – 2021</div><h3>Chicago Women in Philanthropy</h3><p>Emerging Leader cohort. Plus a year as a UN MGCY campaign ambassador.</p></div>
 
     <!-- ERA 4: DOCN -->
-    <div class="item sticker tilt-r" style="left:760px;top:4px;background:var(--saffron)">2022 – 2025 · Donors of Color Network</div>
-    <div class="item poster tilt-s" style="left:750px;top:60px;width:330px;height:300px;background:linear-gradient(150deg,#0f5132,var(--teal))">
+    <div class="item sticker tilt-r" style="left:760px;top:4px;background:var(--amber)">2022 – 2025 · Donors of Color Network</div>
+    <div class="item poster tilt-s" style="left:750px;top:60px;width:330px;height:300px;background:linear-gradient(150deg,var(--ink),var(--tulsi))">
       <div class="k">Climate Funders Justice Pledge</div><div class="big" style="font-size:86px;margin:10px 0">$120M</div><p style="font-size:13px">moved to BIPOC-led climate groups in two years, by pressing top climate funders to increase their funding to BIPOC-led groups.</p>
       <img src="images/cfjp.jpg" alt="" onerror="this.remove()"></div>
     <div class="item oval" style="left:1090px;top:40px;width:320px;height:230px"><div><b>Four brands, one network.</b><br>As Communications Co-Director I led brand strategy for four DOCN brands: visual identities, storytelling, and key messaging, plus the campaigns, funder partnerships, and coalitions behind them.</div></div>
@@ -111,19 +111,19 @@ body{font:12px/1.4 "Inter",sans-serif;color:#111;overflow-x:hidden}
       <div class="k">Press for the network &amp; its leaders</div>
       <span>Forbes</span><span>Candid</span><span>Nonprofit Quarterly</span><span>Philanthropy News Digest</span></div>
     <div class="item caption" style="left:760px;top:390px;width:300px">I came to DOCN for more value-aligned work, and stayed through a fellowship and a master's. I managed budgets, staff, vendors, and every communications project, and built data-driven campaigns with <b>TargetSmart</b> and <b>Blackbaud</b> to grow donor engagement.</div>
-    <div class="item poster tilt-l" style="left:780px;top:560px;width:250px;height:250px;background:linear-gradient(160deg,#002f6c,#5b2a86)">
+    <div class="item poster tilt-l" style="left:780px;top:560px;width:250px;height:250px;background:linear-gradient(160deg,var(--amber),var(--plum))">
       <div class="k">National Urban Fellows · Class of 2025</div><h3>Georgetown M.P.M.</h3><p>A fully funded master's at the McCourt School, studying philanthropy and global policy while working full time.</p>
       <img src="images/nuf-georgetown.jpg" alt="" onerror="this.remove()"></div>
     <div class="item cloud" style="left:1060px;top:560px;width:280px;position:absolute">Balancing the fellowship, work, and school in a tumultuous political moment challenged me beyond my capacity, and reminded me to lean on community in all the hard things.</div>
 
     <!-- ERA 5: now -->
-    <div class="item sticker tilt-l" style="left:1440px;top:4px;background:var(--sage)">2025 – now · New York</div>
-    <div class="item poster tilt-r" style="left:1430px;top:60px;width:240px;height:240px;background:#f4ead2;color:#161411;border:2px solid #161411">
-      <div class="k" style="color:#7a6a25">Do Better Comms · Founder</div><h3 style="font-family:'Archivo Black';font-weight:400;font-size:28px">Good missions. Better comms.</h3><p>A creative agency making mission-driven messaging accessible, memorable, and undeniable. No jargon, no TL;DR.</p>
+    <div class="item sticker tilt-l" style="left:1440px;top:4px;background:var(--tulsi-l)">2025 – now · New York</div>
+    <div class="item poster tilt-r" style="left:1430px;top:60px;width:240px;height:240px;background:var(--cream);color:var(--ink);border:2px solid var(--ink)">
+      <div class="k" style="color:var(--ox)">Do Better Comms · Founder</div><h3 style="font-family:'Archivo Black';font-weight:400;font-size:28px">Good missions. Better comms.</h3><p>A creative agency making mission-driven messaging accessible, memorable, and undeniable. No jargon, no TL;DR.</p>
       <img src="images/do-better-comms.jpg" alt="" onerror="this.remove()"></div>
     <div class="item clip tilt-l" style="left:1420px;top:330px;width:250px">
       <div class="k">eimmigration · Marketing &amp; Comms Manager</div><h3>Showing up for the lawyers who show up</h3><p>Customer referral program, advisory board, events, field marketing, and a review program activating immigration lawyers as advocates.</p></div>
-    <div class="item poster tilt-s" style="left:1440px;top:540px;width:230px;height:240px;background:linear-gradient(170deg,#3b5d3f,#1b2f22)">
+    <div class="item poster tilt-s" style="left:1440px;top:540px;width:230px;height:240px;background:linear-gradient(170deg,var(--ox),var(--ink))">
       <div class="k">NY Climate Week · Sep 2026</div><h3>Dear Crisis, Sincerely… Grief</h3><p>Co-hosted with Kayla Palisoc: an evening of altar-making and reflection to sit with climate grief.</p>
       <img src="images/dear-crisis.jpg" alt="" onerror="this.remove()"></div>
     <div class="item caption" style="left:1420px;top:810px;width:260px">Trained in <b>Eastern massage, meditation, and altar building</b>, I bring those practices into the work: holding space, centering people, and asking what our grief, and our hope, ask us to protect.</div>
