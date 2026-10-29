@@ -17,15 +17,24 @@ Narrative strategist and community mobilizer, Brooklyn, NY. Five ways into the s
 
 ![Experience board](experience-board/experience-board.png)
 
-## Palette
+## Palette and type
 
-Every piece uses the Altarism brand colors, plus one complementary green:
+The microsite, creative resume and consulting one-pager use the **Altar Style Guide** palette, set on warm paper (`#FBF7F1`) with slate ink (`#1F2B38`):
 
-| Altar Cream | Ember Black | Oxblood Clay | Marigold Amber | Dusk Plum | Incense Ash | Tulsi Green (added) |
+| Orchid | Marigold | Sage | Slate | Plum |
+|---|---|---|---|---|
+| `#EFA4D3` | `#F4B763` | `#BACFAB` | `#455F76` | `#896781` |
+
+They share three typefaces:
+- **Fraunces** for headings
+- **Instrument Sans** for body text
+- **JetBrains Mono** for labels
+
+The experience board and spreadsheet CV still use the earlier Altarism palette:
+
+| Altar Cream | Ember Black | Oxblood Clay | Marigold Amber | Dusk Plum | Incense Ash | Tulsi Green |
 |---|---|---|---|---|---|---|
 | `#F6F3EC` | `#180F06` | `#6E413A` | `#B77C45` | `#755367` | `#AAA7A1` | `#566B47` |
-
-Pages with dark panels also use light tints of these same colors so text stays readable.
 
 ## Photos and artifacts
 
