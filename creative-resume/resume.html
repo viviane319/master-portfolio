@@ -3,50 +3,52 @@
 <head>
 <meta charset="utf-8">
 <title>Viv Tran Resume</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 @page{size:8.5in 11in;margin:0}
-:root{/* Altarism palette + Tulsi Green */--ink:#180F06;--cream:#F6F3EC;--ox:#6E413A;--amber:#B77C45;--plum:#755367;--ash:#AAA7A1;--tulsi:#566B47;--tulsi-l:#B3C4A3;--muted:rgba(24,15,6,.66)}
+:root{/* Altar Style Guide palette, same tokens as the microsite */--orchid:#EFA4D3;--marigold:#F4B763;--sage:#BACFAB;--slate:#455F76;--plum:#896781;
+  --paper:#FBF7F1;--ink:#1F2B38;--muted:#5A6676;--rule:rgba(31,43,56,.16);--plum-ink:#6B4C64;--slate-deep:#2C3E50;
+  --serif:"Fraunces",Georgia,serif;--sans:"Instrument Sans",sans-serif;--mono:"JetBrains Mono",monospace}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:8.5in;height:11in}
-body{font:9.1pt/1.42 "Inter",sans-serif;color:var(--ink);background:var(--cream);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font:8.85pt/1.4 var(--sans);color:var(--ink);background:var(--paper);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .page{display:grid;grid-template-columns:2.55in 1fr;height:11in;overflow:hidden}
 
-aside{background:var(--ink);color:var(--cream);padding:.4in .3in .3in .38in;position:relative;overflow:hidden}
-aside::before{content:"";position:absolute;width:3.2in;height:3.2in;border-radius:50%;background:radial-gradient(circle at 30% 30%,var(--amber),var(--plum) 60%,transparent 61%);top:-1.55in;left:-1.1in;opacity:.95}
-.photo{position:relative;width:1.15in;height:1.15in;border-radius:50%;border:3px solid var(--cream);object-fit:cover;background:var(--tulsi-l);display:grid;place-items:center;font:600 30pt "Fraunces",serif;color:var(--ink);margin:.38in 0 .1in}
-aside h3{font:600 7.5pt "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin:.15in 0 .06in}
-aside p,aside li{font-size:8.4pt;color:rgba(246,243,236,.84)}
+aside{background:var(--slate-deep);color:var(--paper);padding:.4in .3in .3in .38in;position:relative;overflow:hidden}
+aside::before{content:"";position:absolute;width:1.5in;height:1.4in;border-radius:.75in .75in 0 0;background:var(--plum);top:.6in;left:.205in}
+.photo{position:relative;width:1.15in;height:1.15in;border-radius:50%;border:3px solid var(--paper);object-fit:cover;background:var(--sage);display:grid;place-items:center;font:400 30pt var(--serif);color:var(--ink);margin:.38in 0 .1in;z-index:1}
+aside h3{font:500 7pt var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--marigold);margin:.15in 0 .06in}
+aside p,aside li{font-size:8.4pt;color:rgba(251,247,241,.84)}
 aside ul{list-style:none}
 aside li{margin-bottom:.05in}
-aside li b{color:var(--cream);font-weight:600;display:block}
-.pills span{display:inline-block;border:1px solid rgba(170,167,161,.5);border-radius:99px;padding:1px 7px;margin:0 3px 4px 0;font-size:7.6pt;color:rgba(246,243,236,.84)}
+aside li b{color:var(--paper);font-weight:600;display:block}
+.pills span{display:inline-block;border:1px solid rgba(251,247,241,.35);padding:1px 7px;margin:0 3px 4px 0;font-size:7.6pt;color:rgba(251,247,241,.88)}
 
 main{padding:.5in .5in .4in .42in;display:flex;flex-direction:column}
-.name{font:800 46pt/0.92 "Fraunces",serif;letter-spacing:-.02em}
-.name em{font-style:italic;font-weight:600;color:var(--ox)}
-.title{font:500 9pt "Inter";letter-spacing:.2em;text-transform:uppercase;margin:.12in 0 .16in;color:var(--muted)}
-.intro{font:400 12pt/1.38 "Fraunces",serif;max-width:5in}
-.intro em{background:linear-gradient(transparent 60%,rgba(183,124,69,.35) 60%);font-style:italic}
+.name{font:400 46pt/0.92 var(--serif);letter-spacing:-.025em}
+.name em{font-style:italic;font-weight:300;color:var(--plum-ink)}
+.title{font:500 7.8pt var(--mono);letter-spacing:.14em;text-transform:uppercase;margin:.14in 0 .16in;color:var(--plum-ink)}
+.intro{font:400 12pt/1.38 var(--serif);max-width:5in}
+.intro em{background:linear-gradient(transparent 58%,var(--orchid) 58%);font-style:italic}
 
-.impact{display:grid;grid-template-columns:repeat(4,1fr);gap:.1in;margin:.22in 0 .2in}
-.impact div{border-top:2.5px solid var(--ink);padding-top:.05in}
-.impact b{display:block;font:800 20pt/1 "Fraunces",serif;color:var(--ox)}
-.impact div:nth-child(2) b{color:var(--amber)}
-.impact div:nth-child(3) b{color:var(--tulsi)}
-.impact div:nth-child(4) b{color:var(--plum)}
+.impact{display:grid;grid-template-columns:repeat(4,1fr);gap:.1in;margin:.2in 0 .18in}
+.impact div{border-top:4px solid var(--orchid);padding-top:.06in}
+.impact div:nth-child(2){border-color:var(--marigold)}
+.impact div:nth-child(3){border-color:var(--sage)}
+.impact div:nth-child(4){border-color:var(--plum)}
+.impact b{display:block;font:300 22pt/1 var(--serif);color:var(--ink);letter-spacing:-.02em}
 .impact span{font-size:7.6pt;color:var(--muted);line-height:1.3;display:block;margin-top:3px}
 
-h2{font:600 7.5pt "Inter";letter-spacing:.18em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin:.04in 0 .1in}
+h2{font:500 7pt var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--plum-ink);display:flex;align-items:center;gap:8px;margin:.04in 0 .1in}
 h2::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.25}
-.job{display:grid;grid-template-columns:.62in 1fr;gap:.12in;margin-bottom:.12in}
-.when{font:600 7.6pt "Inter";color:var(--muted);padding-top:2px}
-.job h4{font:600 11pt/1.2 "Fraunces",serif}
-.job h4 span{font:italic 400 9.5pt "Fraunces",serif;color:var(--muted)}
+.job{display:grid;grid-template-columns:.62in 1fr;gap:.12in;margin-bottom:.1in}
+.when{font:500 7pt var(--mono);color:var(--muted);padding-top:3px}
+.job h4{font:500 11pt/1.2 var(--serif)}
+.job h4 span{font:italic 300 9.5pt var(--serif);color:var(--muted)}
 .job ul{margin:.03in 0 0 .13in}
 .job li{margin-bottom:1.5px}
-.job li::marker{color:var(--amber)}
-.early{font-size:8.3pt;color:var(--muted);margin-top:auto;border-top:1px dashed var(--ash);padding-top:.08in}
+.job li::marker{color:var(--plum)}
+.early{font-size:8.3pt;color:var(--muted);margin-top:auto;border-top:1px dashed var(--rule);padding-top:.08in}
 .early b{color:var(--ink)}
 </style>
 </head>
