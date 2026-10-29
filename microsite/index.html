@@ -3,308 +3,383 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Viv Tran · Communications</title>
+<title>Viv Tran · Field Notes</title>
 <meta name="description" content="Viv Tran helps good organizations talk to their communities: narrative strategy, campaigns, and community building across philanthropy, policy, and tech.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  /* black and white, one accent */
-  --bg:#FAFAF8; --ink:#141414; --muted:#5E5E5A; --rule:#E2E2DD; --accent:#2F4BFF; --accent-t:rgba(47,75,255,.12);
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace; --sans:"Space Grotesk",system-ui,sans-serif;
+  /* Altar Style Guide palette */
+  --orchid:#EFA4D3; --marigold:#F4B763; --sage:#BACFAB; --slate:#455F76; --plum:#896781;
+  /* derived: paper, ink, and text-safe accents */
+  --paper:#FBF7F1; --card:#FFFDF9; --ink:#1F2B38; --muted:#5A6676; --rule:rgba(31,43,56,.16);
+  --plum-ink:#6B4C64; --slate-deep:#2C3E50;
+  --serif:"Fraunces",Georgia,serif; --sans:"Instrument Sans",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:64px}
-body{background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:inherit;text-decoration-color:var(--rule);text-underline-offset:3px}
-a:hover{color:var(--accent);text-decoration-color:currentColor}
-::selection{background:var(--accent-t)}
-.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:17px/1.62 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--plum-ink)}
+::selection{background:var(--orchid)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.spark{color:var(--marigold)}
 
-/* top bar */
-.bar{position:sticky;top:0;z-index:10;background:rgba(250,250,248,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--rule)}
-.bar-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:56px}
-.logo{font-weight:700;text-decoration:none;letter-spacing:-.02em}
-.links{display:flex;gap:22px;font:14px var(--mono)}
-.links a{text-decoration:none;color:var(--muted)}
-.links a:hover{color:var(--accent)}
+/* masthead */
+.mast{border-bottom:3px double var(--ink);padding:18px 0 12px}
+.mast-in{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.mark{font:italic 600 24px/1 var(--serif);text-decoration:none;letter-spacing:-.01em}
+.mark .spark{font-style:normal;font-size:.7em;vertical-align:.25em;margin-left:4px}
+.mast-mid{font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mast nav{display:flex;gap:18px;font:13px var(--mono)}
+.mast nav a{text-decoration:none;color:var(--muted)}
+.mast nav a:hover{color:var(--ink)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:72px}
-.eyebrow{font:13px var(--mono);color:var(--muted);margin-bottom:20px}
-h1{font:700 clamp(44px,6.4vw,84px)/.96 var(--sans);letter-spacing:-.045em;margin-bottom:26px}
-h1 span{color:var(--accent)}
-.sub{font-size:19px;color:var(--muted);max-width:46ch;margin-bottom:30px}
-.btns{display:flex;flex-wrap:wrap;gap:10px}
-.btn{font:500 14px var(--mono);text-decoration:none;padding:10px 16px;border:1px solid var(--ink);border-radius:999px}
-.btn:hover{border-color:var(--accent)}
-.btn.primary{background:var(--ink);color:var(--bg)}
-.btn.primary:hover{background:var(--accent);color:#fff}
+.hero{text-align:center;padding:72px 0 40px;position:relative}
+.kicker{font:12.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--plum-ink);margin-bottom:22px}
+h1{font:400 clamp(44px,7.4vw,96px)/1 var(--serif);letter-spacing:-.025em;font-variation-settings:"opsz" 144;max-width:15ch;margin:0 auto 26px}
+h1 em{font-style:italic;font-weight:300;position:relative;white-space:nowrap}
+h1 em svg{position:absolute;left:-2%;width:104%;bottom:-.16em;height:.3em;overflow:visible}
+.twinkle{position:absolute;color:var(--marigold);font-size:22px;animation:tw 3.2s ease-in-out infinite;pointer-events:none}
+.twinkle.b{color:var(--orchid);animation-delay:1.1s;font-size:16px}
+.twinkle.c{color:var(--sage);animation-delay:2s;font-size:14px}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.8) rotate(0)}50%{opacity:1;transform:scale(1.1) rotate(20deg)}}
+.sub{font-size:19px;color:var(--muted);max-width:54ch;margin:0 auto 30px}
+.acts{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+.act{font:500 14px var(--mono);text-decoration:none;padding:11px 18px;border:1.5px solid var(--ink);background:var(--card);box-shadow:4px 4px 0 var(--marigold);transition:transform .12s, box-shadow .12s}
+.act:hover{color:var(--ink);transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--marigold)}
+.act.primary{background:var(--ink);color:var(--paper);box-shadow:4px 4px 0 var(--orchid)}
+.act.primary:hover{color:var(--paper);box-shadow:6px 6px 0 var(--orchid)}
 
-/* figure */
-.fig{position:relative}
-.stage{position:relative;height:clamp(340px,44vw,520px);cursor:grab;touch-action:pan-y}
-.stage:active{cursor:grabbing}
-.stage canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
-.lbl{position:absolute;left:0;top:0;font:12px var(--mono);color:var(--muted);pointer-events:none;white-space:nowrap;transition:opacity .2s}
-.lbl.org{color:var(--ink);font-weight:500}
-.fig figcaption{display:flex;justify-content:space-between;gap:24px;font:12.5px/1.5 var(--mono);color:var(--muted);border-top:1px solid var(--rule);padding-top:10px}
-.fig figcaption>span:last-child{white-space:nowrap}
-.sw{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 4px 0 2px;vertical-align:1px}
-.nogl .stage{display:none}
+/* the arch */
+.fig{margin:56px auto 0;max-width:820px}
+.arch{position:relative;height:clamp(420px,62vw,620px);background:radial-gradient(120% 90% at 50% 30%,#506B84 0%,var(--slate) 45%,var(--slate-deep) 100%);border-radius:410px 410px 6px 6px;overflow:hidden;box-shadow:inset 0 0 0 1.5px var(--ink), 0 0 0 8px var(--paper), 0 0 0 9.5px var(--ink);cursor:grab;touch-action:pan-y}
+.arch:active{cursor:grabbing}
+.arch canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
+.lbl{position:absolute;left:0;top:0;font:12px var(--mono);color:#F3EDE4;pointer-events:none;white-space:nowrap;transition:opacity .2s}
+.lbl.org{color:var(--marigold);font-weight:500}
+.fig figcaption{display:flex;justify-content:space-between;gap:24px;margin-top:18px;font:italic 15px/1.5 var(--serif);color:var(--muted);text-align:left}
+.fig figcaption b{font:500 12px var(--mono);font-style:normal;color:var(--ink);letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+.fig figcaption .hint{font:12px var(--mono);font-style:normal;white-space:nowrap}
+.sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 4px 0 2px;vertical-align:0;border:1px solid var(--ink)}
+.nogl .arch{display:none}
 
-/* sections */
-section{padding:80px 0;border-top:1px solid var(--rule)}
-.sec{display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px}
-.sec>*{min-width:0}
-.kicker{font:13px var(--mono);color:var(--muted)}
-h2{font:700 clamp(30px,3.8vw,44px)/1.05 var(--sans);letter-spacing:-.03em;margin-bottom:28px;max-width:20ch}
-.lede{color:var(--muted);max-width:60ch;margin:-12px 0 28px}
+/* index */
+.index{max-width:640px;margin:88px auto 0;border:1.5px solid var(--ink);background:var(--card);padding:26px 30px;position:relative;text-align:left}
+.index::before{content:"Index";position:absolute;top:-14px;left:24px;background:var(--paper);padding:0 10px;font:italic 500 18px var(--serif)}
+.index ol{list-style:none}
+.index a{display:flex;align-items:baseline;gap:10px;text-decoration:none;padding:5px 0}
+.index .n{font:13px var(--mono);color:var(--plum-ink);width:34px;flex:none}
+.index .t{font:400 19px var(--serif)}
+.index a:hover .t{font-style:italic}
+.index .dots{flex:1;border-bottom:1.5px dotted var(--rule);transform:translateY(-5px);min-width:16px}
+.index .p{font:12px var(--mono);color:var(--muted)}
 
-.numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.num b{display:block;font:700 44px/1 var(--sans);letter-spacing:-.03em;margin-bottom:8px}
-.num span{font-size:15px;color:var(--muted)}
+/* plates */
+section{padding:104px 0 0}
+.plate-h{display:flex;align-items:baseline;gap:16px;margin-bottom:34px;border-bottom:1px solid var(--rule);padding-bottom:14px}
+.plate-h .no{font:12.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--plum-ink);white-space:nowrap}
+h2{font:400 clamp(32px,4.2vw,48px)/1.05 var(--serif);letter-spacing:-.02em}
+h2 em{font-style:italic;font-weight:300}
+.lede{color:var(--muted);max-width:62ch;margin:-14px 0 30px}
 
-.cases{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.case{border:1px solid var(--rule);background:#fff;border-radius:12px;padding:24px}
-.case .k{font:12.5px var(--mono);color:var(--muted);margin-bottom:8px}
-.case h3{font:700 21px/1.2 var(--sans);letter-spacing:-.015em;margin-bottom:14px}
-.case p{font-size:15.5px;margin-bottom:8px;color:var(--muted)}
-.case p b{color:var(--ink);font-weight:500}
-.case .res{color:var(--ink)}
-.case .res b{color:var(--accent)}
+.ledger{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.ledger div{padding:22px 20px 20px;border-right:1px solid var(--rule)}
+.ledger div:last-child{border-right:0}
+.ledger b{display:block;font:300 54px/1 var(--serif);letter-spacing:-.03em;margin-bottom:10px}
+.ledger b sup{font:500 11px var(--mono);color:var(--plum-ink);vertical-align:2.4em;margin-left:3px}
+.ledger span{font-size:15px;color:var(--muted)}
+.notes{margin-top:14px;font:12px/1.7 var(--mono);color:var(--muted)}
 
-.how{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
-.how h3{font:500 15px var(--mono);margin-bottom:8px}
-.how p{font-size:16px;color:var(--muted)}
+.specimens{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.spec{background:var(--card);border:1.5px solid var(--ink);padding:0 26px 24px}
+.spec .cap{height:74px;margin:0 -26px 20px;border-bottom:1.5px solid var(--ink);display:flex;align-items:flex-end;justify-content:space-between;padding:0 18px 10px;font:12px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.spec .cap i{font:italic 400 34px/1 var(--serif);text-transform:none;letter-spacing:0}
+.spec:nth-child(1) .cap{background:var(--orchid)} .spec:nth-child(2) .cap{background:var(--marigold)}
+.spec:nth-child(3) .cap{background:var(--sage)} .spec:nth-child(4) .cap{background:var(--plum);color:var(--paper)}
+.spec .k{font:12px var(--mono);color:var(--muted);margin-bottom:6px}
+.spec h3{font:500 23px/1.2 var(--serif);letter-spacing:-.01em;margin-bottom:14px}
+.spec p{font-size:15.5px;color:var(--muted);margin-bottom:8px}
+.spec p b{color:var(--ink);font-weight:600}
+.spec .res{color:var(--ink);border-top:1px dashed var(--rule);padding-top:10px;margin-top:12px;margin-bottom:0}
+.spec .res b{font:italic 600 18px var(--serif);color:var(--plum-ink)}
 
-/* decompiler */
-.dc{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
-textarea{width:100%;min-height:200px;font:15px/1.55 var(--mono);color:var(--ink);background:#fff;border:1px solid var(--rule);border-radius:12px;padding:16px;resize:vertical}
-textarea:focus{outline:2px solid var(--accent);outline-offset:-1px}
-.dc-btns{display:flex;gap:10px;margin-top:12px}
-button{font:500 14px var(--mono);padding:9px 15px;border:1px solid var(--ink);border-radius:999px;background:transparent;color:var(--ink);cursor:pointer}
-button.run{background:var(--ink);color:var(--bg)}
-button:hover{border-color:var(--accent)}
-button.run:hover{background:var(--accent);color:#fff}
-.dc-out{font-size:15.5px}
-.scores{display:flex;gap:28px;margin-bottom:16px}
-.scores div{font:13px var(--mono);color:var(--muted)}
-.scores b{display:block;font:700 40px/1 var(--sans);color:var(--ink);letter-spacing:-.03em;margin-bottom:4px}
-.scores .after b{color:var(--accent)}
-.hits{line-height:1.7;margin-bottom:14px}
-mark{background:var(--accent-t);color:inherit;border-bottom:1.5px solid var(--accent);padding:0 1px}
-.swaps{font:14px/1.7 var(--mono);color:var(--muted)}
+.laws{display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--ink)}
+.law{padding:24px 24px 6px 0}
+.law+.law{padding-left:24px;border-left:1px solid var(--rule)}
+.law .ord{font:12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--plum-ink)}
+.law h3{font:italic 400 30px/1.1 var(--serif);margin:8px 0 10px}
+.law p{font-size:16px;color:var(--muted)}
+
+/* assay */
+.assay{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);background:var(--card)}
+.assay>div{padding:22px;min-width:0}
+.assay .in{border-right:1.5px solid var(--ink)}
+.pane-t{font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;justify-content:space-between}
+textarea{width:100%;min-height:190px;font:15px/1.6 var(--mono);color:var(--ink);background:var(--paper);border:1px solid var(--rule);padding:14px;resize:vertical}
+textarea:focus{outline:2px solid var(--slate);outline-offset:-1px}
+.dc-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+button{font:500 13.5px var(--mono);padding:9px 15px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--sage)}
+button.run{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--marigold)}
+button:hover{transform:translate(-1px,-1px)}
+.scores{display:flex;gap:30px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--rule)}
+.scores div{font:12px var(--mono);color:var(--muted)}
+.scores b{display:block;font:300 48px/1 var(--serif);color:var(--ink);margin-bottom:4px}
+.scores .after b{color:var(--slate)}
+.hits{line-height:1.75;margin-bottom:14px;font-size:15.5px}
+mark{background:linear-gradient(transparent 55%,var(--orchid) 55%);color:inherit;padding:0 1px}
+.swaps{font:13.5px/1.75 var(--mono);color:var(--muted)}
 .swaps .p{color:var(--ink)}
 
-/* experience + skills */
-.xp{list-style:none;border-top:1px solid var(--rule)}
-.xp li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:12px 0;border-bottom:1px solid var(--rule);font-size:16px}
-.xp .y{font:14px/1.75 var(--mono);color:var(--muted)}
-.xp .r{color:var(--muted)}
-.xp b{font-weight:500}
-.skills{display:grid;grid-template-columns:repeat(5,1fr);gap:24px}
-.skills h3{font:500 13px var(--mono);color:var(--muted);margin-bottom:10px}
-.skills ul{list-style:none;font-size:15.5px;line-height:1.85}
-.skills .tools{font-size:15.5px;line-height:1.85}
+/* chronology */
+.chron{list-style:none}
+.chron li{display:flex;align-items:baseline;gap:12px;padding:9px 0}
+.chron .y{font:13px var(--mono);color:var(--plum-ink);width:44px;flex:none}
+.chron .org{font:500 19px var(--serif);white-space:nowrap}
+.chron .dots{flex:1;border-bottom:1.5px dotted var(--rule);transform:translateY(-5px);min-width:24px}
+.chron .r{color:var(--muted);font-size:15.5px;text-align:right;max-width:46%}
 
-.more{list-style:none;border-top:1px solid var(--rule)}
-.more a{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none}
-.more a span:last-child{color:var(--muted);font-size:15px;text-align:right}
+/* glossary */
+.gloss{display:grid;grid-template-columns:repeat(5,1fr);gap:28px}
+.gloss h3{font:italic 500 20px var(--serif);margin-bottom:10px;padding-bottom:8px;border-bottom:1.5px solid var(--ink)}
+.gloss h3 .spark{font-style:normal;font-size:13px;margin-right:6px}
+.gloss ul{list-style:none;font-size:15.5px;line-height:1.95}
+.gloss .tools{font:13px/1.9 var(--mono);color:var(--muted)}
 
-footer{border-top:1px solid var(--rule);padding:80px 0 48px}
-footer h2{max-width:22ch}
-footer .btns{margin-bottom:56px}
-.fine{font:12.5px var(--mono);color:var(--muted);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.apx{max-width:760px}
+.apx a{display:flex;align-items:baseline;gap:12px;padding:12px 0;text-decoration:none;border-bottom:1px solid var(--rule)}
+.apx .l{font:13px var(--mono);color:var(--plum-ink);width:32px;flex:none}
+.apx .t{font:400 21px var(--serif)}
+.apx .dots{flex:1;border-bottom:1.5px dotted var(--rule);transform:translateY(-6px)}
+.apx .d{font-size:15px;color:var(--muted);text-align:right}
+.apx a:hover .t{font-style:italic}
+
+/* sign-off */
+footer{margin-top:120px;background:var(--slate-deep);color:var(--paper);padding:80px 0 40px;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;right:-120px;top:-60px;width:420px;height:560px;border-radius:210px 210px 0 0;background:var(--plum);opacity:.35}
+footer .wrap{position:relative}
+footer h2{max-width:18ch;margin-bottom:30px}
+footer h2 em{color:var(--marigold)}
+footer .act{display:inline-block;background:var(--paper);color:var(--ink);border-color:var(--paper);box-shadow:4px 4px 0 var(--orchid)}
+footer .act:hover{color:var(--ink)}
+.colophon{margin-top:72px;padding-top:16px;border-top:1px solid rgba(251,247,241,.25);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:12px var(--mono);color:rgba(251,247,241,.7)}
+.palette{display:flex;gap:6px;align-items:center}
+.palette i{width:12px;height:14px;border-radius:6px 6px 0 0;display:inline-block}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:40px}
-  .sec{grid-template-columns:minmax(0,1fr);gap:8px}
-  .numbers{grid-template-columns:1fr 1fr}
-  .cases,.dc,.how{grid-template-columns:minmax(0,1fr)}
-  .skills{grid-template-columns:1fr 1fr}
+  .mast-mid{display:none}
+  .ledger{grid-template-columns:1fr 1fr}
+  .ledger div:nth-child(2){border-right:0}
+  .ledger div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
+  .specimens,.assay{grid-template-columns:minmax(0,1fr)}
+  .assay .in{border-right:0;border-bottom:1.5px solid var(--ink)}
+  .laws{grid-template-columns:minmax(0,1fr)}
+  .law,.law+.law{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule)}
+  .gloss{grid-template-columns:1fr 1fr}
 }
-@media (max-width:560px){
-  .links{gap:14px;font-size:13px}
-  .links .opt{display:none}
-  .more a{flex-direction:column;gap:2px}
-  .more a span:last-child{text-align:left}
-  .fig figcaption{flex-direction:column;gap:4px}
+@media (max-width:600px){
+  body{font-size:16px}
+  .mast nav{gap:12px;font-size:12px}
+  .hero{padding-top:48px}
+  .twinkle{display:none}
+  .arch{border-radius:50vw 50vw 6px 6px}
+  .fig figcaption{flex-direction:column;gap:6px}
+  .index{padding:22px 18px}
+  .index .p{display:none}
+  .ledger b{font-size:42px}
+  .chron li{flex-wrap:wrap;gap:2px 12px}
+  .chron .dots{display:none}
+  .chron .r{text-align:left;max-width:none;width:100%;padding-left:56px}
+  .chron .org{white-space:normal}
+  .apx .dots{display:none}
+  .apx a{flex-wrap:wrap}
+  .apx .d{width:100%;text-align:left;padding-left:44px}
+  .plate-h{flex-direction:column;gap:6px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.twinkle{animation:none;opacity:.8}.act,button{transition:none}}
 </style>
 </head>
 <body>
 
-<header class="bar">
-  <div class="wrap bar-in">
-    <a class="logo" href="#top">Viv Tran</a>
-    <nav class="links" aria-label="Sections">
-      <a href="#work">work</a>
-      <a class="opt" href="#decompiler">decompiler</a>
-      <a href="#experience">experience</a>
-      <a href="#contact">contact</a>
-    </nav>
+<header class="mast">
+  <div class="wrap mast-in">
+    <a class="mark" href="#top">Viv Tran<span class="spark">✦</span></a>
+    <span class="mast-mid">Field notes on talking to communities · Brooklyn, NY</span>
+    <nav aria-label="Sections"><a href="#work">work</a><a href="#experience">experience</a><a href="#contact">contact</a></nav>
   </div>
 </header>
 
 <main id="top">
 
-<section class="hero wrap" style="border-top:0">
-  <div>
-    <div class="eyebrow">Viv Tran · narrative strategist · Brooklyn, NY</div>
-    <h1>I help good orgs talk to their <span>communities.</span></h1>
-    <p class="sub">A decade of communications across philanthropy, policy, and tech. I turn complex missions into stories people remember, and audiences into communities that act.</p>
-    <div class="btns">
-      <a class="btn primary" href="#work">See the work</a>
-      <a class="btn" href="https://canva.link/hkn2gj7j515dyb9">Resume ↗</a>
-      <a class="btn" href="https://www.linkedin.com/in/viv-tran/">LinkedIn ↗</a>
-    </div>
+<section class="hero wrap">
+  <span class="twinkle" style="left:8%;top:120px" aria-hidden="true">✦</span>
+  <span class="twinkle b" style="right:10%;top:96px" aria-hidden="true">✦</span>
+  <span class="twinkle c" style="right:16%;top:300px" aria-hidden="true">✦</span>
+  <div class="kicker">Narrative strategist · community mobilizer</div>
+  <h1>I help good orgs talk to their <em>communities.<svg viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12 C 40 2, 70 18, 110 9 S 180 2, 220 11 S 280 16, 298 6" fill="none" stroke="#F4B763" stroke-width="5" stroke-linecap="round"/></svg></em></h1>
+  <p class="sub">A decade of communications across philanthropy, policy, and tech. I turn complex missions into stories people remember, and audiences into communities that act.</p>
+  <div class="acts">
+    <a class="act primary" href="#work">See the work ↓</a>
+    <a class="act" href="https://canva.link/hkn2gj7j515dyb9">Resume ↗</a>
+    <a class="act" href="https://www.linkedin.com/in/viv-tran/">LinkedIn ↗</a>
   </div>
 
   <figure class="fig" id="fig">
-    <div class="stage" id="stage" aria-hidden="true"></div>
+    <div class="arch" id="stage" aria-hidden="true"></div>
     <figcaption>
-      <span>One org, six communities. Messages go out <span class="sw" style="background:var(--accent)"></span>talk and come back <span class="sw" style="background:var(--ink)"></span>listen.</span>
-      <span>drag to rotate</span>
+      <span><b>Fig. 1</b>One org, six communities. Messages go out <span class="sw" style="background:var(--marigold)"></span>talk and come back <span class="sw" style="background:var(--orchid)"></span>listen.</span>
+      <span class="hint">drag to rotate</span>
     </figcaption>
   </figure>
+
+  <nav class="index" aria-label="Index">
+    <ol>
+      <li><a href="#ledger"><span class="n">I</span><span class="t">The ledger</span><span class="dots"></span><span class="p">at a glance</span></a></li>
+      <li><a href="#work"><span class="n">II</span><span class="t">Specimens</span><span class="dots"></span><span class="p">selected work</span></a></li>
+      <li><a href="#laws"><span class="n">III</span><span class="t">Three laws</span><span class="dots"></span><span class="p">how I work</span></a></li>
+      <li><a href="#decompiler"><span class="n">IV</span><span class="t">The jargon assay</span><span class="dots"></span><span class="p">try it</span></a></li>
+      <li><a href="#experience"><span class="n">V</span><span class="t">Chronology</span><span class="dots"></span><span class="p">experience</span></a></li>
+      <li><a href="#toolkit"><span class="n">VI</span><span class="t">Glossary</span><span class="dots"></span><span class="p">toolkit</span></a></li>
+      <li><a href="#more"><span class="n">A–D</span><span class="t">Appendices</span><span class="dots"></span><span class="p">more</span></a></li>
+    </ol>
+  </nav>
 </section>
 
-<section><div class="wrap sec">
-  <div class="kicker">01 · at a glance</div>
-  <div class="numbers">
-    <div class="num"><b>10+</b><span>years in mission-driven communications</span></div>
-    <div class="num"><b>$120M</b><span>moved to BIPOC-led climate groups in two years</span></div>
-    <div class="num"><b>25+</b><span>nonprofits advised on messaging and fundraising</span></div>
-    <div class="num"><b>4</b><span>brands built, from identity to key messaging</span></div>
+<section id="ledger"><div class="wrap">
+  <div class="plate-h"><span class="no">Plate I</span><h2>The <em>ledger.</em></h2></div>
+  <div class="ledger">
+    <div><b>10+<sup>1</sup></b><span>years in mission-driven communications</span></div>
+    <div><b>$120M<sup>2</sup></b><span>moved to BIPOC-led climate groups in two years</span></div>
+    <div><b>25+<sup>3</sup></b><span>nonprofits advised on messaging and fundraising</span></div>
+    <div><b>4<sup>4</sup></b><span>brands built, from identity to key messaging</span></div>
+  </div>
+  <p class="notes">¹ College radio, startups, philanthropy, legal tech. ² Climate Funders Justice Pledge, Donors of Color Network. ³ Grenzebach Glier &amp; Associates, 2020–22. ⁴ Donors of Color Network, 2022–25.</p>
+</div></section>
+
+<section id="work"><div class="wrap">
+  <div class="plate-h"><span class="no">Plate II</span><h2>Specimens <em>of selected work.</em></h2></div>
+  <div class="specimens">
+    <article class="spec">
+      <div class="cap"><span>Specimen No. 1</span><i>$120M</i></div>
+      <div class="k">Donors of Color Network · climate philanthropy</div>
+      <h3>Pushing climate funders to resource BIPOC-led groups</h3>
+      <p><b>Situation.</b> Climate money wasn't reaching BIPOC-led groups, so the network launched the Climate Funders Justice Pledge.</p>
+      <p><b>What I did.</b> Campaign content, funder-facing storytelling, and data-driven outreach with TargetSmart and Blackbaud.</p>
+      <p class="res"><b>$120M</b> moved in two years, and a shift in how top climate funders give.</p>
+    </article>
+    <article class="spec">
+      <div class="cap"><span>Specimen No. 2</span><i>×4</i></div>
+      <div class="k">Donors of Color Network · brand</div>
+      <h3>One network, four brands, a national voice</h3>
+      <p><b>Situation.</b> A growing network running several programs, each needing its own identity.</p>
+      <p><b>What I did.</b> Brand strategy, visual identity, and key messaging for four brands, plus thought leadership for its executives.</p>
+      <p class="res"><b>Press</b> in Forbes, Candid, Nonprofit Quarterly, and Philanthropy News Digest.</p>
+    </article>
+    <article class="spec">
+      <div class="cap"><span>Specimen No. 3</span><i>25+</i></div>
+      <div class="k">GG+A · nonprofit consulting</div>
+      <h3>Data-driven advice for 25+ nonprofits</h3>
+      <p><b>Situation.</b> Nonprofits needed to know what was landing with donors, and COVID-19 had thrown fundraising off.</p>
+      <p><b>What I did.</b> Surveys and research on campaign performance and messaging, plus an industry-wide report on COVID-19's impact on fundraising.</p>
+      <p class="res"><b>25+</b> clients got recommendations grounded in their own donor data.</p>
+    </article>
+    <article class="spec">
+      <div class="cap"><span>Specimen No. 4</span><i>⇄</i></div>
+      <div class="k">eimmigration · legal tech</div>
+      <h3>Turning immigration lawyers into advocates</h3>
+      <p><b>Situation.</b> A legal-tech brand that needs to be trusted inside the immigration law community.</p>
+      <p><b>What I did.</b> A referral program, a customer advisory board, events, listening sessions, a review program, and field marketing.</p>
+      <p class="res"><b>Customers vouch</b> for the brand, and what they say feeds back into the messaging.</p>
+    </article>
   </div>
 </div></section>
 
-<section id="work"><div class="wrap sec">
-  <div class="kicker">02 · selected work</div>
-  <div>
-    <h2>Selected work.</h2>
-    <div class="cases">
-      <article class="case">
-        <div class="k">Donors of Color Network · climate philanthropy</div>
-        <h3>Pushing climate funders to resource BIPOC-led groups</h3>
-        <p><b>Situation.</b> Climate money wasn't reaching BIPOC-led groups, so the network launched the Climate Funders Justice Pledge.</p>
-        <p><b>What I did.</b> Campaign content, funder-facing storytelling, and data-driven outreach with TargetSmart and Blackbaud.</p>
-        <p class="res"><b>$120M</b> moved in two years, and a shift in how top climate funders give.</p>
-      </article>
-      <article class="case">
-        <div class="k">Donors of Color Network · brand</div>
-        <h3>One network, four brands, a national voice</h3>
-        <p><b>Situation.</b> A growing network running several programs, each needing its own identity.</p>
-        <p><b>What I did.</b> Brand strategy, visual identity, and key messaging for four brands, plus thought leadership for its executives.</p>
-        <p class="res"><b>Press</b> in Forbes, Candid, Nonprofit Quarterly, and Philanthropy News Digest.</p>
-      </article>
-      <article class="case">
-        <div class="k">GG+A · nonprofit consulting</div>
-        <h3>Data-driven advice for 25+ nonprofits</h3>
-        <p><b>Situation.</b> Nonprofits needed to know what was landing with donors, and COVID-19 had thrown fundraising off.</p>
-        <p><b>What I did.</b> Surveys and research on campaign performance and messaging, plus an industry-wide report on COVID-19's impact on fundraising.</p>
-        <p class="res"><b>25+</b> clients got recommendations grounded in their own donor data.</p>
-      </article>
-      <article class="case">
-        <div class="k">eimmigration · legal tech</div>
-        <h3>Turning immigration lawyers into advocates</h3>
-        <p><b>Situation.</b> A legal-tech brand that needs to be trusted inside the immigration law community.</p>
-        <p><b>What I did.</b> A referral program, a customer advisory board, events, listening sessions, a review program, and field marketing.</p>
-        <p class="res"><b>Customers vouch</b> for the brand, and what they say feeds back into the messaging.</p>
-      </article>
+<section id="laws"><div class="wrap">
+  <div class="plate-h"><span class="no">Plate III</span><h2>Three laws <em>of how I work.</em></h2></div>
+  <div class="laws">
+    <div class="law"><div class="ord">First law</div><h3>Listen first.</h3><p>Start with the people the work is for. Surveys, advisory boards, and listening sessions show what lands.</p></div>
+    <div class="law"><div class="ord">Second law</div><h3>Say it plainly.</h3><p>Cut the jargon until the mission makes sense on the first read, then tell it the same way everywhere.</p></div>
+    <div class="law"><div class="ord">Third law</div><h3>Move together.</h3><p>Stories matter when they lead to action: the campaign, the coalition, the press moment that gets people to move.</p></div>
+  </div>
+</div></section>
+
+<section id="decompiler"><div class="wrap">
+  <div class="plate-h"><span class="no">Plate IV</span><h2>The jargon <em>assay.</em></h2></div>
+  <p class="lede">Paste a mission statement and run it. It scores how easy it is to read (Flesch reading ease, 0–100, higher is easier) and flags the words getting in the way. It runs in your browser; no AI.</p>
+  <div class="assay">
+    <div class="in">
+      <div class="pane-t"><span>Sample</span><span class="spark">✦</span></div>
+      <textarea id="dcText" spellcheck="false" aria-label="Text to check"></textarea>
+      <div class="dc-btns"><button class="run" id="dcRun">Run assay</button><button id="dcSample">Sample</button><button id="dcClear">Clear</button></div>
+    </div>
+    <div aria-live="polite">
+      <div class="pane-t"><span>Results</span><span>Flesch</span></div>
+      <div class="scores">
+        <div><b id="sBefore">--</b>reading ease, before</div>
+        <div class="after"><b id="sAfter">--</b><span id="sAfterL">after</span></div>
+      </div>
+      <div class="hits" id="dcHits"></div>
+      <div class="swaps" id="dcSwaps"></div>
     </div>
   </div>
 </div></section>
 
-<section><div class="wrap sec">
-  <div class="kicker">03 · how I work</div>
-  <div class="how">
-    <div><h3>Listen first</h3><p>Start with the people the work is for. Surveys, advisory boards, and listening sessions show what lands.</p></div>
-    <div><h3>Say it plainly</h3><p>Cut the jargon until the mission makes sense on the first read, then tell it the same way everywhere.</p></div>
-    <div><h3>Move together</h3><p>Stories matter when they lead to action: the campaign, the coalition, the press moment that gets people to move.</p></div>
+<section id="experience"><div class="wrap">
+  <div class="plate-h"><span class="no">Plate V</span><h2>Chronology, <em>from college radio to climate philanthropy.</em></h2></div>
+  <ol class="chron">
+    <li><span class="y">2025</span><span class="org">eimmigration</span><span class="dots"></span><span class="r">marketing &amp; communications manager</span></li>
+    <li><span class="y">2025</span><span class="org">Do Better Comms</span><span class="dots"></span><span class="r">founder, creative agency</span></li>
+    <li><span class="y">2024</span><span class="org">National Urban Fellows</span><span class="dots"></span><span class="r">graduate fellow, Georgetown M.P.M.</span></li>
+    <li><span class="y">2022</span><span class="org">Donors of Color Network</span><span class="dots"></span><span class="r">communications co-director, brand &amp; operations</span></li>
+    <li><span class="y">2022</span><span class="org">American YouthWorks</span><span class="dots"></span><span class="r">mentor &amp; GED tutor</span></li>
+    <li><span class="y">2020</span><span class="org">GG+A</span><span class="dots"></span><span class="r">senior program manager, philanthropic analytics + DEI</span></li>
+    <li><span class="y">2020</span><span class="org">Chicago Women in Philanthropy</span><span class="dots"></span><span class="r">emerging leader</span></li>
+    <li><span class="y">2020</span><span class="org">EPIC, UChicago</span><span class="dots"></span><span class="r">communications manager (contract)</span></li>
+    <li><span class="y">2018</span><span class="org">SmithBucklin</span><span class="dots"></span><span class="r">nonprofit marketing operations associate</span></li>
+    <li><span class="y">2017</span><span class="org">The Light House DaNang</span><span class="dots"></span><span class="r">co-founded a hostel in Da Nang, Vietnam</span></li>
+    <li><span class="y">2016</span><span class="org">Oracle</span><span class="dots"></span><span class="r">cloud applications consultant</span></li>
+    <li><span class="y">2016</span><span class="org">Cardinal Health</span><span class="dots"></span><span class="r">communications &amp; events intern</span></li>
+    <li><span class="y">2015</span><span class="org">The Ohio State University</span><span class="dots"></span><span class="r">B.A., strategic communications</span></li>
+    <li><span class="y">2015</span><span class="org">TEDxOhioStateUniversity</span><span class="dots"></span><span class="r">communications &amp; planning committee</span></li>
+    <li><span class="y">2013</span><span class="org">Hola Columbus</span><span class="dots"></span><span class="r">social media manager</span></li>
+    <li><span class="y">2012</span><span class="org">APIA Vote</span><span class="dots"></span><span class="r">political advocacy intern, then civic engagement volunteer</span></li>
+    <li><span class="y">2011</span><span class="org">88.1 WSDP</span><span class="dots"></span><span class="r">DJ &amp; host on college radio</span></li>
+  </ol>
+</div></section>
+
+<section id="toolkit"><div class="wrap">
+  <div class="plate-h"><span class="no">Plate VI</span><h2>A glossary <em>of instruments.</em></h2></div>
+  <div class="gloss">
+    <div><h3><span class="spark">✦</span>strategy</h3><ul><li>Narrative</li><li>Brand</li><li>Messaging</li><li>Campaigns</li><li>Thought leadership</li></ul></div>
+    <div><h3><span class="spark">✦</span>community</h3><ul><li>Advocacy</li><li>Advisory boards</li><li>Referrals</li><li>Coalitions</li><li>Events</li></ul></div>
+    <div><h3><span class="spark">✦</span>channels</h3><ul><li>Press</li><li>Social</li><li>Field marketing</li><li>Content</li><li>Reviews</li></ul></div>
+    <div><h3><span class="spark">✦</span>research</h3><ul><li>Surveys</li><li>Donor data</li><li>Reports</li><li>Media tracking</li></ul></div>
+    <div><h3><span class="spark">✦</span>tools</h3><p class="tools">HubSpot, Salesforce, Raiser's Edge, EveryAction, Blackbaud, TargetSmart, Qualtrics, Google Analytics, Adobe Suite, Canva, WordPress, Mailchimp, Asana, ClickUp</p></div>
   </div>
 </div></section>
 
-<section id="decompiler"><div class="wrap sec">
-  <div class="kicker">04 · try it</div>
-  <div>
-    <h2>The jargon decompiler.</h2>
-    <p class="lede">Paste a mission statement and run it. It scores how easy it is to read (Flesch reading ease, 0–100, higher is easier) and flags the words getting in the way. It runs in your browser; no AI.</p>
-    <div class="dc">
-      <div>
-        <textarea id="dcText" spellcheck="false" aria-label="Text to check"></textarea>
-        <div class="dc-btns"><button class="run" id="dcRun">Run</button><button id="dcSample">Sample</button><button id="dcClear">Clear</button></div>
-      </div>
-      <div class="dc-out" aria-live="polite">
-        <div class="scores">
-          <div><b id="sBefore">--</b>reading ease, before</div>
-          <div class="after"><b id="sAfter">--</b><span id="sAfterL">after</span></div>
-        </div>
-        <div class="hits" id="dcHits"></div>
-        <div class="swaps" id="dcSwaps"></div>
-      </div>
-    </div>
-  </div>
-</div></section>
-
-<section id="experience"><div class="wrap sec">
-  <div class="kicker">05 · experience</div>
-  <div>
-    <h2>From college radio to climate philanthropy.</h2>
-    <ul class="xp">
-      <li><span class="y">2025</span><span><b>eimmigration</b> <span class="r">· marketing &amp; communications manager</span></span></li>
-      <li><span class="y">2025</span><span><b>Do Better Comms</b> <span class="r">· founder, creative agency</span></span></li>
-      <li><span class="y">2024</span><span><b>National Urban Fellows</b> <span class="r">· graduate fellow, Georgetown M.P.M.</span></span></li>
-      <li><span class="y">2022</span><span><b>Donors of Color Network</b> <span class="r">· communications co-director, brand &amp; operations</span></span></li>
-      <li><span class="y">2022</span><span><b>American YouthWorks</b> <span class="r">· mentor &amp; GED tutor</span></span></li>
-      <li><span class="y">2020</span><span><b>GG+A</b> <span class="r">· senior program manager, philanthropic analytics + DEI</span></span></li>
-      <li><span class="y">2020</span><span><b>Chicago Women in Philanthropy</b> <span class="r">· emerging leader</span></span></li>
-      <li><span class="y">2020</span><span><b>EPIC, UChicago</b> <span class="r">· communications manager (contract)</span></span></li>
-      <li><span class="y">2018</span><span><b>SmithBucklin</b> <span class="r">· nonprofit marketing operations associate</span></span></li>
-      <li><span class="y">2017</span><span><b>The Light House DaNang</b> <span class="r">· co-founded a hostel in Da Nang, Vietnam</span></span></li>
-      <li><span class="y">2016</span><span><b>Oracle</b> <span class="r">· cloud applications consultant</span></span></li>
-      <li><span class="y">2016</span><span><b>Cardinal Health</b> <span class="r">· communications &amp; events intern</span></span></li>
-      <li><span class="y">2015</span><span><b>The Ohio State University</b> <span class="r">· B.A., strategic communications</span></span></li>
-      <li><span class="y">2015</span><span><b>TEDxOhioStateUniversity</b> <span class="r">· communications &amp; planning committee</span></span></li>
-      <li><span class="y">2013</span><span><b>Hola Columbus</b> <span class="r">· social media manager</span></span></li>
-      <li><span class="y">2012</span><span><b>APIA Vote</b> <span class="r">· political advocacy intern, then civic engagement volunteer</span></span></li>
-      <li><span class="y">2011</span><span><b>88.1 WSDP</b> <span class="r">· DJ &amp; host on college radio</span></span></li>
-    </ul>
-  </div>
-</div></section>
-
-<section><div class="wrap sec">
-  <div class="kicker">06 · toolkit</div>
-  <div class="skills">
-    <div><h3>strategy</h3><ul><li>Narrative</li><li>Brand</li><li>Messaging</li><li>Campaigns</li><li>Thought leadership</li></ul></div>
-    <div><h3>community</h3><ul><li>Advocacy</li><li>Advisory boards</li><li>Referrals</li><li>Coalitions</li><li>Events</li></ul></div>
-    <div><h3>channels</h3><ul><li>Press</li><li>Social</li><li>Field marketing</li><li>Content</li><li>Reviews</li></ul></div>
-    <div><h3>research</h3><ul><li>Surveys</li><li>Donor data</li><li>Reports</li><li>Media tracking</li></ul></div>
-    <div><h3>tools</h3><p class="tools">HubSpot, Salesforce, Raiser's Edge, EveryAction, Blackbaud, TargetSmart, Qualtrics, Google Analytics, Adobe Suite, Canva, WordPress, Mailchimp, Asana, ClickUp</p></div>
-  </div>
-</div></section>
-
-<section><div class="wrap sec">
-  <div class="kicker">07 · more</div>
-  <div class="more">
-    <a href="https://canva.link/hkn2gj7j515dyb9"><span>Resume ↗</span><span>one page, on Canva</span></a>
-    <a href="../spreadsheet-resume/viv-tran-cv.xlsx"><span>Spreadsheet CV</span><span>everything, nine tabs, .xlsx</span></a>
-    <a href="https://canva.link/dpmadkfysb3pzgi"><span>Do Better Comms ↗</span><span>services and track record, on Canva</span></a>
-    <a href="https://canva.link/1nfpb8udzxvch8z"><span>Rooted in Community ↗</span><span>every role on one board, on Canva</span></a>
+<section id="more"><div class="wrap">
+  <div class="plate-h"><span class="no">Appendices</span><h2>Further <em>reading.</em></h2></div>
+  <div class="apx">
+    <a href="https://canva.link/hkn2gj7j515dyb9"><span class="l">A</span><span class="t">Resume ↗</span><span class="dots"></span><span class="d">one page, on Canva</span></a>
+    <a href="../spreadsheet-resume/viv-tran-cv.xlsx"><span class="l">B</span><span class="t">Spreadsheet CV</span><span class="dots"></span><span class="d">everything, nine tabs, .xlsx</span></a>
+    <a href="https://canva.link/dpmadkfysb3pzgi"><span class="l">C</span><span class="t">Do Better Comms ↗</span><span class="dots"></span><span class="d">services and track record, on Canva</span></a>
+    <a href="https://canva.link/1nfpb8udzxvch8z"><span class="l">D</span><span class="t">Rooted in Community ↗</span><span class="dots"></span><span class="d">every role on one board, on Canva</span></a>
   </div>
 </div></section>
 
 </main>
 
 <footer id="contact"><div class="wrap">
-  <h2>Have a mission that needs better comms? Let's talk.</h2>
-  <div class="btns">
-    <a class="btn primary" href="https://www.linkedin.com/in/viv-tran/">Message me on LinkedIn ↗</a>
+  <h2>Have a mission that needs better comms? <em>Let's talk.</em></h2>
+  <a class="act" href="https://www.linkedin.com/in/viv-tran/">Message me on LinkedIn ↗</a>
+  <div class="colophon">
+    <span>Viv Tran · Brooklyn, NY · she/her</span>
+    <span class="palette" title="Altar palette"><i style="background:#EFA4D3"></i><i style="background:#F4B763"></i><i style="background:#BACFAB"></i><i style="background:#455F76;outline:1px solid rgba(251,247,241,.4)"></i><i style="background:#896781"></i></span>
+    <span>Fraunces, Instrument Sans &amp; JetBrains Mono · three.js · no trackers</span>
   </div>
-  <div class="fine"><span>Viv Tran · Brooklyn, NY · she/her</span><span>Space Grotesk &amp; IBM Plex Mono · three.js · no trackers</span></div>
 </div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -314,7 +389,7 @@ const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
 function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imul(h^ch.charCodeAt(0),3432918353);h=h<<13|h>>>19}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return((h^=h>>>16)>>>0)/4294967296}}
 
-/* ---------- the network ---------- */
+/* ---------- Fig. 1: the network, inside the arch ---------- */
 (function fig(){
   const box = $("#fig"), stage = $("#stage");
   if (!window.THREE) { box.classList.add("nogl"); return; }
@@ -323,26 +398,24 @@ function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imu
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.setClearColor(0x000000, 0);
   stage.appendChild(renderer.domElement);
-  const INK = 0x141414, ACCENT = 0x2F4BFF;
+  const CREAM = 0xF3EDE4, MARIGOLD = 0xF4B763, ORCHID = 0xEFA4D3;
   const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(38, 1, .1, 100);
   cam.position.set(0, 0, 12.5);
   const world = new THREE.Group(); scene.add(world);
   const rand = rng("viv-tran-lab");
   const gauss = () => { let u = 0, v = 0; while(!u) u = rand(); while(!v) v = rand(); return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v); };
 
-  world.add(new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(.95, 1)), new THREE.LineBasicMaterial({color:INK, transparent:true, opacity:.55})));
-  world.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.42, 0), new THREE.MeshBasicMaterial({color:ACCENT})));
+  world.add(new THREE.LineSegments(new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(.95, 1)), new THREE.LineBasicMaterial({color:CREAM, transparent:true, opacity:.5})));
+  world.add(new THREE.Mesh(new THREE.IcosahedronGeometry(.42, 0), new THREE.MeshBasicMaterial({color:MARIGOLD})));
 
   const c = document.createElement("canvas"); c.width = c.height = 64;
   const g = c.getContext("2d"); g.beginPath(); g.arc(32, 32, 28, 0, 7); g.fillStyle = "#fff"; g.fill();
   const dot = new THREE.CanvasTexture(c);
 
-  const COMMS = ["donors","funders","members","customers","neighbors","press"];
+  const COMMS = [["donors",0xEFA4D3],["funders",0xF4B763],["members",0xBACFAB],["customers",0xC9A9C2],["neighbors",0xF3EDE4],["press",0x9FC6BA]];
   const R = 3.6, clusters = [];
-  const nodeMat = new THREE.PointsMaterial({color:INK, size:.15, map:dot, transparent:true, alphaTest:.5});
-  const meshMat = new THREE.LineBasicMaterial({color:INK, transparent:true, opacity:.22});
-  const spokeMat = new THREE.LineBasicMaterial({color:INK, transparent:true, opacity:.18});
-  COMMS.forEach((name, i) => {
+  const spokeMat = new THREE.LineBasicMaterial({color:CREAM, transparent:true, opacity:.2});
+  COMMS.forEach(([name, col], i) => {
     const y = 1 - (i + .5) / COMMS.length * 2, r = Math.sqrt(1 - y*y), th = i * 2.39996;
     const center = new THREE.Vector3(Math.cos(th)*r, y*.85, Math.sin(th)*r).normalize().multiplyScalar(R);
     const n = 46, pts = [], pos = new Float32Array(n*3);
@@ -351,29 +424,29 @@ function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imu
       pts.push(v); pos.set([v.x, v.y, v.z], k*3);
     }
     const geo = new THREE.BufferGeometry(); geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
-    world.add(new THREE.Points(geo, nodeMat));
+    world.add(new THREE.Points(geo, new THREE.PointsMaterial({color:col, size:.16, map:dot, transparent:true, alphaTest:.5})));
     const lp = [];
     pts.forEach(p => {
       pts.map((q, b) => [p.distanceToSquared(q), b]).sort((x, y) => x[0] - y[0]).slice(1, 3)
         .forEach(([, b]) => lp.push(p.x, p.y, p.z, pts[b].x, pts[b].y, pts[b].z));
     });
     const lg = new THREE.BufferGeometry(); lg.setAttribute("position", new THREE.Float32BufferAttribute(lp, 3));
-    world.add(new THREE.LineSegments(lg, meshMat));
+    world.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({color:col, transparent:true, opacity:.35})));
     world.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), center]), spokeMat));
     const lbl = document.createElement("div"); lbl.className = "lbl"; lbl.textContent = name; stage.appendChild(lbl);
     clusters.push({center, lbl});
   });
   const orgLbl = document.createElement("div"); orgLbl.className = "lbl org"; orgLbl.textContent = "your org"; stage.appendChild(orgLbl);
 
-  const pg = new THREE.SphereGeometry(.075, 12, 8), pulses = [];
-  const mats = {1: new THREE.MeshBasicMaterial({color:ACCENT}), [-1]: new THREE.MeshBasicMaterial({color:INK})};
+  const pg = new THREE.SphereGeometry(.08, 12, 8), pulses = [];
+  const mats = {1: new THREE.MeshBasicMaterial({color:MARIGOLD}), [-1]: new THREE.MeshBasicMaterial({color:ORCHID})};
   clusters.forEach(cl => { for (let k = 0; k < 2; k++) for (const dir of [1, -1]) {
     const m = new THREE.Mesh(pg, mats[dir]); world.add(m);
     pulses.push({m, cl, dir, t:rand(), sp:.16 + rand()*.14});
   }});
 
   let w = 1, h = 1;
-  const resize = () => { w = stage.clientWidth; h = stage.clientHeight; renderer.setSize(w, h, false); cam.aspect = w/h; cam.position.z = w < 520 ? 15 : 12.5; cam.updateProjectionMatrix(); };
+  const resize = () => { w = stage.clientWidth; h = stage.clientHeight; renderer.setSize(w, h, false); cam.aspect = w/h; cam.position.z = w < 520 ? 15.5 : 12.5; cam.updateProjectionMatrix(); };
   new ResizeObserver(resize).observe(stage); resize();
 
   let rx = .3, ry = 0, vx = 0, vy = 0, drag = false, lx = 0, ly = 0;
@@ -391,7 +464,7 @@ function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imu
     const behind = v.z < -.5;
     v.project(cam);
     el.style.transform = `translate(${((v.x+1)/2*w).toFixed(1)}px,${((1-v.y)/2*h).toFixed(1)}px) translate(-50%,-160%)`;
-    el.style.opacity = behind ? .35 : 1;
+    el.style.opacity = behind ? .4 : 1;
   }
   function loop(now){
     if (!running) return;
@@ -414,7 +487,7 @@ function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imu
   requestAnimationFrame(loop);
 })();
 
-/* ---------- jargon decompiler ---------- */
+/* ---------- Plate IV: jargon assay ---------- */
 const JARGON = {
   "leverage":"use","leverages":"uses","leveraging":"using","utilize":"use","utilizes":"uses","utilizing":"using",
   "synergy":"teamwork","synergies":"teamwork","multi-stakeholder":"shared","stakeholders":"people involved","stakeholder":"partner",
