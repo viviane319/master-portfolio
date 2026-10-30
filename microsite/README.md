@@ -16,7 +16,7 @@
 - **Hero:** "I help good orgs talk to their communities."
 - **Fig. 1:** a live three.js network of an org and its six communities, inside a slate arch. Messages flow both ways, and you can drag it to rotate it.
 - **Index:** a table of contents with dotted leaders.
-- **Plate I, Selected work:** four case studies.
+- **Plate I, Selected works:** four case studies.
 - **Plate II, Three laws:** how I work.
 - **Plate III, Chronology:** every role, newest first.
 - **Plate IV, Glossary:** skills and tools.
