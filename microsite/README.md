@@ -16,12 +16,10 @@
 - **Hero:** "I help good orgs talk to their communities."
 - **Fig. 1:** a live three.js network of an org and its six communities, inside a slate arch. Messages flow both ways, and you can drag it to rotate it.
 - **Index:** a table of contents with dotted leaders.
-- **Plate I, The ledger:** headline numbers, with footnoted sources.
-- **Plate II, Specimens:** four case studies.
-- **Plate III, Three laws:** how I work.
-- **Plate IV, The jargon assay:** paste a mission statement to get its Flesch reading ease score, highlighted jargon and suggested swaps. It runs entirely in the browser, with no AI.
-- **Plate V, Chronology:** every role, newest first.
-- **Plate VI, Glossary:** skills and tools.
+- **Plate I, Specimens:** four case studies.
+- **Plate II, Three laws:** how I work.
+- **Plate III, Chronology:** every role, newest first.
+- **Plate IV, Glossary:** skills and tools.
 - **Appendices:**
   - the resume, one-pager and experience board, each a public view-only Canva link
   - the spreadsheet CV

@@ -83,15 +83,6 @@ section{padding:104px 0 0}
 .plate-h .no{font:12.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--plum-ink);white-space:nowrap}
 h2{font:400 clamp(32px,4.2vw,48px)/1.05 var(--serif);letter-spacing:-.02em}
 h2 em{font-style:italic;font-weight:300}
-.lede{color:var(--muted);max-width:62ch;margin:-14px 0 30px}
-
-.ledger{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
-.ledger div{padding:22px 20px 20px;border-right:1px solid var(--rule)}
-.ledger div:last-child{border-right:0}
-.ledger b{display:block;font:300 54px/1 var(--serif);letter-spacing:-.03em;margin-bottom:10px}
-.ledger b sup{font:500 11px var(--mono);color:var(--plum-ink);vertical-align:2.4em;margin-left:3px}
-.ledger span{font-size:15px;color:var(--muted)}
-.notes{margin-top:14px;font:12px/1.7 var(--mono);color:var(--muted)}
 
 .specimens{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .spec{background:var(--card);border:1.5px solid var(--ink);padding:0 26px 24px}
@@ -112,26 +103,6 @@ h2 em{font-style:italic;font-weight:300}
 .law .ord{font:12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--plum-ink)}
 .law h3{font:italic 400 30px/1.1 var(--serif);margin:8px 0 10px}
 .law p{font-size:16px;color:var(--muted)}
-
-/* assay */
-.assay{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);background:var(--card)}
-.assay>div{padding:22px;min-width:0}
-.assay .in{border-right:1.5px solid var(--ink)}
-.pane-t{font:12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;display:flex;justify-content:space-between}
-textarea{width:100%;min-height:190px;font:15px/1.6 var(--mono);color:var(--ink);background:var(--paper);border:1px solid var(--rule);padding:14px;resize:vertical}
-textarea:focus{outline:2px solid var(--slate);outline-offset:-1px}
-.dc-btns{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
-button{font:500 13.5px var(--mono);padding:9px 15px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 var(--sage)}
-button.run{background:var(--ink);color:var(--paper);box-shadow:3px 3px 0 var(--marigold)}
-button:hover{transform:translate(-1px,-1px)}
-.scores{display:flex;gap:30px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px dashed var(--rule)}
-.scores div{font:12px var(--mono);color:var(--muted)}
-.scores b{display:block;font:300 48px/1 var(--serif);color:var(--ink);margin-bottom:4px}
-.scores .after b{color:var(--slate)}
-.hits{line-height:1.75;margin-bottom:14px;font-size:15.5px}
-mark{background:linear-gradient(transparent 55%,var(--orchid) 55%);color:inherit;padding:0 1px}
-.swaps{font:13.5px/1.75 var(--mono);color:var(--muted)}
-.swaps .p{color:var(--ink)}
 
 /* chronology */
 .chron{list-style:none}
@@ -170,11 +141,7 @@ footer .act:hover{color:var(--ink)}
 
 @media (max-width:900px){
   .mast-mid{display:none}
-  .ledger{grid-template-columns:1fr 1fr}
-  .ledger div:nth-child(2){border-right:0}
-  .ledger div:nth-child(-n+2){border-bottom:1px solid var(--rule)}
-  .specimens,.assay{grid-template-columns:minmax(0,1fr)}
-  .assay .in{border-right:0;border-bottom:1.5px solid var(--ink)}
+  .specimens{grid-template-columns:minmax(0,1fr)}
   .laws{grid-template-columns:minmax(0,1fr)}
   .law,.law+.law{padding:20px 0;border-left:0;border-bottom:1px solid var(--rule)}
   .gloss{grid-template-columns:1fr 1fr}
@@ -188,7 +155,6 @@ footer .act:hover{color:var(--ink)}
   .fig figcaption{flex-direction:column;gap:6px}
   .index{padding:22px 18px}
   .index .p{display:none}
-  .ledger b{font-size:42px}
   .chron li{flex-wrap:wrap;gap:2px 12px}
   .chron .dots{display:none}
   .chron .r{text-align:left;max-width:none;width:100%;padding-left:56px}
@@ -198,7 +164,7 @@ footer .act:hover{color:var(--ink)}
   .apx .d{width:100%;text-align:left;padding-left:44px}
   .plate-h{flex-direction:column;gap:6px}
 }
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.twinkle{animation:none;opacity:.8}.act,button{transition:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.twinkle{animation:none;opacity:.8}.act{transition:none}}
 </style>
 </head>
 <body>
@@ -236,30 +202,17 @@ footer .act:hover{color:var(--ink)}
 
   <nav class="index" aria-label="Index">
     <ol>
-      <li><a href="#ledger"><span class="n">I</span><span class="t">The ledger</span><span class="dots"></span><span class="p">at a glance</span></a></li>
-      <li><a href="#work"><span class="n">II</span><span class="t">Specimens</span><span class="dots"></span><span class="p">selected work</span></a></li>
-      <li><a href="#laws"><span class="n">III</span><span class="t">Three laws</span><span class="dots"></span><span class="p">how I work</span></a></li>
-      <li><a href="#decompiler"><span class="n">IV</span><span class="t">The jargon assay</span><span class="dots"></span><span class="p">try it</span></a></li>
-      <li><a href="#experience"><span class="n">V</span><span class="t">Chronology</span><span class="dots"></span><span class="p">experience</span></a></li>
-      <li><a href="#toolkit"><span class="n">VI</span><span class="t">Glossary</span><span class="dots"></span><span class="p">toolkit</span></a></li>
+      <li><a href="#work"><span class="n">I</span><span class="t">Specimens</span><span class="dots"></span><span class="p">selected work</span></a></li>
+      <li><a href="#laws"><span class="n">II</span><span class="t">Three laws</span><span class="dots"></span><span class="p">how I work</span></a></li>
+      <li><a href="#experience"><span class="n">III</span><span class="t">Chronology</span><span class="dots"></span><span class="p">experience</span></a></li>
+      <li><a href="#toolkit"><span class="n">IV</span><span class="t">Glossary</span><span class="dots"></span><span class="p">toolkit</span></a></li>
       <li><a href="#more"><span class="n">A–D</span><span class="t">Appendices</span><span class="dots"></span><span class="p">more</span></a></li>
     </ol>
   </nav>
 </section>
 
-<section id="ledger"><div class="wrap">
-  <div class="plate-h"><span class="no">Plate I</span><h2>The <em>ledger.</em></h2></div>
-  <div class="ledger">
-    <div><b>10+<sup>1</sup></b><span>years in mission-driven communications</span></div>
-    <div><b>$120M<sup>2</sup></b><span>moved to BIPOC-led climate groups in two years</span></div>
-    <div><b>25+<sup>3</sup></b><span>nonprofits advised on messaging and fundraising</span></div>
-    <div><b>4<sup>4</sup></b><span>brands built, from identity to key messaging</span></div>
-  </div>
-  <p class="notes">¹ College radio, startups, philanthropy, legal tech. ² Climate Funders Justice Pledge, Donors of Color Network. ³ Grenzebach Glier &amp; Associates, 2020–22. ⁴ Donors of Color Network, 2022–25.</p>
-</div></section>
-
 <section id="work"><div class="wrap">
-  <div class="plate-h"><span class="no">Plate II</span><h2>Specimens <em>of selected work.</em></h2></div>
+  <div class="plate-h"><span class="no">Plate I</span><h2>Specimens <em>of selected work.</em></h2></div>
   <div class="specimens">
     <article class="spec">
       <div class="cap"><span>Specimen No. 1</span><i>$120M</i></div>
@@ -297,7 +250,7 @@ footer .act:hover{color:var(--ink)}
 </div></section>
 
 <section id="laws"><div class="wrap">
-  <div class="plate-h"><span class="no">Plate III</span><h2>Three laws <em>of how I work.</em></h2></div>
+  <div class="plate-h"><span class="no">Plate II</span><h2>Three laws <em>of how I work.</em></h2></div>
   <div class="laws">
     <div class="law"><div class="ord">First law</div><h3>Listen first.</h3><p>Start with the people the work is for. Surveys, advisory boards, and listening sessions show what lands.</p></div>
     <div class="law"><div class="ord">Second law</div><h3>Say it plainly.</h3><p>Cut the jargon until the mission makes sense on the first read, then tell it the same way everywhere.</p></div>
@@ -305,29 +258,8 @@ footer .act:hover{color:var(--ink)}
   </div>
 </div></section>
 
-<section id="decompiler"><div class="wrap">
-  <div class="plate-h"><span class="no">Plate IV</span><h2>The jargon <em>assay.</em></h2></div>
-  <p class="lede">Paste a mission statement and run it. It scores how easy it is to read (Flesch reading ease, 0–100, higher is easier) and flags the words getting in the way. It runs in your browser; no AI.</p>
-  <div class="assay">
-    <div class="in">
-      <div class="pane-t"><span>Sample</span><span class="spark">✦</span></div>
-      <textarea id="dcText" spellcheck="false" aria-label="Text to check"></textarea>
-      <div class="dc-btns"><button class="run" id="dcRun">Run assay</button><button id="dcSample">Sample</button><button id="dcClear">Clear</button></div>
-    </div>
-    <div aria-live="polite">
-      <div class="pane-t"><span>Results</span><span>Flesch</span></div>
-      <div class="scores">
-        <div><b id="sBefore">--</b>reading ease, before</div>
-        <div class="after"><b id="sAfter">--</b><span id="sAfterL">after</span></div>
-      </div>
-      <div class="hits" id="dcHits"></div>
-      <div class="swaps" id="dcSwaps"></div>
-    </div>
-  </div>
-</div></section>
-
 <section id="experience"><div class="wrap">
-  <div class="plate-h"><span class="no">Plate V</span><h2>Chronology, <em>from college radio to climate philanthropy.</em></h2></div>
+  <div class="plate-h"><span class="no">Plate III</span><h2>Chronology, <em>from college radio to climate philanthropy.</em></h2></div>
   <ol class="chron">
     <li><span class="y">2025</span><span class="org">eimmigration</span><span class="dots"></span><span class="r">marketing &amp; communications manager</span></li>
     <li><span class="y">2025</span><span class="org">Do Better Comms</span><span class="dots"></span><span class="r">founder, creative agency</span></li>
@@ -339,18 +271,11 @@ footer .act:hover{color:var(--ink)}
     <li><span class="y">2020</span><span class="org">EPIC, UChicago</span><span class="dots"></span><span class="r">communications manager (contract)</span></li>
     <li><span class="y">2018</span><span class="org">SmithBucklin</span><span class="dots"></span><span class="r">nonprofit marketing operations associate</span></li>
     <li><span class="y">2017</span><span class="org">The Light House DaNang</span><span class="dots"></span><span class="r">co-founded a hostel in Da Nang, Vietnam</span></li>
-    <li><span class="y">2016</span><span class="org">Oracle</span><span class="dots"></span><span class="r">cloud applications consultant</span></li>
-    <li><span class="y">2016</span><span class="org">Cardinal Health</span><span class="dots"></span><span class="r">communications &amp; events intern</span></li>
-    <li><span class="y">2015</span><span class="org">The Ohio State University</span><span class="dots"></span><span class="r">B.A., strategic communications</span></li>
-    <li><span class="y">2015</span><span class="org">TEDxOhioStateUniversity</span><span class="dots"></span><span class="r">communications &amp; planning committee</span></li>
-    <li><span class="y">2013</span><span class="org">Hola Columbus</span><span class="dots"></span><span class="r">social media manager</span></li>
-    <li><span class="y">2012</span><span class="org">APIA Vote</span><span class="dots"></span><span class="r">political advocacy intern, then civic engagement volunteer</span></li>
-    <li><span class="y">2011</span><span class="org">88.1 WSDP</span><span class="dots"></span><span class="r">DJ &amp; host on college radio</span></li>
   </ol>
 </div></section>
 
 <section id="toolkit"><div class="wrap">
-  <div class="plate-h"><span class="no">Plate VI</span><h2>A glossary <em>of instruments.</em></h2></div>
+  <div class="plate-h"><span class="no">Plate IV</span><h2>A glossary <em>of instruments.</em></h2></div>
   <div class="gloss">
     <div><h3><span class="spark">✦</span>strategy</h3><ul><li>Narrative</li><li>Brand</li><li>Messaging</li><li>Campaigns</li><li>Thought leadership</li></ul></div>
     <div><h3><span class="spark">✦</span>community</h3><ul><li>Advocacy</li><li>Advisory boards</li><li>Referrals</li><li>Coalitions</li><li>Events</li></ul></div>
@@ -386,7 +311,6 @@ footer .act:hover{color:var(--ink)}
 <script>
 const $ = s => document.querySelector(s);
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
 function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imul(h^ch.charCodeAt(0),3432918353);h=h<<13|h>>>19}return()=>{h=Math.imul(h^h>>>16,2246822507);h=Math.imul(h^h>>>13,3266489909);return((h^=h>>>16)>>>0)/4294967296}}
 
 /* ---------- Fig. 1: the network, inside the arch ---------- */
@@ -487,56 +411,6 @@ function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imu
   requestAnimationFrame(loop);
 })();
 
-/* ---------- Plate IV: jargon assay ---------- */
-const JARGON = {
-  "leverage":"use","leverages":"uses","leveraging":"using","utilize":"use","utilizes":"uses","utilizing":"using",
-  "synergy":"teamwork","synergies":"teamwork","multi-stakeholder":"shared","stakeholders":"people involved","stakeholder":"partner",
-  "catalyze":"spark","catalyzing":"sparking","holistic":"whole","ecosystem":"field","ecosystems":"fields",
-  "capacity-building":"training and support","capacity building":"training and support","empower":"back","empowers":"backs","empowering":"backing",
-  "impactful":"useful","innovative":"new","solutions":"fixes","solution":"fix","scalable":"able to grow","paradigm":"way of thinking",
-  "robust":"strong","actionable":"practical","operationalize":"put into practice","deliverables":"results","optimize":"improve",
-  "facilitate":"help","facilitates":"helps","underserved populations":"people who get left out","best practices":"what works",
-  "transformative":"big","cross-sector":"across fields","learnings":"lessons","bandwidth":"time","circle back":"follow up",
-  "deep dive":"close look","move the needle":"make a difference","value proposition":"why it matters","going forward":"from now on",
-  "in order to":"to","align":"agree","alignment":"agreement","ideate":"brainstorm","mission-critical":"essential","synergistic":"shared",
-  "thought partners":"partners","key learnings":"lessons","at scale":"widely","streamline":"simplify","granular":"detailed"
-};
-const SAMPLE = "We leverage multi-stakeholder synergies to catalyze holistic, community-centered capacity-building solutions that empower underserved populations across the ecosystem.";
-const SAMPLE_PLAIN = "We help neighborhood groups get the money, training, and people they need to run their own programs.";
-const JRE = new RegExp("\\b(" + Object.keys(JARGON).sort((a, b) => b.length - a.length).map(k => k.replace(/[-]/g, "\\-")).join("|") + ")\\b", "gi");
-function syl(word){
-  let w = word.toLowerCase().replace(/[^a-z]/g, "");
-  if (!w) return 0; if (w.length <= 3) return 1;
-  w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, "").replace(/^y/, "");
-  const m = w.match(/[aeiouy]{1,2}/g); return m ? m.length : 1;
-}
-function ease(text){
-  const words = text.split(/[\s—–-]+/).filter(x => /[a-z0-9]/i.test(x));
-  const sentences = Math.max(1, (text.match(/[.!?]+(\s|$)/g) || []).length || 1);
-  const sy = words.reduce((a, w) => a + syl(w), 0), W = Math.max(1, words.length);
-  return Math.max(0, Math.min(100, 206.835 - 1.015*(W/sentences) - 84.6*(sy/W)));
-}
-const caseLike = (src, rep) => src[0] === src[0].toUpperCase() && src[0] !== src[0].toLowerCase() ? rep[0].toUpperCase() + rep.slice(1) : rep;
-function decompile(){
-  const text = $("#dcText").value.trim();
-  if (!text) return;
-  const isSample = text === SAMPLE;
-  const after = isSample ? SAMPLE_PLAIN : text.replace(JRE, m => caseLike(m, JARGON[m.toLowerCase()]));
-  $("#sBefore").textContent = ease(text).toFixed(0);
-  $("#sAfter").textContent = ease(after).toFixed(0);
-  $("#sAfterL").textContent = isSample ? "after a human rewrite" : "after swapping jargon";
-  $("#dcHits").innerHTML = esc(text).replace(JRE, m => `<mark title="try: ${esc(JARGON[m.toLowerCase()])}">${m}</mark>`);
-  const uniq = [...new Set([...text.matchAll(JRE)].map(m => m[0].toLowerCase()))];
-  $("#dcSwaps").innerHTML = uniq.length
-    ? uniq.map(k => `${esc(k)} → <span class="p">${esc(JARGON[k])}</span>`).join("<br>") + (isSample ? `<br><br><span class="p">Rewrite: ${esc(SAMPLE_PLAIN)}</span>` : "")
-    : "No jargon found. Nice.";
-}
-$("#dcText").value = SAMPLE;
-$("#dcRun").onclick = decompile;
-$("#dcSample").onclick = () => { $("#dcText").value = SAMPLE; decompile(); };
-$("#dcClear").onclick = () => { $("#dcText").value = ""; $("#dcText").focus(); };
-$("#dcText").addEventListener("keydown", e => { if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) decompile(); });
-decompile();
 </script>
 </body>
 </html>
