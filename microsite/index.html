@@ -60,10 +60,8 @@ h1 em svg{position:absolute;left:-2%;width:104%;bottom:-.16em;height:.3em;overfl
 .arch canvas{position:absolute;inset:0;width:100%!important;height:100%!important}
 .lbl{position:absolute;left:0;top:0;font:12px var(--mono);color:#F3EDE4;pointer-events:none;white-space:nowrap;transition:opacity .2s}
 .lbl.org{color:var(--marigold);font-weight:500}
-.fig figcaption{display:flex;justify-content:space-between;gap:24px;margin-top:18px;font:italic 15px/1.5 var(--serif);color:var(--muted);text-align:left}
-.fig figcaption b{font:500 12px var(--mono);font-style:normal;color:var(--ink);letter-spacing:.06em;text-transform:uppercase;margin-right:6px}
+.fig figcaption{display:flex;justify-content:flex-end;gap:24px;margin-top:18px;font:italic 15px/1.5 var(--serif);color:var(--muted);text-align:left}
 .fig figcaption .hint{font:12px var(--mono);font-style:normal;white-space:nowrap}
-.sw{display:inline-block;width:9px;height:9px;border-radius:50%;margin:0 4px 0 2px;vertical-align:0;border:1px solid var(--ink)}
 .nogl .arch{display:none}
 
 /* index */
@@ -152,7 +150,6 @@ footer .act:hover{color:var(--ink)}
   .hero{padding-top:48px}
   .twinkle{display:none}
   .arch{border-radius:50vw 50vw 6px 6px}
-  .fig figcaption{flex-direction:column;gap:6px}
   .index{padding:22px 18px}
   .index .p{display:none}
   .chron li{flex-wrap:wrap;gap:2px 12px}
@@ -195,7 +192,6 @@ footer .act:hover{color:var(--ink)}
   <figure class="fig" id="fig">
     <div class="arch" id="stage" aria-hidden="true"></div>
     <figcaption>
-      <span><b>Fig. 1</b>One org, six communities. Messages go out <span class="sw" style="background:var(--marigold)"></span>talk and come back <span class="sw" style="background:var(--orchid)"></span>listen.</span>
       <span class="hint">drag to rotate</span>
     </figcaption>
   </figure>
