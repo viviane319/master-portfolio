@@ -22,6 +22,6 @@
 - **Plate IV, Glossary:** skills and tools.
 - **Appendices:**
   - the resume, one-pager and experience board, each a public view-only Canva link
-  - the spreadsheet CV
+  - the spreadsheet CV, as a Google Sheet
 
 three.js loads from cdnjs. If WebGL isn't available, the figure is hidden.
