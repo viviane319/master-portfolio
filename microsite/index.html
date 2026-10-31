@@ -126,16 +126,13 @@ h2 em{font-style:italic;font-weight:300}
 .apx a:hover .t{font-style:italic}
 
 /* sign-off */
-footer{margin-top:120px;background:var(--slate-deep);color:var(--paper);padding:80px 0 40px;position:relative;overflow:hidden}
+footer{margin-top:120px;background:var(--slate-deep);color:var(--paper);padding:80px 0 88px;position:relative;overflow:hidden}
 footer::before{content:"";position:absolute;right:-120px;top:-60px;width:420px;height:560px;border-radius:210px 210px 0 0;background:var(--plum);opacity:.35}
 footer .wrap{position:relative}
 footer h2{max-width:18ch;margin-bottom:30px}
 footer h2 em{color:var(--marigold)}
 footer .act{display:inline-block;background:var(--paper);color:var(--ink);border-color:var(--paper);box-shadow:4px 4px 0 var(--orchid)}
 footer .act:hover{color:var(--ink)}
-.colophon{margin-top:72px;padding-top:16px;border-top:1px solid rgba(251,247,241,.25);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font:12px var(--mono);color:rgba(251,247,241,.7)}
-.palette{display:flex;gap:6px;align-items:center}
-.palette i{width:12px;height:14px;border-radius:6px 6px 0 0;display:inline-block}
 
 @media (max-width:900px){
   .mast-mid{display:none}
@@ -296,11 +293,6 @@ footer .act:hover{color:var(--ink)}
 <footer id="contact"><div class="wrap">
   <h2>Have a mission that needs better comms? <em>Let's talk.</em></h2>
   <a class="act" href="https://www.linkedin.com/in/viv-tran/">Message me on LinkedIn ↗</a>
-  <div class="colophon">
-    <span>Viv Tran · Brooklyn, NY · she/her</span>
-    <span class="palette" title="Altar palette"><i style="background:#EFA4D3"></i><i style="background:#F4B763"></i><i style="background:#BACFAB"></i><i style="background:#455F76;outline:1px solid rgba(251,247,241,.4)"></i><i style="background:#896781"></i></span>
-    <span>Fraunces, Instrument Sans &amp; JetBrains Mono · three.js · no trackers</span>
-  </div>
 </div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -332,7 +324,7 @@ function rng(seed){let h=1779033703^seed.length;for(const ch of seed){h=Math.imu
   const g = c.getContext("2d"); g.beginPath(); g.arc(32, 32, 28, 0, 7); g.fillStyle = "#fff"; g.fill();
   const dot = new THREE.CanvasTexture(c);
 
-  const COMMS = [["donors",0xEFA4D3],["funders",0xF4B763],["members",0xBACFAB],["customers",0xC9A9C2],["neighbors",0xF3EDE4],["press",0x9FC6BA]];
+  const COMMS = [["donors",0xEFA4D3],["funders",0xF4B763],["members",0xBACFAB],["customers",0xC9A9C2],["partners",0xF3EDE4],["press",0x9FC6BA]];
   const R = 3.6, clusters = [];
   const spokeMat = new THREE.LineBasicMaterial({color:CREAM, transparent:true, opacity:.2});
   COMMS.forEach(([name, col], i) => {
